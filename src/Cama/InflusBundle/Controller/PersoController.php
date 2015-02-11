@@ -163,7 +163,7 @@ class PersoController extends Controller
 	$conte=(!empty($rights[15]));
         
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
-	$perso = $repository->findOneBy(array('id' => $id);
+	$perso = $repository->findOneBy(array('id' => $id));
         if($perso && $conte) {
             $perso->setInactif(false);
             $em = $this->getDoctrine()->getManager();
