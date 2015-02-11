@@ -119,8 +119,8 @@ class TourController extends Controller
         ->getRepository('CamaInflusBundle:Tour');
 
 	$query = $repository->createQueryBuilder('d')
-	->where('d.datePartie > :dateNow')
-	->orderBy('d.datePartie', 'ASC')
+	->where('d.dateLimite >= :dateNow')
+	->orderBy('d.dateLimite', 'ASC')
 	->getQuery();
 	$now = new \DateTime();
 		
@@ -137,8 +137,8 @@ class TourController extends Controller
         ->getRepository('CamaInflusBundle:Tour');
 
         $query = $repository->createQueryBuilder('d')
-        ->where('d.datePartie < :dateNow')
-        ->orderBy('d.datePartie', 'ASC')
+        ->where('d.dateLimite < :dateNow')
+        ->orderBy('d.dateLimite', 'ASC')
         ->getQuery();
         $now = new \DateTime();
 
