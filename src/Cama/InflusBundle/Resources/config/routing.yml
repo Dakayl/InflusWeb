@@ -103,19 +103,18 @@ listerPNJ:
   defaults: { _controller: CamaInflusBundle:Pnj:lister}
   requirements:
          _method:  GET
-
 creerPNJ:
   path:    /pnj/creer
   defaults: { _controller: CamaInflusBundle:Pnj:creer}
   requirements:
          _method:  GET|POST
-
+         
 voirPNJ:
   path:    /pnj/{id}/voir
   defaults: { _controller: CamaInflusBundle:Pnj:voir}
   requirements:
          _method:  GET
-creerPNJ:
+editerPNJ:
   path:    /pnj/{id}/editer
   defaults: { _controller: CamaInflusBundle:Pnj:editer}
   requirements:
