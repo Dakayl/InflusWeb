@@ -57,31 +57,31 @@ voirMonPerso:
          _method:  GET
 
 voirPerso:
-    path:    /perso/{id}/voir/
+    path:    /perso/{id}/voir
     defaults: { _controller: CamaInflusBundle:Perso:voir }
     requirements:
          _method:  GET
 
 creerPerso:
-    path:    /perso/creer/
+    path:    /perso/creer
     defaults: { _controller: CamaInflusBundle:Perso:creer }
     requirements:
          _method:  GET|POST
 
 editerPerso:
-    path:    /perso/{id}/editer/
+    path:    /perso/{id}/editer
     defaults: { _controller: CamaInflusBundle:Perso:editer }
     requirements:
          _method:  GET|POST
 
 validerPerso:
-    path:    /perso/{id}/valider/
+    path:    /perso/{id}/valider
     defaults: { _controller: CamaInflusBundle:Perso:valider }
     requirements:
          _method:  GET
 
 devaliderPerso:
-    path:    /perso/{id}/devalider/
+    path:    /perso/{id}/devalider
     defaults: { _controller: CamaInflusBundle:Perso:devalider }
     requirements:
          _method:  GET
