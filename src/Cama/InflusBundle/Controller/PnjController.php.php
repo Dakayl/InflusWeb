@@ -9,7 +9,7 @@ use Cama\InflusBundle\Entity\Possesseur;
 use Cama\InflusBundle\Form\IAType;
 use Cama\InflusBundle\Constants;
 
-class PersoController extends Controller
+class PnjController extends Controller
 {
 
     public function creerAction(Request $request){

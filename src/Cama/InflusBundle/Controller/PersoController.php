@@ -128,7 +128,8 @@ class PersoController extends Controller
     public function editerAction($id, Request $request){
         $session = $request->getSession();
         // définit et récupère des attributs de session
-        $rights = $session->get('rights');	
+        $rights = $session->get('rights');
+        $infos = $session->get('infos');
 	$conte=(!empty($rights[15]));
 	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
 	$perso = $repository->findOneBy(array('id' => $id));
@@ -140,9 +141,7 @@ class PersoController extends Controller
         }
         $phpbbid = $infos['phpbbid'];
         if(!$conte && $perso->getIdPhpbb() != $phpbbid) {
-            return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
-                'conte'=>$conte
-                ));
+                return $this->redirect($this->generateUrl('voirMonPerso'));
         }
         $form = $this->createForm(new PossesseurType(), $perso);
         if ($request->getMethod() == 'POST')
@@ -198,7 +197,7 @@ class PersoController extends Controller
             $em->flush();
         }
         
-        return $this->redirect($this->generateUrl('listeAValiderPerso'));
+        return $this->redirect($this->generateUrl('listePerso'));
     }
 
     public function avaliderAction(Request $request){
