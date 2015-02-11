@@ -6,7 +6,7 @@
 <h1>Bienvenue, {{ username }}, au système d'influence automatisé de la Camarilla Lyonnaise.</h1>
 <p>V0.3 : Camarilla Concile</p>
 <p>Voici les options qui s'offrent à vous :</p>
-<ul>
+<ul class='menu'>
 	{% if admin %}
 	<!-- CA, Conteur, Admin -->
 	<li><a href="{{ path('listerTour') }}"> Gestion des dates</a></li>
@@ -29,28 +29,27 @@
 	 <li><a href="{{ path('ancienTour') }}"> Liste des dates passées </a></li>
 
 </ul>
-<br />
+<div id='foot'
 <a href="../../phpBB3/">Retour au forum</a>
-<br />
+</div>
 <p>Listing prévisionnel des versions : </p>
-<ul>
-	<li><b>V0.1 - Anarchy Anomaly :</b> création des modèles, lien avec phpBB : <b>fait</b> </li>
-	<li><b>V0.2 - Better Brujah :</b> Gestion des tours d'influence : <b>fait</b> </li>
-	<li><b>V0.3 - Camarilla Concile :</b> gestion des fiches de perso coté joueur : <b>fait</b> </li>
-	<li><b>V0.4 - DiPadoua Dynamite </b> validation des fiches de perso coté conte : en cours - d'ici 3 semaines </li>
+<ul class='version'>
+	<li class='done'><b>V0.1 - Anarchy Anomaly :</b> création des modèles, lien avec phpBB : <b>fait</b> </li>
+	<li class='done'><b>V0.2 - Better Brujah :</b> Gestion des tours d'influence : <b>fait</b> </li>
+	<li class='done'><b>V0.3 - Camarilla Concile :</b> gestion des fiches de perso coté joueur : <b>fait</b> </li>
+	<li class='progress'><b>V0.4 - DiPadoua Dynamite </b> validation des fiches de perso coté conte : en cours - d'ici 3 semaines </li>
 	<li><b>V0.5 - Etrius Embassy : </b> Création des Influences PNJ coté conte : d'ici 4 semaines </li>
 	<li><b>V0.6 - Followers Fun : </b> Rédiger et voir ses fiche d'influence coté joueur : d'ici 6 semaines </li>
 	<li><b>V0.7 - Giovanny Grandissimo :</b> Valider une fiche d'influence coté conte : d'ici 7 semaines </li>
 	<li><b>V0.8 - Harbringers Hope : </b> Gestion des limitations d'influence : d'ici 8 semaines </li>
 	<li><b>V0.9 - Immoderate Inconnu : </b> Gestion des PNJs d'Influence : d'ici 9 semaines </li>
-	<li><b>V1.0 - Jalan Justicar : </b> Look propre pour être utilisable par les joueurs : d'ici 10 semaines </i>
+	<li class='progress'><b>V1.0 - Jalan Justicar : </b> Look propre pour être utilisable par les joueurs : d'ici 10 semaines </i>
 	<li>Release candidate</li>
 	<li><b>V1.1 - Kyasid Kiwi : </b> Gestion d'un historique propre des actions et validations</li>
 	<li><b>V1.2 - Lhiannan Legend : </b> Mise en place de pagination là où ça sera nécessaire </li>
 	<li><b>V1.3 - Malkavian Madness : </b> Gestion d'une IA optionnelle pour les PNJs.</li>
         <li><b>V1.4 - Naglopers Norms : </b> Gestion par lot / groupe d'IA. </li>
 	<li><b>V1.5 - Obertu Opposition : </b> Mise en place du reste de la fiche de personnage</li>
-
 </ul>
 
 <p><b>Note :</b> la fiche de personnage ne contiendra dans un premier temps que le strict minimum pour les influences. Le reste viendra (peut être) dans un second temps (version 1.5).</p>
