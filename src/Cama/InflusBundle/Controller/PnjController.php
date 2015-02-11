@@ -45,9 +45,7 @@ class PnjController extends Controller
 
         }
         return $this->render('CamaInflusBundle:Pnj:creer.html.twig', array(
-            	'form' => $form->createView(),
-		'name'=>$infos['name'],
-                'clan'=>$clan
+            	'form' => $form->createView()
         ));
 
     }
@@ -131,7 +129,7 @@ class PnjController extends Controller
         }
         else {
                 return $this->render('CamaInflusBundle:Pnj:voir.html.twig', array(
-		 'perso'=>$perso,
+		'perso'=>$perso,
 		'influences'=>$perso->getInfluence()));
         }
     }
