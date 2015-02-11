@@ -14,7 +14,7 @@ class InfluenceType extends AbstractType
 	->add("nom","text")
 	->add("type","choice", array("choices"=>Constants::$TYPE_INFLUENCE))
 	->add("niveau","integer")
-	->add("XP","hidden")
+	->add("XP","hidden", array("data"=>0))
 	->add("ville","text");
     }
 
