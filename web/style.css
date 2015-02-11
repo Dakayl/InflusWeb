@@ -1,0 +1,136 @@
+* {
+  padding:0;
+  margin:0;
+  font-family:Arial;
+  font-size:12px;
+  font-color:#405057;
+}
+
+body {
+    padding:15px;
+    background:#304047;
+}
+#main {
+    border-radius:5;
+    background#F4F4F4;
+}
+p {
+  margin:1px 0;
+}
+
+th, td {
+    border:1px #AAA solid;
+    padding:3px;
+}
+th {
+    background:#CCCCEE;
+}
+a {
+    text-decoration: none;
+    color:#EE7B00;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1{
+    font-size:16px;
+    padding:5px 0;
+}
+table {
+    border-collapse: collapse;
+    margin:5px 0;
+}
+#foot {
+    position: fixed;
+    right:3px;
+    bottom: 45px;
+    border: 1px #999 solid;
+    background:#CCC;
+    padding:5px;
+    color:black;
+}
+
+label {
+  width:100px;
+  display: inline-block;
+  background:#CCCCEE;
+  border:1px #AAA solid;
+  padding:3px;
+  margin:1px
+}
+input,textarea {
+  width:150px;
+  margin:1px;
+}
+select {
+  width:152px;
+}
+form > div > div > div{
+  display: inline-block;
+}
+form > div > div > div select{
+  width:49px;
+  margin:1px;
+}
+label.headcoll {
+  display: block;
+  width: 282px;
+}
+.add_servant_link,.add_servant_link,.add_servant_link,.add_servant_link,.add_servant_link{
+
+  padding:1px;
+  margin-left:60px;
+  width:200px;
+  display: inline-block;
+  text-align: right;
+}
+#Possesseur_servant, #Possesseur_refuge, #Possesseur_vehicule, #Possesseur_influence, #Possesseur_etiquette {
+  padding-left:10px;
+}
+#Possesseur_servant > div, #Possesseur_refuge > div, #Possesseur_vehicule > div, #Possesseur_influence > div, #Possesseur_etiquette > div {
+  border:1px #CCC solid;
+  padding:5px;
+  margin:5px;
+}
+#Possesseur_servant select, #Possesseur_refuge select, #Possesseur_vehicule select, #Possesseur_influence select, #Possesseur_etiquette select{
+  width:152px;
+}
+ul.menu {
+  list-style: none;
+}
+ul.menu li {
+  display: inline-block;
+  border:1px #CCC solid;
+  background:#F0F0E1;
+  padding:3px;
+  margin:3px 0;
+  border-top:3px #CCF solid;
+}
+ul.menu li:hover, ul.menu li:focus {
+  background:#F4F4F4;
+  border-top:3px #FCC solid;
+}
+ul.version {
+  list-style: none;
+}
+ul.version li {
+  padding:2px;
+  border-left:3px #B22222 solid;
+  margin:2px;
+}
+ul.version li.done {
+  border-left:3px #228B22 solid;
+}
+ul.version li.progress {
+  border-left:3px #FF8C00 solid;
+}
+input[type=button], input[type=submit], button {
+  border:1px #CCC solid;
+  border-radius:3px;
+  background-color:#FF8C00;
+  padding:5px 15px;
+  color:white;
+  font-weight: 700;
+  cursor:pointer;
+}
