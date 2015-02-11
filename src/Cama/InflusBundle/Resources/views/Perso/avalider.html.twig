@@ -7,13 +7,13 @@
 <form method='get' id="filter">
 <label for="clan">Filtrer : </label><select id="clan" name="clan">
 {% for c in clans %}
-    <option value="{{c}}"{% if c == clan %} selected='selected'{% endif %}>{{c}}</option>
+    <option value="{{c}}"{% if c == clan %} selected {% endif %}>{{c}}</option>
 {% endfor %}
 </select>
 <script>
     $("#clan").change( function(){
         $('#filter').submit();
-    })
+    });
 </script>
 </form>
 {% if clan|length > 0 %}
