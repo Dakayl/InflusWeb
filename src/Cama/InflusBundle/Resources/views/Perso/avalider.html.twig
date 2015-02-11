@@ -4,22 +4,7 @@
 
 {% block body %}
 <h1>Liste des personnages à valider</h1>
-<form method='get' id="filter">
-<label for="clan">Filtrer : </label><select id="clan" name="clan">
-<option value="" {% if clan|length < 1 %} selected {% endif %}>Tous</option>
-{% for c in clans %}
-    <option value="{{c}}"{% if c == clan %} selected {% endif %}>{{c}}</option>
-{% endfor %}
-</select>
-<script>
-    $("#clan").change( function(){
-        $('#filter').submit();
-    });
-</script>
-</form>
-{% if clan|length > 0 %}
-Filtrage : {{clan}}
-{% endif %}
+{{ include('CamaInflusBundle:Perso:form.html.twig',{'clan': clan, 'clans':clans}) }}
 <table>
 <thead>
 <tr>

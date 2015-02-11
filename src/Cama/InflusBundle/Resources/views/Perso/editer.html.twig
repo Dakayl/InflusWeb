@@ -3,66 +3,7 @@
 {% block title %}Edition d'une feuille de personnage {% endblock %}
 {% block body %}
 <h1>Edition d'une feuille de personnage </h1>
-<p> Personnage : {{name}} (clan {{clan}})</p>
-<p>Attention : merci de recopier strictement votre feuille de personnage et de ne pas improviser ou rajouter des choses.
-(Sinon la fiche ne sera pas validée ...)</p>
-{{ form(form) }}
-<script>
-// Récupère le div qui contient la collection 
-var collectionHolderS = $('#Possesseur_servant').addClass("coll_block");
-var collectionHolderR = $('#Possesseur_refuge').addClass("coll_block");
-var collectionHolderV = $('#Possesseur_vehicule').addClass("coll_block");
-var collectionHolderE = $('#Possesseur_etiquette').addClass("coll_block");
-var collectionHolderI = $('#Possesseur_influence').addClass("coll_block");
-
-// ajoute un lien « add a tag »
-var $addLinkS = $('<a href="#" class="btn btn_add add_servant_link">Ajouter un servant</a>');
-var $addLinkR = $('<a href="#" class="btn btn_add add_refuge_link">Ajouter un refuge</a>');
-var $addLinkV = $('<a href="#" class="btn btn_add add_vehicule_link">Ajouter un véhicule</a>');
-var $addLinkE = $('<a href="#" class="btn btn_add add_etiquette_link">Ajouter une compétence étiquette</a>');
-var $addLinkI = $('<a href="#" class="btn btn_add add_influence_link">Ajouter une influence</a>');
-
-
-jQuery(document).ready(function() {
-    // ajoute l'ancre « ajouter un tag » et li à la balise ul
-    collectionHolderS.append($addLinkS);
-    collectionHolderV.append($addLinkV);
-    collectionHolderR.append($addLinkR);
-    collectionHolderE.append($addLinkE);
-    collectionHolderI.append($addLinkI);
-
-    $addLinkV.on('click', function(e) {
-        e.preventDefault();
-        addForm(collectionHolderV,"Vehicule");
-    });
-
-    $addLinkR.on('click', function(e) {
-        e.preventDefault();
-        addForm(collectionHolderR,"Refuge");
-    });
-
-    $addLinkE.on('click', function(e) {
-        e.preventDefault();
-        addForm(collectionHolderE,"Etiquette");
-    });
-
-   $addLinkS.on('click', function(e) {
-        e.preventDefault();
-        addForm(collectionHolderS,"Servant");
-    });
-
-    $addLinkI.on('click', function(e) {
-        e.preventDefault();
-        addForm(collectionHolderI, "Influence");
-    });
-
-    function addForm(collectionHolder, name) {
-    	var prototype = collectionHolder.attr('data-prototype');
-    	var newForm = prototype.replace(/__name__label__/g,name).replace(/__name__/g, collectionHolder.children().length);
-        collectionHolder.prepend(newForm);
-    }
-});
-</script>
+{{ include('CamaInflusBundle:Perso:form.html.twig',{'form': form, 'clan': clan, 'name':name}) }}
 {{ include('CamaInflusBundle::footer.html.twig') }}
 {% endblock %}
 
