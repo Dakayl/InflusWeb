@@ -77,23 +77,22 @@ label.headcoll {
   display: block;
   width: 282px;
 }
-.add_servant_link,.add_servant_link,.add_servant_link,.add_servant_link,.add_servant_link{
-
+.btn_add {
   padding:1px;
   margin-left:60px;
   width:200px;
   display: inline-block;
   text-align: right;
 }
-#Possesseur_servant, #Possesseur_refuge, #Possesseur_vehicule, #Possesseur_influence, #Possesseur_etiquette {
+div.coll_block {
   padding-left:10px;
 }
-#Possesseur_servant > div, #Possesseur_refuge > div, #Possesseur_vehicule > div, #Possesseur_influence > div, #Possesseur_etiquette > div {
+div.coll_block > div {
   border:1px #CCC solid;
   padding:5px;
   margin:5px;
 }
-#Possesseur_servant select, #Possesseur_refuge select, #Possesseur_vehicule select, #Possesseur_influence select, #Possesseur_etiquette select{
+div.coll_block select {
   width:152px;
 }
 ul.menu {
@@ -125,7 +124,7 @@ ul.version li.done {
 ul.version li.progress {
   border-left:3px #FF8C00 solid;
 }
-input[type=button], input[type=submit], button {
+input[type=button], input[type=submit], button, a.btn {
   border:1px #CCC solid;
   border-radius:3px;
   background-color:#FF8C00;
