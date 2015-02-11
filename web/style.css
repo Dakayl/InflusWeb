@@ -95,10 +95,9 @@ label.headcoll {
   width: 282px;
   margin-top:5px;
 }
-.btn_add {
+#main .btn_add {
   padding:1px;
-  margin-left:60px;
-  width:200px;
+  margin-left:2em;
   display: inline-block;
   text-align: right;
 }
