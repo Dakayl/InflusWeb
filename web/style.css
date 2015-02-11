@@ -145,8 +145,9 @@ input[type=button], input[type=submit], button, a.btn {
   border:1px #CCC solid;
   border-radius:3px;
   background-color:#FF8C00;
-  padding:5px 15px;
+  padding:5px 10px;
   color:white;
   font-weight: 700;
   cursor:pointer;
+  margin:5px;
 }
