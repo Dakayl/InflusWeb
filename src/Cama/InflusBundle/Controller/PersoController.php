@@ -21,7 +21,7 @@ class PersoController extends Controller
 	$phpbbid = $infos['phpbbid'];
 	
 	$conte=(!empty($rights[15]));
-        if($conte){
+        if($conte ||empty($phpbbid)){
                 return $this->redirect($this->generateUrl('error')."?id=7");
         }
 
@@ -84,7 +84,7 @@ class PersoController extends Controller
 	$clan = ucfirst($infos['clan']);
 	$email = $infos['email'];
 	$perso = $repository->findOneBy(array('idPhpbb' => $phpbbid));
-        if ($perso) {
+        if ($perso || empty($phpbbid)) {
 	        return $this->redirect($this->generateUrl('voirMonPerso'));
 	}
 	$infos = $session->get('infos');
@@ -143,7 +143,8 @@ class PersoController extends Controller
                         if(!$conte) $perso->setInactif(true);
                         $em = $this->getDoctrine()->getManager();
                         $em->flush();
-                        return $this->redirect($this->generateUrl('voirMonPerso'));
+                        if(!$conte) return $this->redirect($this->generateUrl('voirMonPerso'));
+                        return $this->redirect($this->generateUrl('voirPerso',array("id"=>$id)));
                 }
 
         }
@@ -162,7 +163,7 @@ class PersoController extends Controller
 	$conte=(!empty($rights[15]));
         
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
-	$perso = $repository->findOneBy(array('id' => $id));
+	$perso = $repository->findOneBy(array('id' => $id);
         if($perso && $conte) {
             $perso->setInactif(false);
             $em = $this->getDoctrine()->getManager();
@@ -200,16 +201,28 @@ class PersoController extends Controller
         if(!$conte){
                 return $this->redirect($this->generateUrl('error')."?id=8");
         }
-        $array = array('inactif' => true);
-        $clan='';
-        if(!empty($request->query->get('clan'))) {
-            $array['clan'] = $request->query->get('clan');
-            $clan = $request->query->get('clan');
-        }
-        
+        $array = array('inactif' => true,"ph");
+               
         
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
-        $persos = $repository->findBy($array);
+     
+        $q = $repository->createQueryBuilder('d')
+	->where('d.inactif = true')
+        ->andWhere('d.idPhpbb != 0')
+	->orderBy('d.', 'ASC');
+        $clan='';
+        if(!empty($request->query->get('clan'))) {
+            
+            $clan = $request->query->get('clan');
+            $q->andWhere('d.clan = :clan')
+        }
+        $query = $q->getQuery();
+        if(!empty($request->query->get('clan'))) {
+             $query->setParameter('clan', $clan);
+        }
+      	
+        $persos = $query->getResult();
+    
 	return $this->render('CamaInflusBundle:Perso:avalider.html.twig', array(
                 'persos'=>$persos,
                 'clan'=>$clan,

@@ -6,6 +6,7 @@
 <h1>Liste des personnages</h1>
 <form method='get' id="filter">
 <label for="clan">Filtrer : </label><select id="clan" name="clan">
+<option value="" {% if clan|length < 1 %} selected {% endif %}>Tous</option>
 {% for c in clans %}
     <option value="{{c}}"{% if c == clan %} selected {% endif %}>{{c}}</option>
 {% endfor %}
@@ -25,9 +26,7 @@ Filtrage : {{clan}}
 <th>Nom du personnage</th>
 <th>Joueur</th>
 <th>Clan</th>
-{% if conte %}
 <th>Action</th>
-{% endif %}
 </tr></thead>
 <tbody>
 {% for perso in persos %}
