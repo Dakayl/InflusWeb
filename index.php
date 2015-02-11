@@ -17,7 +17,6 @@ $user->setup();
 <body>
 <?php
 
-
 $isAdmin = group_memberships(5,$user->data['user_id'],true);
 $isCA = group_memberships(16,$user->data['user_id'],true);
 $isConteur = group_memberships(15,$user->data['user_id'],true);
@@ -29,7 +28,6 @@ $infos = array("phpbbid"=>$user->data['user_id'], "email"=>$user->data['user_ema
 if($isJoueur) {
 
 	$clan = "caitiff";
-
 	if(group_memberships(17,$user->data['user_id'],true)) $clan = "ventrue";
 	if(group_memberships(21,$user->data['user_id'],true)) $clan = "tremere";
 	if(group_memberships(22,$user->data['user_id'],true)) $clan = "toreador";
@@ -41,11 +39,10 @@ if($isJoueur) {
 	if(group_memberships(27,$user->data['user_id'],true)) $clan = "sethite";
 	if(group_memberships(25,$user->data['user_id'],true)) $clan = "ravnos";
 	if(group_memberships(24,$user->data['user_id'],true)) $clan = "assamite";
-
 	$infos["clan"] = $clan;
 }
 ?>
-<form action="../../influences/app_dev.php/phpbbreceive" name='frm' method='POST'>
+<form action="../influences/app_dev.php/phpbbreceive" name='frm' method='POST'>
 <?php 
 foreach($rights as $k=>$r) {
 echo "<input type='hidden' name='rights[".$k."]' value='".($r?1:0)."' />\n";
