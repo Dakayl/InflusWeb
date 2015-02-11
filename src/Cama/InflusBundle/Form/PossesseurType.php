@@ -18,11 +18,11 @@ class PossesseurType extends AbstractType
             ->add('contacts', 'integer', array('max_length'=>1))
             ->add('ressources', 'integer', array('max_length'=>1))
 	    ->add('banque','integer')
-            ->add('servant', 'collection', array("label_attr"=>'headcoll',"label"=>'Liste de mes servants','type' => new ServantType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
-	    ->add('refuge', 'collection', array("label_attr"=>'headcoll',"label"=>'Liste de mes refuges','type' => new RefugeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
-	    ->add('vehicule', 'collection', array("label_attr"=>'headcoll',"label"=>'Liste de mes véhicules','type' => new VehiculeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
-            ->add('etiquette', 'collection', array("label_attr"=>'headcoll',"label"=>'Liste de mes compétences en étiquette','type' => new EtiquetteType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
-            ->add('influence', 'collection', array("label_attr"=>'headcoll',"label"=>'Liste de mes influences','type' => new InfluenceType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+            ->add('servant', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes servants','type' => new ServantType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+	    ->add('refuge', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes refuges','type' => new RefugeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+	    ->add('vehicule', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes véhicules','type' => new VehiculeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+            ->add('etiquette', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes compétences en étiquette','type' => new EtiquetteType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+            ->add('influence', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes influences','type' => new InfluenceType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
 	    ->add('save', 'submit');
     }
 
