@@ -179,7 +179,7 @@ class PersoController extends Controller
             $em->flush();
         }
         
-        return $this->redirect($this->generateUrl('listeAValiderPerso'));
+        return $this->redirect($this->generateUrl('listePerso'));
     }
 
     public function devaliderAction($id, Request $request){
@@ -197,7 +197,7 @@ class PersoController extends Controller
             $em->flush();
         }
         
-        return $this->redirect($this->generateUrl('listePerso'));
+        return $this->redirect($this->generateUrl('listeAValiderPerso'));
     }
 
     public function avaliderAction(Request $request){
