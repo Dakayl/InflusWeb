@@ -30,7 +30,7 @@ if($isJoueur) {
 	$clan = "caitiff";
 	if(group_memberships(17,$user->data['user_id'],true)) $clan = "ventrue";
 	if(group_memberships(21,$user->data['user_id'],true)) $clan = "tremere";
-	if(group_memberships(22,$user->data['user_id'],true)) $clan = "toreador";
+	if(group_memberships(22,$user->data['user_id'],true)) $clan = "toréador";
 	if(group_memberships(20,$user->data['user_id'],true)) $clan = "malkavien";
 	if(group_memberships(18,$user->data['user_id'],true)) $clan = "nosferatu";
 	if(group_memberships(19,$user->data['user_id'],true)) $clan = "gangrel";
