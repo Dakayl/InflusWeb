@@ -7,7 +7,7 @@
 <form method='get' id="filter">
 <label for="clan">Filtrer : </label><select id="clan" name="clan">
 {% for c in clans %}
-    <option value="{{c}}"{% if c == clan %} selected{% endif %}>{{c}}</option>
+    <option value="{{c}}"{% if c == clan %} selected='selected'{% endif %}>{{c}}</option>
 {% endfor %}
 </select>
 <script>
@@ -16,6 +16,9 @@
     })
 </script>
 </form>
+{% if clan|length > 0 %}
+Filtrage : {{clan}}
+{% endif %}
 <table>
 <thead>
 <tr>
