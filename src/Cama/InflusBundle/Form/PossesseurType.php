@@ -28,6 +28,6 @@ class PossesseurType extends AbstractType
 
     public function getName()
     {
-        return 'IA';
+        return 'Possesseur';
     }
 }

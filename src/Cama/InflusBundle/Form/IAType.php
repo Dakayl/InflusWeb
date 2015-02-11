@@ -19,6 +19,6 @@ class IAType extends AbstractType
 
     public function getName()
     {
-        return 'Possesseur';
+        return 'IA';
     }
 }
