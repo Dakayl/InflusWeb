@@ -201,18 +201,17 @@ class PersoController extends Controller
         if(!$conte){
                 return $this->redirect($this->generateUrl('error')."?id=8");
         }
-        $array = array('inactif' => true,"ph");
-               
+                    
         
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
      
+        $clan='';
+        
         $q = $repository->createQueryBuilder('d')
 	->where('d.inactif = true')
-        ->andWhere('d.idPhpbb != 0')
-	->orderBy('d.', 'ASC');
-        $clan='';
-        if(!empty($request->query->get('clan'))) {
-          
+        ->andWhere('d.idPhpbb != 0');
+        
+        if(!empty($request->query->get('clan'))) {         
             $clan = $request->query->get('clan');
             $q->andWhere('d.clan = :clan');
         }
@@ -226,7 +225,6 @@ class PersoController extends Controller
 	return $this->render('CamaInflusBundle:Perso:avalider.html.twig', array(
                 'persos'=>$persos,
                 'clan'=>$clan,
-                'conte'=>$conte,
                 'clans'=>  Constants::$LIST_CLANS
                 
         ));
