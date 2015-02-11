@@ -10,8 +10,8 @@ class TourType extends AbstractType
     {
         $builder
             ->add('mois', 'text')
-            ->add('dateLimite', 'date')
             ->add('datePartie', 'date')
+            ->add('dateLimite', 'date')
             ->add('actions', 'integer')
             ->add('save', 'submit');
     }
