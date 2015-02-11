@@ -1,10 +1,10 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Liste des fiches à valider{% endblock %}
+{% block title %}Liste des persos à valider{% endblock %}
 
 {% block body %}
-<h1>Liste des personnages à valider</h1>
-{{ include('CamaInflusBundle:Perso:form.html.twig',{'clan': clan, 'clans':clans}) }}
+<h1>Liste des persos à valider</h1>
+{{ include('CamaInflusBundle:Perso:filter.html.twig',{'clan': clan, 'clans':clans}) }}
 <table>
 <thead>
 <tr>

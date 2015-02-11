@@ -4,10 +4,7 @@
 
 {% block body %}
 <h1>Liste des personnages joueurs</h1>
-{{ include('CamaInflusBundle:Perso:form.html.twig',{'clan': clan, 'clans':clans}) }}
-{% if clan|length > 0 %}
-Filtrage : {{clan}}
-{% endif %}
+{{ include('CamaInflusBundle:Perso:filter.html.twig',{'clan': clan, 'clans':clans}) }}
 <table>
 <thead>
 <tr>
