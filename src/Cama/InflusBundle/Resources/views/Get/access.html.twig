@@ -21,12 +21,11 @@
 	{% if joueur %}
 	<!-- Joueur -->
 	<li> <a href="{{ path('voirMonPerso') }}">Gérer votre fiche de personnage</a></li>
-	<li> Connaître les dates des prochains rendus d'influence </li>
 	<li> Rédiger votre fiche d'influence </li>
-	<li> Voir vos anciennes fiches d'influences et les retours faits </li>
-	<li><a href="{{ path('listerTour') }}"> Liste des dates à venir </a></li>
+	<li> Voir vos anciennes fiches d'influences</li>
+	<li><a href="{{ path('listerTour') }}"> Dates de rendu d'influences à venir </a></li>
 	{% endif %}
-	 <li><a href="{{ path('ancienTour') }}"> Liste des dates passées </a></li>
+	 <li><a href="{{ path('ancienTour') }}"> Dates passées </a></li>
 
 </ul>
 <p>Listing prévisionnel des versions : </p>
