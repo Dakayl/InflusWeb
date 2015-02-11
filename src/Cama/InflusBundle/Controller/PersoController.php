@@ -65,7 +65,7 @@ class PersoController extends Controller
         }
         else {
                 return $this->render('CamaInflusBundle:Perso:voir.html.twig', array(
-                 'conte'=>false,
+                 'conte'=>true,
 		 'perso'=>$perso,
 		'influences'=>$perso->getInfluence(),
 		'refuges'=>$perso->getRefuge(),
@@ -156,11 +156,37 @@ class PersoController extends Controller
     }
 
     public function validerPersoAction($id, Request $request){
-
+        $session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');	
+	$conte=(!empty($rights[15]));
+        
+        $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+	$perso = $repository->findOneBy(array('id' => $id));
+        if($perso && $conte) {
+            $perso->setInactif(false);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        }
+        
+        return $this->redirect($this->generateUrl('listeAValiderPerso'));
     }
 
     public function devaliderPersoAction($id, Request $request){
-
+        $session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');	
+	$conte=(!empty($rights[15]));
+        
+        $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+	$perso = $repository->findOneBy(array('id' => $id));
+        if($perso && $conte) {
+            $perso->setInactif(true);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        }
+        
+        return $this->redirect($this->generateUrl('listeAValiderPerso'));
     }
 
     public function listeAValiderPersoAction(Request $request){
@@ -172,7 +198,7 @@ class PersoController extends Controller
 	
 	$conte=(!empty($rights[15]));
         if(!$conte){
-                return $this->redirect($this->generateUrl('error')."?id=7");
+                return $this->redirect($this->generateUrl('error')."?id=8");
         }
         $array = array('inactif' => true);
         $clan='';
@@ -186,6 +212,7 @@ class PersoController extends Controller
 	return $this->render('CamaInflusBundle:Perso:avalider.html.twig', array(
                 'persos'=>$persos,
                 'clan'=>$clan,
+                'conte'=>$conte,
                 'clans'=>  Constants::$LIST_CLANS
                 
         ));
