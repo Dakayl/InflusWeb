@@ -45,10 +45,19 @@ table {
     border-collapse: collapse;
     margin:5px 0;
 }
+#infoversion {
+  position: fixed;
+  left:3px;
+  bottom: 3px;
+  border: 1px #999 solid;
+  background:#CCC;
+  padding:5px;
+  color:black;
+}
 #foot {
     position: fixed;
     right:3px;
-    bottom: 45px;
+    bottom: 3px;
     border: 1px #999 solid;
     background:#CCC;
     padding:5px;
