@@ -17,7 +17,11 @@ body {
     width:100%;
     min-height:600px;
 }
-
+#title {
+    color:white;
+    font-size:25px;
+    font-family:Verdana;
+}
 p {
   margin:1px 0;
 }
@@ -48,7 +52,7 @@ table {
 #infoversion {
   position: fixed;
   left:3px;
-  bottom: 3px;
+  bottom: 33px;
   border: 1px #999 solid;
   background:#CCC;
   padding:5px;
@@ -57,7 +61,7 @@ table {
 #foot {
     position: fixed;
     right:3px;
-    bottom: 3px;
+    bottom: 33px;
     border: 1px #999 solid;
     background:#CCC;
     padding:5px;
