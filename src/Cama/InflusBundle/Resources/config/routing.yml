@@ -1,0 +1,117 @@
+#GENERIQUE
+
+cama_influs_homepage:
+    path:     /
+    defaults: { _controller: CamaInflusBundle:Get:access }
+
+error:
+    path:     /error
+    defaults: { _controller: CamaInflusBundle:Get:error }
+
+access:
+    path:     /access
+    defaults: { _controller: CamaInflusBundle:Get:access }
+
+# TOURS
+
+creerTour:
+    path:     /date/creer
+    defaults: { _controller: CamaInflusBundle:Tour:creerTour }
+    requirements:
+         _method:  GET|POST
+
+editerTour:
+    path:     /date/{id}/editer
+    defaults: { _controller: CamaInflusBundle:Tour:editerTour }
+    requirements:
+         _method:  GET|POST
+
+supprimerTour:
+    path:     /date/{id}/supprimer
+    defaults: { _controller: CamaInflusBundle:Tour:supprimerTour }
+    requirements:
+         _method:  GET
+
+ancienTour:
+    path:     /date/ancien
+    defaults: { _controller: CamaInflusBundle:Tour:ancienTour }
+    requirements:
+         _method:  GET
+
+listerTour:
+    path:     /date/lister
+    defaults: { _controller: CamaInflusBundle:Tour:listeTours }
+    requirements:
+         _method:  GET
+
+# PERSOS
+
+voirMonPerso:
+    path:    /perso/voir/
+    defaults: { _controller: CamaInflusBundle:Perso:voirMonPerso }
+    requirements:
+         _method:  GET
+
+voirPerso:
+    path:    /perso/{id}/voir/
+    defaults: { _controller: CamaInflusBundle:Perso:voirPerso }
+    requirements:
+         _method:  GET
+
+creerPerso:
+    path:    /perso/creer/
+    defaults: { _controller: CamaInflusBundle:Perso:creerPerso }
+    requirements:
+         _method:  GET|POST
+
+editerPerso:
+    path:    /perso/{id}/editer/
+    defaults: { _controller: CamaInflusBundle:Perso:editerPerso }
+    requirements:
+         _method:  GET|POST
+
+validerPerso:
+    path:    /perso/{id}/valider/
+    defaults: { _controller: CamaInflusBundle:Perso:validerPerso }
+    requirements:
+         _method:  GET
+
+devaliderPerso:
+    path:    /perso/{id}/devalider/
+    defaults: { _controller: CamaInflusBundle:Perso:devaliderPerso }
+    requirements:
+         _method:  GET
+
+listeAValiderPerso:
+    path:    /perso/a_valider/liste
+    defaults: { _controller: CamaInflusBundle:Perso:listeAValiderPerso }
+    requirements:
+         _method:  GET
+
+listePerso:
+    path:    /perso/lister
+    defaults: { _controller: CamaInflusBundle:Perso:listerPerso }
+    requirements:
+         _method:  GET
+
+# ORDRES 
+
+ordres_actuels:
+    path:     /ordresActuels
+    defaults: { _controller: CamaInflusBundle:Get:ordresActuels }
+
+ordres_precedents:
+    path:     /ordresPrecedents
+    defaults: { _controller: CamaInflusBundle:Get:ordresPrecedents }
+
+editer_tours:
+    path:     /editerTours
+    defaults: { _controller: CamaInflusBundle:Get:editerTours }
+
+editer_personnage:
+    path:     /editerPersonnage
+    defaults: { _controller: CamaInflusBundle:Get:editerPersonnage }
+
+phpbbreceive:
+    path:     /phpbbreceive
+    defaults: { _controller: CamaInflusBundle:Post:phpbbreceive }

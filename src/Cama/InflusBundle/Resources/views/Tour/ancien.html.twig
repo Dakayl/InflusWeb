@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Liste des dates de retour passées{% endblock %}
+
+{% block body %}
+<h1>Liste des dates de retour passées</h1>
+<table>
+<thead>
+<tr>
+<th>Mois de référence</th>
+<th>Date de la partie</th>
+<th>Date limite de rendu (incluse)</th>
+<th>Nb d'actions</th>
+</tr></thead>
+<tbody>
+{% for tour in tours %}
+        {{ include('CamaInflusBundle:Tour:ligne.html.twig', { 'tour': tour, 'admin': false }) }}
+{% endfor %}
+</tbody>
+</table>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}

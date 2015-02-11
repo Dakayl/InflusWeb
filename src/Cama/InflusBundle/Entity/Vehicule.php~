@@ -1,0 +1,56 @@
+<?php
+
+namespace Cama\InflusBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Vehicule
+ *
+ * @ORM\Table(name="vehicule", indexes={@ORM\Index(name="possesseur", columns={"possesseur"})})
+ * @ORM\Entity
+ */
+class Vehicule
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="niveau", type="smallint", nullable=false)
+     */
+    private $niveau;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var \Possesseur
+     *
+     * @ORM\ManyToOne(targetEntity="Possesseur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="possesseur", referencedColumnName="id")
+     * })
+     */
+    private $possesseur;
+
+
+}

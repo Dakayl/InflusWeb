@@ -1,0 +1,45 @@
+Refuge:
+    type: entity
+    table: refuge
+    indexes:
+        possesseur:
+            columns:
+                - possesseur
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            default: '0'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        niveau:
+            type: smallint
+            nullable: false
+            unsigned: true
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+        securite:
+            type: smallint
+            nullable: false
+            unsigned: true
+    manyToOne:
+        possesseur:
+            targetEntity: Possesseur
+            cascade: {  }
+            inversedBy: refuges
+            joinColumns:
+                possesseur:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

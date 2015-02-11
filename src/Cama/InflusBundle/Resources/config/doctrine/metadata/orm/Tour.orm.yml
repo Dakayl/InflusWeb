@@ -1,0 +1,31 @@
+Tour:
+    type: entity
+    table: tour
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        mois:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        dateLimite:
+            type: datetime
+            nullable: false
+            column: date_limite
+        datePartie:
+            type: datetime
+            nullable: false
+            column: date_partie
+        actions:
+            type: smallint
+            nullable: false
+            unsigned: true
+            default: '3'
+    lifecycleCallbacks: {  }

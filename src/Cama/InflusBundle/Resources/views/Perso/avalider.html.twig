@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Liste des fiches à valider{% endblock %}
+
+{% block body %}
+<h1>Liste des personnages</h1>
+<table>
+<thead>
+<tr>
+<th>Nom du personnage</th>
+<th>Joueur</th>
+<th>Clan</th>
+{% if conte %}
+<th>Action</th>
+{% endif %}
+</tr></thead>
+<tbody>
+{% for perso in persos %}
+        {{ include('CamaInflusBundle:Perso:ligneav.html.twig', { 'perso': perso, 'conte': conte }) }}
+{% endfor %}
+</tbody>
+</table>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}

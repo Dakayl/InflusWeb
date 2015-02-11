@@ -1,0 +1,3 @@
+cama_influs:
+    resource: "@CamaInflusBundle/Resources/config/routing.yml"
+    prefix:   /

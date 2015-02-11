@@ -1,0 +1,53 @@
+<?php
+
+namespace Cama\InflusBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tour
+ *
+ * @ORM\Table(name="tour")
+ * @ORM\Entity
+ */
+class Tour
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mois", type="string", length=255, nullable=false)
+     */
+    private $mois;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_limite", type="datetime", nullable=false)
+     */
+    private $dateLimite;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_partie", type="datetime", nullable=false)
+     */
+    private $datePartie;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="actions", type="smallint", nullable=false)
+     */
+    private $actions = '3';
+
+
+}

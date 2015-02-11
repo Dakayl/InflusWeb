@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Liste des personnages{% endblock %}
+
+{% block body %}
+<h1>Liste des personnages</h1>
+<table>
+<thead>
+<tr>
+<th>Nom du personnage</th>
+<th>Clan</th>
+<th>Joueur</th>
+<th>Validé ?</th>
+{% if conte %}
+<th>Action</th>
+{% endif %}
+</tr></thead>
+<tbody>
+{% for perso in persos %}
+        {{ include('CamaInflusBundle:Perso:ligne.html.twig', { 'perso': perso, 'conte': conte }) }}
+{% endfor %}
+</tbody>
+</table>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}

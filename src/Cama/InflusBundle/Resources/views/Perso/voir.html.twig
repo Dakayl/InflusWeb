@@ -1,0 +1,103 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Fiche de {{perso.nom}} {% endblock %}
+{% block body %}
+<h1>Fiche de {{perso.nom}} (clan {{perso.clan}})</h1>
+<table>
+<tr>
+<th>Joueur</th>
+<td>{{ perso.joueur }}</td>
+</tr>
+<tr>
+<th>E-mail</th>
+<td>{{ perso.email }}</td>
+</tr>
+<tr>
+<th>Etat </th>
+<td>{% if perso.inactif %}
+Non validé / inactif
+{% else %}
+Actif et validé 
+{% endif %}
+</td>
+<tr>
+<th> Ville du joueur </th>
+<td> {{ perso.ville }} </td>
+</tr>
+<tr>
+<th> Niveau en ressouces </th>
+<td> {{ perso.ressources }}</td>
+</tr>
+<tr>
+<th> Niveau en alliés </th>
+<td> {{ perso.allies }}</td>
+</tr>
+<tr>
+<th> Niveau en contact </th>
+<td> {{ perso.contacts }}</td>
+</tr>
+</tr>
+<tr>
+<th> Niveau en renommée </th>
+<td> {{ perso.renommee }}</td>
+</tr>
+<tr>
+<th> Compte en banque </th>
+<td> {{ perso.banque }} &euro;</td>
+</tr>
+</table>
+<br />
+
+{% if etiquettes|length > 0 %}
+<p>Etiquettes</p>
+<table id='etiquette'>
+<tr><th>Type</th><th>Niveau</th><tr>
+{% for etiquette in etiquettes %}
+        {{ include('CamaInflusBundle:Perso:etiquette_ligne.html.twig', { 'etiquette': etiquette}) }}
+{% endfor %}
+</table>
+{% endif %}
+
+{% if influences|length > 0 %}
+<p>Influences</p>
+<table id='influence'>
+<tr><th>Nom</th><th>Type</th><th>Niveau</th><th>Ville</th><tr>
+{% for influence in influences %}
+        {{ include('CamaInflusBundle:Perso:influence_ligne.html.twig', { 'influence': influence}) }}
+{% endfor %}
+</table>
+{% endif %}
+
+{% if refuges|length > 0 %}
+<p>Refuges</p>
+<table id='refuge'>
+<tr><th>Nom</th><th>Niveau</th><th>Description</th><th>Sécurité</th><tr>
+{% for refuge in refuges %}
+        {{ include('CamaInflusBundle:Perso:refuge_ligne.html.twig', { 'refuge': refuge}) }}
+{% endfor %}
+</table>
+{% endif %}
+
+{% if vehicules|length > 0 %}
+<p>Véhicules</p>
+<table id='vehicule'>
+<tr><th>Nom</th><th>Niveau</th><th>Description</th><tr>
+{% for vehicule in vehicules %}
+        {{ include('CamaInflusBundle:Perso:vehicule_ligne.html.twig', { 'vehicule': vehicule}) }}
+{% endfor %}
+</table>
+{% endif %}
+
+{% if servants|length > 0 %}
+<p>Servants</p>
+<table id='Servants'>
+<tr><th>Nom</th><th>Type</th><th>Niveau</th><th>Description</th><tr>
+{% for servant in servants %}
+        {{ include('CamaInflusBundle:Perso:servant_ligne.html.twig', { 'servant': servant}) }}
+{% endfor %}
+</table>
+{% endif %}
+<a href="{{ path('editerPerso', {'id': perso.id}) }}">Editer</a>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}
+

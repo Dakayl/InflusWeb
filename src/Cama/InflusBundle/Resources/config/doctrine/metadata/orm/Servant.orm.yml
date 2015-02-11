@@ -1,0 +1,45 @@
+Servant:
+    type: entity
+    table: servant
+    indexes:
+        possesseur:
+            columns:
+                - possesseur
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            default: '0'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        type:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        niveau:
+            type: boolean
+            nullable: false
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+    manyToOne:
+        possesseur:
+            targetEntity: Possesseur
+            cascade: {  }
+            inversedBy: servants
+            joinColumns:
+                possesseur:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

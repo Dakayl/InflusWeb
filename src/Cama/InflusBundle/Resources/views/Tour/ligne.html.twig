@@ -1,0 +1,12 @@
+<tr>
+<td>{{ tour.mois }}</td>
+<td>{{ tour.datePartie|date("d/m/Y") }}</td>
+<td>{{ tour.dateLimite|date("d/m/Y") }}</td>
+<td>{{ tour.actions }}</td>
+{% if admin %}
+<td> 
+<a href="{{ path('editerTour', {'id': tour.id}) }}">Editer</a> |
+<a href="{{ path('supprimerTour', {'id': tour.id}) }}">Supprimer</a>
+</td>
+{% endif %}
+</tr>

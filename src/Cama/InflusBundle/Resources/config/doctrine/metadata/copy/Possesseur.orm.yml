@@ -1,0 +1,102 @@
+Possesseur:
+    type: entity
+    table: possesseur
+    indexes:
+        id_phpbb:
+            columns:
+                - id_phpbb
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        clan:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        joueur:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        idPhpbb:
+            type: bigint
+            nullable: true
+            unsigned: true
+            column: id_phpbb
+        inactif:
+            type: boolean
+            nullable: false
+            default: '0'
+        ville:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        allies:
+            type: smallint
+            nullable: false
+            unsigned: true
+            default: '0'
+        ressources:
+            type: smallint
+            nullable: false
+            unsigned: true
+            default: '0'
+        contacts:
+            type: smallint
+            nullable: false
+            unsigned: true
+            default: '0'
+        banque:
+            type: bigint
+            nullable: false
+            unsigned: false
+            default: '0'
+    oneToMany:
+        vehicules:
+            targetEntity: Vehicule
+            mappedBy: possesseur
+        servants:
+            targetEntity: Servant
+            mappedBy: possesseur
+        refuges:
+            targetEntity: Refuge
+            mappedBy: possesseur
+        etiquettes:
+            targetEntity: Etiquette
+            mappedBy: possesseur
+        influences:
+            targetEntity: Influence
+            mappedBy: possesseur
+    manyToMany:
+        possesseur:
+            targetEntity: Possesseur
+            cascade: {  }
+            mappedBy: vuPar
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        tour:
+            targetEntity: Action
+            cascade: {  }
+            mappedBy: possesseur
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

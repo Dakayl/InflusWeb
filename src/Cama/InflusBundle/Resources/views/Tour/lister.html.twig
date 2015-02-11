@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Liste des dates à venir{% endblock %}
+
+{% block body %}
+<h1>Liste des dates de retour d'influence à venir</h1>
+<table>
+<thead>
+<tr>
+<th>Mois de référence</th>
+<th>Date de la partie</th>
+<th>Date limite de rendu (incluse)</th>
+<th>Nb d'actions</th>
+{% if admin %}
+<th>Action</th>
+{% endif %}
+</tr></thead>
+<tbody>
+{% for tour in tours %}
+        {{ include('CamaInflusBundle:Tour:ligne.html.twig', { 'tour': tour, 'admin': admin }) }}
+{% endfor %}
+</tbody>
+</table>
+{% if admin %}
+<a href="{{ path('creerTour') }}">Créer une date</a>
+{% endif %}
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}

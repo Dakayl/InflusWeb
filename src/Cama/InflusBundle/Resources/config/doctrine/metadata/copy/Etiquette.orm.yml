@@ -1,0 +1,36 @@
+Etiquette:
+    type: entity
+    table: etiquette
+    indexes:
+        possesseur:
+            columns:
+                - possesseur
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            default: '0'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        type:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        niveau:
+            type: smallint
+            nullable: false
+            unsigned: true
+    manyToOne:
+        possesseur:
+            targetEntity: Possesseur
+            cascade: {  }
+            inversedBy: etiquettes
+            joinColumns:
+                possesseur:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Pas de personnage !{% endblock %}
+
+{% block body %}
+<h1>Pas de personnage</h1>
+<p> Il n'y a pas de personnage enregistré.
+{%if conte == false %}
+Vous pouvez en créer un ici : 
+<a href="{{ path('creerPerso') }}">Créer</a>.
+{% endif %}
+</p>
+<br />
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}

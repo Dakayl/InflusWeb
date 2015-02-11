@@ -1,0 +1,102 @@
+<?php
+
+namespace Cama\InflusBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Action
+ *
+ * @ORM\Table(name="action", indexes={@ORM\Index(name="possesseur", columns={"possesseurId"}), @ORM\Index(name="tour", columns={"tourId"})})
+ * @ORM\Entity
+ */
+class Action
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="parametres", type="text", length=65535, nullable=false)
+     */
+    private $parametres;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="validate", type="boolean", nullable=true)
+     */
+    private $validate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultat_text", type="text", nullable=false)
+     */
+    private $resultatText;
+
+    /**
+     * @var \Possesseur
+     *
+     * @ORM\ManyToOne(targetEntity="Possesseur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="possesseurId", referencedColumnName="id")
+     * })
+     */
+    private $possesseurid;
+
+    /**
+     * @var \Tour
+     *
+     * @ORM\ManyToOne(targetEntity="Tour")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tourId", referencedColumnName="id")
+     * })
+     */
+    private $tourid;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Possesseur", inversedBy="tour")
+     * @ORM\JoinTable(name="tour_possesseur",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="tour", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="possesseur", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $possesseur;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->possesseur = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

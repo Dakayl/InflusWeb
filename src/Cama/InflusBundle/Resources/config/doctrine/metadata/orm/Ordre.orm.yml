@@ -1,0 +1,62 @@
+Ordre:
+    type: entity
+    table: ordre
+    indexes:
+        tour:
+            columns:
+                - tour
+        influence:
+            columns:
+                - influence
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        validate:
+            type: boolean
+            nullable: true
+        type:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        niveau:
+            type: smallint
+            nullable: false
+            unsigned: true
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+        resultatTexte:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            column: resultat_texte
+    manyToOne:
+        tour:
+            targetEntity: Tour
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tour:
+                    referencedColumnName: id
+            orphanRemoval: false
+        influence:
+            targetEntity: Influence
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                influence:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
