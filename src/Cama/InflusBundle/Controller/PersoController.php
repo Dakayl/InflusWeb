@@ -212,9 +212,9 @@ class PersoController extends Controller
 	->orderBy('d.', 'ASC');
         $clan='';
         if(!empty($request->query->get('clan'))) {
-            
+          
             $clan = $request->query->get('clan');
-            $q->andWhere('d.clan = :clan')
+            $q->andWhere('d.clan = :clan');
         }
         $query = $q->getQuery();
         if(!empty($request->query->get('clan'))) {
