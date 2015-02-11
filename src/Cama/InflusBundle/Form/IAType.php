@@ -9,7 +9,8 @@ class IAType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('joueur', 'text', array("label"=>"nom"))
+            ->add('nom', 'text')
+            ->add('joueur', 'text', array("label"=>"Gestionnaire"))
 	    ->add('clan','text', array('label'=>"Type"))
 	    ->add('ville','text')
 	    ->add('influence', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de ses influences','type' => new InfluenceType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
