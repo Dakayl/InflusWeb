@@ -5,13 +5,17 @@
 <h1>Fiche du PNJ {{perso.nom}}</h1>
 <table>
 <tr>
+<th>Gestionnaire</th>
+<td>{{ perso.joueur }}</td>
+<tr>
+<tr>
 <th>Type</th>
 <td>{{ perso.clan }}</td>
 <tr>
 <th> Ville</th>
 <td> {{ perso.ville }} </td>
 </tr>
-</tr>
+</table>
 {% if influences|length > 0 %}
 <p>Influences</p>
 <table id='influence'>
