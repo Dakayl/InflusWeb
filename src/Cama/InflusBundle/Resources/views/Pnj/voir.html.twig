@@ -15,7 +15,7 @@
 {% if influences|length > 0 %}
 <p>Influences</p>
 <table id='influence'>
-<tr><th>Nom</th><th>Type</th><th>Niveau</th><th>Ville</th><tr>
+<tr><th>Nom</th><th>Type</th><th>Niveau</th><th>Ville</th><th> Progression </th><tr>
 {% for influence in influences %}
         {{ include('CamaInflusBundle:Perso:influence_ligne.html.twig', { 'influence': influence}) }}
 {% endfor %}
