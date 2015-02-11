@@ -12,35 +12,39 @@ access:
     path:     /access
     defaults: { _controller: CamaInflusBundle:Get:access }
 
+phpbbreceive:
+    path:     /phpbbreceive
+    defaults: { _controller: CamaInflusBundle:Post:phpbbreceive }
+    
 # TOURS
 
 creerTour:
     path:     /date/creer
-    defaults: { _controller: CamaInflusBundle:Tour:creerTour }
+    defaults: { _controller: CamaInflusBundle:Tour:creer }
     requirements:
          _method:  GET|POST
 
 editerTour:
     path:     /date/{id}/editer
-    defaults: { _controller: CamaInflusBundle:Tour:editerTour }
+    defaults: { _controller: CamaInflusBundle:Tour:editer }
     requirements:
          _method:  GET|POST
 
 supprimerTour:
     path:     /date/{id}/supprimer
-    defaults: { _controller: CamaInflusBundle:Tour:supprimerTour }
+    defaults: { _controller: CamaInflusBundle:Tour:supprimer }
     requirements:
          _method:  GET
 
 ancienTour:
-    path:     /date/ancien
-    defaults: { _controller: CamaInflusBundle:Tour:ancienTour }
+    path:     /date/anciens
+    defaults: { _controller: CamaInflusBundle:Tour:ancien}
     requirements:
          _method:  GET
 
 listerTour:
     path:     /date/lister
-    defaults: { _controller: CamaInflusBundle:Tour:listeTours }
+    defaults: { _controller: CamaInflusBundle:Tour:lister }
     requirements:
          _method:  GET
 
@@ -54,46 +58,68 @@ voirMonPerso:
 
 voirPerso:
     path:    /perso/{id}/voir/
-    defaults: { _controller: CamaInflusBundle:Perso:voirPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:voir }
     requirements:
          _method:  GET
 
 creerPerso:
     path:    /perso/creer/
-    defaults: { _controller: CamaInflusBundle:Perso:creerPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:creer }
     requirements:
          _method:  GET|POST
 
 editerPerso:
     path:    /perso/{id}/editer/
-    defaults: { _controller: CamaInflusBundle:Perso:editerPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:editer }
     requirements:
          _method:  GET|POST
 
 validerPerso:
     path:    /perso/{id}/valider/
-    defaults: { _controller: CamaInflusBundle:Perso:validerPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:valider }
     requirements:
          _method:  GET
 
 devaliderPerso:
     path:    /perso/{id}/devalider/
-    defaults: { _controller: CamaInflusBundle:Perso:devaliderPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:devalider }
     requirements:
          _method:  GET
 
 listeAValiderPerso:
     path:    /perso/a_valider/liste
-    defaults: { _controller: CamaInflusBundle:Perso:listeAValiderPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:avalider }
     requirements:
          _method:  GET
 
 listePerso:
     path:    /perso/lister
-    defaults: { _controller: CamaInflusBundle:Perso:listerPerso }
+    defaults: { _controller: CamaInflusBundle:Perso:lister }
     requirements:
          _method:  GET
+# IA
+listerPNJ:
+  path:    /pnj/lister
+  defaults: { _controller: CamaInflusBundle:Pnj:lister}
+  requirements:
+         _method:  GET
 
+creerPNJ:
+  path:    /pnj/creer
+  defaults: { _controller: CamaInflusBundle:Pnj:creer}
+  requirements:
+         _method:  GET|POST
+
+voirPNJ:
+  path:    /pnj/{id}/voir
+  defaults: { _controller: CamaInflusBundle:Pnj:voir}
+  requirements:
+         _method:  GET
+creerPNJ:
+  path:    /pnj/{id}/editer
+  defaults: { _controller: CamaInflusBundle:Pnj:editer}
+  requirements:
+         _method:  GET|POST
 # ORDRES 
 
 ordres_actuels:
@@ -108,10 +134,3 @@ editer_tours:
     path:     /editerTours
     defaults: { _controller: CamaInflusBundle:Get:editerTours }
 
-editer_personnage:
-    path:     /editerPersonnage
-    defaults: { _controller: CamaInflusBundle:Get:editerPersonnage }
-
-phpbbreceive:
-    path:     /phpbbreceive
-    defaults: { _controller: CamaInflusBundle:Post:phpbbreceive }

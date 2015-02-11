@@ -18,6 +18,8 @@ class Constants{
             'Tremere',
             'Ventrue'
         );
+        
+         
 
 	public static $TYPE_SERVANT = array(	
 					"goule_influence"=>"Goule d'influence",

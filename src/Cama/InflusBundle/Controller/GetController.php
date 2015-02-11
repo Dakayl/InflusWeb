@@ -45,10 +45,4 @@ class GetController extends Controller
                 // ...
             ));    }
 
-    public function editerPersonnageAction()
-    {
-        return $this->render('CamaInflusBundle:Get:editerPersonnage.html.twig', array(
-                // ...
-            ));    }
-
 }

@@ -1,0 +1,10 @@
+<tr>
+<td>{{ perso.nom }}</td>
+<td>{{ perso.clan }}</td>
+<td>{{ perso.joueur }}</td>
+<td> 
+<a href="{{ path('voirPNJ', {'id': perso.id}) }}">Voir</a> |
+<a href="{{ path('editerPNJ', {'id': perso.id}) }}">Editer</a>
+</td>
+
+</tr>

@@ -45,7 +45,7 @@ class PersoController extends Controller
 
     }
     
-    public function voirPersoAction($id, Request $request){
+    public function voirAction($id, Request $request){
 	$session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');
@@ -75,7 +75,7 @@ class PersoController extends Controller
         }
     }
    
-    public function creerPersoAction(Request $request){
+    public function creerAction(Request $request){
 	$session = $request->getSession();
 	$infos = $session->get('infos');
         
@@ -87,12 +87,12 @@ class PersoController extends Controller
         if ($perso || empty($phpbbid)) {
 	        return $this->redirect($this->generateUrl('voirMonPerso'));
 	}
-	$infos = $session->get('infos');
-
+	
 	$perso = new Possesseur();
         $perso->setVille("Lyon");
         $perso->setAllies(0);
         $perso->setContacts(0);
+        $perso->setRenommee(0);
         $perso->setRessources(0);
         $perso->setBanque(0);
         $perso->setClan($clan);
@@ -121,9 +121,11 @@ class PersoController extends Controller
                 'clan'=>$clan
         ));
 
-    }	
+    }
+    
+   
  
-    public function editerPersoAction($id, Request $request){
+    public function editerAction($id, Request $request){
         $session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');	
@@ -132,7 +134,14 @@ class PersoController extends Controller
 	$perso = $repository->findOneBy(array('id' => $id));
         if (!$perso) {
                 return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
-                'conte'=>false
+                'conte'=>$conte
+                ));
+                
+        }
+        $phpbbid = $infos['phpbbid'];
+        if(!$conte && $perso->getIdPhpbb() != $phpbbid) {
+            return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
+                'conte'=>$conte
                 ));
         }
         $form = $this->createForm(new PossesseurType(), $perso);
@@ -156,11 +165,12 @@ class PersoController extends Controller
 
     }
 
-    public function validerPersoAction($id, Request $request){
+    public function validerAction($id, Request $request){
         $session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');	
 	$conte=(!empty($rights[15]));
+        if(!$conte) return $this->redirect($this->generateUrl('error')."?id=11");
         
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
 	$perso = $repository->findOneBy(array('id' => $id));
@@ -173,11 +183,12 @@ class PersoController extends Controller
         return $this->redirect($this->generateUrl('listeAValiderPerso'));
     }
 
-    public function devaliderPersoAction($id, Request $request){
+    public function devaliderAction($id, Request $request){
         $session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');	
 	$conte=(!empty($rights[15]));
+        if(!$conte) return $this->redirect($this->generateUrl('error')."?id=12");
         
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
 	$perso = $repository->findOneBy(array('id' => $id));
@@ -190,12 +201,11 @@ class PersoController extends Controller
         return $this->redirect($this->generateUrl('listeAValiderPerso'));
     }
 
-    public function listeAValiderPersoAction(Request $request){
+    public function avaliderAction(Request $request){
         $session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');
         $infos = $session->get('infos');
-	$phpbbid = $infos['phpbbid'];
 	
 	$conte=(!empty($rights[15]));
         if(!$conte){
@@ -232,8 +242,39 @@ class PersoController extends Controller
         
     }
    
-    public function listerPersoAction(Request $request) {
+    public function listerAction(Request $request) {
+        $session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');
+        $infos = $session->get('infos');
+	
+	$conte=(!empty($rights[15]));
+        if(!$conte){
+                return $this->redirect($this->generateUrl('error')."?id=8");
+        }
+                   
+        $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+        $clan='';
         
-    }
-  
+        $q = $repository->createQueryBuilder('d')
+        ->andWhere('d.idPhpbb != 0');
+        
+        if(!empty($request->query->get('clan'))) {         
+            $clan = $request->query->get('clan');
+            $q->andWhere('d.clan = :clan');
+        }
+        $query = $q->getQuery();
+        if(!empty($request->query->get('clan'))) {
+             $query->setParameter('clan', $clan);
+        }
+      	
+        $persos = $query->getResult();
+    
+	return $this->render('CamaInflusBundle:Perso:lister.html.twig', array(
+                'persos'=>$persos,
+                'clan'=>$clan,
+                'clans'=>  Constants::$LIST_CLANS
+                
+        ));
+    }  
 }

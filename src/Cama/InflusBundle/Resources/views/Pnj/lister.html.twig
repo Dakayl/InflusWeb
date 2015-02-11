@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Liste des PNJ{% endblock %}
+
+{% block body %}
+<h1>Liste des PNJ</h1>
+<table>
+<thead>
+<tr>
+<th>Nom du personnage</th>
+<th>Type</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+{% for perso in persos %}
+        {{ include('CamaInflusBundle:Pnj:ligne.html.twig', { 'perso': perso }) }}
+{% endfor %}
+</tbody>
+</table>
+<a href="{{ path('creerPNJ') }}">Créer un PNJ</a>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}

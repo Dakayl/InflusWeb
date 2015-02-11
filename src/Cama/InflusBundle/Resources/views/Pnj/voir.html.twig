@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Fiche du PNJ {{perso.nom}} {% endblock %}
+{% block body %}
+<h1>Fiche du PNJ {{perso.nom}}</h1>
+<table>
+<tr>
+<th>Type</th>
+<td>{{ perso.clan }}</td>
+<tr>
+<th> Ville</th>
+<td> {{ perso.ville }} </td>
+</tr>
+</tr>
+{% if influences|length > 0 %}
+<p>Influences</p>
+<table id='influence'>
+<tr><th>Nom</th><th>Type</th><th>Niveau</th><th>Ville</th><tr>
+{% for influence in influences %}
+        {{ include('CamaInflusBundle:Perso:influence_ligne.html.twig', { 'influence': influence}) }}
+{% endfor %}
+</table>
+{% endif %}
+<a href="{{ path('editerPnj', {'id': perso.id}) }}">Editer</a>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}
+
+

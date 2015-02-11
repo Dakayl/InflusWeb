@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Création d'une feuille de PNJ {% endblock %}
+{% block body %}
+<h1>Creation d'une feuille de personnage </h1>
+
+{{ form(form) }}
+<script>
+// Récupère le div qui contient la collection 
+var collectionHolderI = $('#Possesseur_influence').addClass("coll_block");
+
+// ajoute un lien « add a tag »
+var $addLinkI = $('<a href="#" class="btn btn_add add_influence_link">Ajouter une influence</a>');
+
+jQuery(document).ready(function() {
+    // ajoute l'ancre « ajouter un tag » et li à la balise ul
+    collectionHolderI.append($addLinkI);
+
+    $addLinkI.on('click', function(e) {
+        e.preventDefault();
+        addForm(collectionHolderI, "Influence");
+    });
+
+    function addForm(collectionHolder, name) {
+    	var prototype = collectionHolder.attr('data-prototype');
+    	var newForm = prototype.replace(/__name__label__/g,name).replace(/__name__/g, collectionHolder.children().length);
+        collectionHolder.prepend(newForm);
+    }
+});
+</script>
+{{ include('CamaInflusBundle::footer.html.twig') }}
+{% endblock %}
+

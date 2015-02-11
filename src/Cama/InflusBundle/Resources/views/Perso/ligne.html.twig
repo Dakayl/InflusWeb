@@ -2,10 +2,13 @@
 <td>{{ perso.nom }}</td>
 <td>{{ perso.clan }}</td>
 <td>{{ perso.joueur }}</td>
-<td>{{ perso.inactif }}</td>
-{% if conte %}
+<td>{% if perso.inactif %}
+Inactif
+{% else %}
+Actif
+{% endif %}</td>
 <td> 
-<a href="{{ path('editerPerso', {'id': perso.id}) }}">Editer</a> 
+<a href="{{ path('voirPerso', {'id': perso.id}) }}">Voir</a> 
 </td>
-{% endif %}
+
 </tr>

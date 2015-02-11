@@ -1,23 +1,37 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Liste des personnages{% endblock %}
+{% block title %}Liste des fiches{% endblock %}
 
 {% block body %}
-<h1>Liste des personnages</h1>
+<h1>Liste des personnages joueurs</h1>
+<form method='get' id="filter">
+<label for="clan">Filtrer : </label><select id="clan" name="clan">
+<option value="" {% if clan|length < 1 %} selected {% endif %}>Tous</option>
+{% for c in clans %}
+    <option value="{{c}}"{% if c == clan %} selected {% endif %}>{{c}}</option>
+{% endfor %}
+</select>
+<script>
+    $("#clan").change( function(){
+        $('#filter').submit();
+    });
+</script>
+</form>
+{% if clan|length > 0 %}
+Filtrage : {{clan}}
+{% endif %}
 <table>
 <thead>
 <tr>
 <th>Nom du personnage</th>
 <th>Clan</th>
 <th>Joueur</th>
-<th>Validé ?</th>
-{% if conte %}
+<th>Etat</th>
 <th>Action</th>
-{% endif %}
 </tr></thead>
 <tbody>
 {% for perso in persos %}
-        {{ include('CamaInflusBundle:Perso:ligne.html.twig', { 'perso': perso, 'conte': conte }) }}
+        {{ include('CamaInflusBundle:Perso:ligne.html.twig', { 'perso': perso }) }}
 {% endfor %}
 </tbody>
 </table>

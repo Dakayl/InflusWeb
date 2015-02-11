@@ -13,10 +13,9 @@
 	{% endif %}
 	{% if conte %}
 	<!-- Conteur -->
-	<li><a href="{{ path('listeAValiderPerso') }}">Valider une feuille de personnage</a></li>
-	<li> Répondre à une fiche d'inter-partie </li>
-	<li> Gestion des joueurs </li>
-	<li> Gestion des IA d'influence </li>
+	<li><a href="{{ path('listePerso') }}">PJ</a> - <a href="{{ path('listeAValiderPerso') }}">à valider</a></li>
+	<li> <a href="{{ path('listePNJ') }}">PNJ</a>
+        <li> Répondre à une fiche d'inter-partie </li>
 	{% endif %}
 	{% if joueur %}
 	<!-- Joueur -->
@@ -25,7 +24,7 @@
 	<li> Voir vos anciennes fiches d'influences</li>
 	<li><a href="{{ path('listerTour') }}"> Dates de rendu d'influences à venir </a></li>
 	{% endif %}
-	 <li><a href="{{ path('ancienTour') }}"> Dates passées </a></li>
+	<li><a href="{{ path('ancienTour') }}"> Dates passées </a></li>
 
 </ul>
 <p>Listing prévisionnel des versions : </p>

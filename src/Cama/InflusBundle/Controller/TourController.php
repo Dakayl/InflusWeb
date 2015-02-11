@@ -11,7 +11,7 @@ use Cama\InflusBundle\Form\TourType;
 class TourController extends Controller
 {
 
-    public function creerTourAction(Request $request){
+    public function creerAction(Request $request){
 	$session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');
@@ -54,7 +54,7 @@ class TourController extends Controller
         ));
     }	
  
-    public function editerTourAction($id, Request $request){
+    public function editerAction($id, Request $request){
         $session = $request->getSession();
         // définit et récupère des attributs de session
         $rights = $session->get('rights');
@@ -86,7 +86,7 @@ class TourController extends Controller
         ));
     }
 
-    public function supprimerTourAction($id, Request $request){
+    public function supprimerAction($id, Request $request){
        
 	$session = $request->getSession();
         // définit et récupère des attributs de session
@@ -109,7 +109,7 @@ class TourController extends Controller
 
     }
 
-    public function listeToursAction(Request $request)
+    public function lister(Request $request)
     {
 	$session = $request->getSession();
         // définit et récupère des attributs de session
@@ -131,7 +131,7 @@ class TourController extends Controller
 		"tours"=>$tours
             ));    }
 
-    public function ancienTourAction(Request $request)
+    public function ancien(Request $request)
     {
         $repository = $this->getDoctrine()
         ->getRepository('CamaInflusBundle:Tour');
