@@ -4,6 +4,18 @@
 
 {% block body %}
 <h1>Liste des personnages</h1>
+<form method='get' id="filter">
+<label for="clan">Filtrer : </label><select id="clan" name="clan">
+{% for c in clans %}
+    <option value="{{c}}"{% if c == clan %} selected{% endif %}>{{c}}</option>
+{% endfor %}
+</select>
+<script>
+    $("#clan").change( function(){
+        $('#filter').submit();
+    })
+</script>
+</form>
 <table>
 <thead>
 <tr>

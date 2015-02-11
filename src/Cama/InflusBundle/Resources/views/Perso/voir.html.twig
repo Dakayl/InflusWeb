@@ -2,6 +2,11 @@
 
 {% block title %}Fiche de {{perso.nom}} {% endblock %}
 {% block body %}
+<select id="clan" name="clan">
+{% for c in clans %}
+    <option value="{{c}}"{% if c == clan %} selected{% endif %}>{{c}}</option>
+{% endfor %}
+</select>
 <h1>Fiche de {{perso.nom}} (clan {{perso.clan}})</h1>
 <table>
 <tr>

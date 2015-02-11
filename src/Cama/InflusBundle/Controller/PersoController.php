@@ -184,7 +184,6 @@ class PersoController extends Controller
         $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
         $persos = $repository->findBy($array);
 	return $this->render('CamaInflusBundle:Perso:avalider.html.twig', array(
-                'form' => $form->createView(),
                 'persos'=>$persos,
                 'clan'=>$clans,
                 'clans'=>  Constants::$LIST_CLANS
