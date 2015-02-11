@@ -4,7 +4,7 @@
 
 {% block body %}
 <h1>Bienvenue, {{ username }}, au système d'influence automatisé de la Camarilla Lyonnaise.</h1>
-<p id="infoversion">InflusWeb V0.3 : Camarilla Concile</p>
+<p id="infoversion">Version 0.5 - Etrius Embassy</p>
 <p>Voici les options qui s'offrent à vous :</p>
 <ul class='menu'>
 	{% if admin %}
@@ -14,7 +14,7 @@
 	{% if conte %}
 	<!-- Conteur -->
 	<li><a href="{{ path('listePerso') }}">PJ</a> - <a href="{{ path('listeAValiderPerso') }}">à valider</a></li>
-	<li> <a href="{{ path('listePNJ') }}">PNJ</a>
+	<li> <a href="{{ path('listerPNJ') }}">PNJ</a>
         <li> Répondre à une fiche d'inter-partie </li>
 	{% endif %}
 	{% if joueur %}
@@ -32,9 +32,9 @@
 	<li class='done'><b>V0.1 - Anarchy Anomaly :</b> création des modèles, lien avec phpBB : <b>fait</b> </li>
 	<li class='done'><b>V0.2 - Better Brujah :</b> Gestion des tours d'influence : <b>fait</b> </li>
 	<li class='done'><b>V0.3 - Camarilla Concile :</b> gestion des fiches de perso coté joueur : <b>fait</b> </li>
-	<li class='progress'><b>V0.4 - DiPadoua Dynamite </b> validation des fiches de perso coté conte : en cours - d'ici 3 semaines </li>
-	<li><b>V0.5 - Etrius Embassy : </b> Création des Influences PNJ coté conte : d'ici 4 semaines </li>
-	<li><b>V0.6 - Followers Fun : </b> Rédiger et voir ses fiche d'influence coté joueur : d'ici 6 semaines </li>
+	<li class='done'><b>V0.4 - DiPadoua Dynamite </b> validation des fiches de perso coté conte : en cours - d'ici 3 semaines </li>
+	<li class='done'><b>V0.5 - Etrius Embassy : </b> Création des Influences PNJ coté conte : d'ici 4 semaines </li>
+	<li class='progress'><b>V0.6 - Followers Fun : </b> Rédiger et voir ses fiche d'influence coté joueur : d'ici 6 semaines </li>
 	<li><b>V0.7 - Giovanny Grandissimo :</b> Valider une fiche d'influence coté conte : d'ici 7 semaines </li>
 	<li><b>V0.8 - Harbringers Hope : </b> Gestion des limitations d'influence : d'ici 8 semaines </li>
 	<li><b>V0.9 - Immoderate Inconnu : </b> Gestion des PNJs d'Influence : d'ici 9 semaines </li>
