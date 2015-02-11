@@ -23,7 +23,7 @@ class PossesseurType extends AbstractType
 	    ->add('vehicule', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes véhicules','type' => new VehiculeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
             ->add('etiquette', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes compétences en étiquette','type' => new EtiquetteType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
             ->add('influence', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste de mes influences','type' => new InfluenceType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
-	    ->add('save', 'submit');
+	    ->add('save', 'submit',array("label"=>"Sauvegarder"));
     }
 
     public function getName()
