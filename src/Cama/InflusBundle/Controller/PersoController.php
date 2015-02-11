@@ -204,6 +204,7 @@ class PersoController extends Controller
         $clan='';
         if(!empty($request->query->get('clan'))) {
             $array['clan'] = $request->query->get('clan');
+            $clan = $request->query->get('clan');
         }
         
         
