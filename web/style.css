@@ -93,6 +93,7 @@ form > div > div > div select{
 label.headcoll {
   display: block;
   width: 282px;
+  margin-top:5px;
 }
 .btn_add {
   padding:1px;
