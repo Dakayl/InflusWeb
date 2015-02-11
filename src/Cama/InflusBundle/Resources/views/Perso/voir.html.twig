@@ -98,6 +98,14 @@ Actif et validé
 </table>
 {% endif %}
 <a href="{{ path('editerPerso', {'id': perso.id}) }}">Editer</a>
+{% if conte %}
+    {% if perso.inactif %}
+<a href="{{ path('validerPerso', {'id': perso.id}) }}">Valider</a>
+    {% else %}
+<a href="{{ path('devaliderPerso', {'id': perso.id}) }}">Dévalider</a>
+    {% endif %} 
+{% endif %} 
 {{ include('CamaInflusBundle::footer.html.twig') }}
 {% endblock %}
+
 

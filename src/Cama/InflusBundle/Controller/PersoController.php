@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Cama\InflusBundle\Entity\Possesseur;
 use Cama\InflusBundle\Form\PossesseurType;
+use Cama\InflusBundle\Constants;
 
 class PersoController extends Controller
 {
@@ -15,6 +16,7 @@ class PersoController extends Controller
     {
 	$session = $request->getSession();
         // définit et récupère des attributs de session
+        $rights = $session->get('rights');
         $infos = $session->get('infos');
 	$phpbbid = $infos['phpbbid'];
 	
@@ -38,8 +40,7 @@ class PersoController extends Controller
 		'refuges'=>$perso->getRefuge(),
 		'vehicules'=>$perso->getVehicule(),
 		'servants'=>$perso->getServant(), 
-		'etiquettes'=>$perso->getEtiquette(),
-		'test'=>false));
+		'etiquettes'=>$perso->getEtiquette()));
         }
 
     }
@@ -65,13 +66,19 @@ class PersoController extends Controller
         else {
                 return $this->render('CamaInflusBundle:Perso:voir.html.twig', array(
                  'conte'=>false,
-		 'perso'=>$perso));
+		 'perso'=>$perso,
+		'influences'=>$perso->getInfluence(),
+		'refuges'=>$perso->getRefuge(),
+		'vehicules'=>$perso->getVehicule(),
+		'servants'=>$perso->getServant(), 
+		'etiquettes'=>$perso->getEtiquette()));
         }
     }
    
     public function creerPersoAction(Request $request){
 	$session = $request->getSession();
 	$infos = $session->get('infos');
+        
 	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
 	$phpbbid = $infos['phpbbid'];
 	$clan = ucfirst($infos['clan']);
@@ -117,6 +124,10 @@ class PersoController extends Controller
     }	
  
     public function editerPersoAction($id, Request $request){
+        $session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');	
+	$conte=(!empty($rights[15]));
 	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
 	$perso = $repository->findOneBy(array('id' => $id));
         if (!$perso) {
@@ -129,7 +140,7 @@ class PersoController extends Controller
         {
                 $form->handleRequest($request);
                 if ($form->isValid()) {
-                        $perso->setInactif(true);
+                        if(!$conte) $perso->setInactif(true);
                         $em = $this->getDoctrine()->getManager();
                         $em->flush();
                         return $this->redirect($this->generateUrl('voirMonPerso'));
@@ -153,10 +164,38 @@ class PersoController extends Controller
     }
 
     public function listeAValiderPersoAction(Request $request){
-    
+        $session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');
+        $infos = $session->get('infos');
+	$phpbbid = $infos['phpbbid'];
+	
+	$conte=(!empty($rights[15]));
+        if(!$conte){
+                return $this->redirect($this->generateUrl('error')."?id=7");
+        }
+        $array = array('inactif' => true);
+        $clan='';
+        if(!empty($request->query->get('clan'))) {
+            $array['clan'] = $request->query->get('clan');
+        }
+        
+        
+        $repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+        $persos = $repository->findBy($array);
+	return $this->render('CamaInflusBundle:Perso:avalider.html.twig', array(
+                'form' => $form->createView(),
+                'persos'=>$persos,
+                'clan'=>$clans,
+                'clans'=>  Constants::$LIST_CLANS
+                
+        ));
+        
+        
     }
    
     public function listerPersoAction(Request $request) {
+        
     }
   
 }

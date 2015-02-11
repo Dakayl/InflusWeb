@@ -3,6 +3,21 @@
 namespace Cama\InflusBundle;
 
 class Constants{
+    
+        public static $LIST_CLANS = array(
+            'Assamite',            
+            'Brujah',
+            'Caitiff',
+            'Gangrel',
+            'Giovanni',
+            'Malkavien',
+            'Nosferatu',
+            'Ravnos',
+            'Sethite',
+            'Toréador',
+            'Tremere',
+            'Ventrue'
+        );
 
 	public static $TYPE_SERVANT = array(	
 					"goule_influence"=>"Goule d'influence",
