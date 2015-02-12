@@ -3,6 +3,7 @@
 namespace Cama\InflusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Cama\InflusBundle\Constants;
 
 /**
  * Etiquette
@@ -78,6 +79,16 @@ class Etiquette
     public function getType()
     {
         return $this->type;
+    }
+    
+    /**
+     * Get textType
+     *
+     * @return string 
+     */
+    public function getTextType()
+    {
+        return Constants::$TYPE_INFLUENCE[$this->type];
     }
 
     /**
