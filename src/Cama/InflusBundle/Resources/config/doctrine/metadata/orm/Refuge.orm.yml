@@ -30,9 +30,10 @@ Refuge:
             length: null
             fixed: false
         securite:
-            type: smallint
+            type: text
             nullable: false
-            unsigned: true
+            length: 255
+            fixed: false
     manyToOne:
         possesseur:
             targetEntity: Possesseur
