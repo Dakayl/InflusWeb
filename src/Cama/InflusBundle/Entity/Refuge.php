@@ -173,9 +173,13 @@ class Refuge
         $result = array();
         $array = explode(";",$this->securite);
         foreach($array as $val) {
-            $l= new Ligne();
-            $l->setValue($val);
-            $result[] = $l;
+           
+            if(!empty($val)) {
+                $l= new Ligne();
+                $l->setValue($val);
+                $result[] = $l;
+            }
+           
         }
         return $result;
     }
@@ -191,8 +195,11 @@ class Refuge
          $str = "";
          $n = 0;
          foreach($lignes as $l) {
-            if($n++ > 0) $str .=";";
-            $str .= $l->getValue();
+            $v = $l->getValue();
+            if(!empty($v)) {
+                if($n++ > 0) $str .=";";
+                $str .= $v;
+            }
           
         }
         
