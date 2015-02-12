@@ -51,6 +51,7 @@ jQuery(document).ready(function() {
     $('#Possesseur_refuge').children("div").children("div").each(function() {
         var id='#'+($(this).attr("id"))+"_lignes";
         collectionHolderNew = $(id);
+        collectionHolderNew.addClass("ref_block");
         fix_label(collectionHolderNew);
         var $addLinkN = $('<a href="#" cible="'+id+'"class="btn btn_add add_securite_link">Ajouter une ligne</a>');
         
