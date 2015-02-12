@@ -20,7 +20,7 @@ class PossesseurType extends AbstractType
 	    ->add('banque','integer')
             ->add('servant', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste des servants','type' => new ServantType(),'prototype'=>true,'by_reference' => false,'allow_add' => true,'allow_delete'=>true))
 	    ->add('refuge', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste des refuges','type' => new RefugeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true,'allow_delete'=>true))
-	    ->add('vehicule', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste des véhicules','type' => new VehiculeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+	    ->add('vehicule', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste des véhicules','type' => new VehiculeType(),'prototype'=>true,'by_reference' => false,'allow_add' => true,'allow_delete'=>true))
             ->add('etiquette', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste des compétences en étiquette','type' => new EtiquetteType(),'prototype'=>true,'by_reference' => false,'allow_add' => true,'allow_delete'=>true))
             ->add('influence', 'collection', array("label_attr"=>array("class"=>'headcoll'),"label"=>'Liste des influences','type' => new InfluenceType(),'prototype'=>true,'by_reference' => false,'allow_add' => true,'allow_delete'=>true))
 	    ->add('save', 'submit',array("label"=>"Sauvegarder"));
