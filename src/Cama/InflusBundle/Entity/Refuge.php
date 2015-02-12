@@ -169,7 +169,7 @@ class Refuge
      * @param array $lignes
      * @return Refuge
      */
-    public function setSecurite($lignes)
+    public function setLignes($lignes)
     {
         $this->securite = implode(";",$securite);
 
