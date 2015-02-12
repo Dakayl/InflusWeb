@@ -68,11 +68,29 @@ class PnjController extends Controller
 		return $this->redirect($this->generateUrl('creerPNJ'));		
         }
         $form = $this->createForm(new IAType(), $perso);
+        $originalI = new ArrayCollection();
+	$originalE = new ArrayCollection();
+	foreach ($perso->getInfluence() as $i) {
+		$originalI->add($i);
+	}
+	foreach ($perso->getEtiquette() as $i) {
+		$originalE->add($i);
+	}
         if ($request->getMethod() == 'POST')
         {
                 $form->handleRequest($request);
                 if ($form->isValid()) {                        
                         $em = $this->getDoctrine()->getManager();
+                        foreach ($originalI as $i) {
+				if ($perso->getInfluence()->contains($i) == false) {
+					$em->remove($i);
+				}
+			}
+			foreach ($originalE as $e) {
+				if ($perso->getEtiquette()->contains($e) == false) {
+					$em->remove($e);
+				}
+			}
                         $em->flush();
                         return $this->redirect($this->generateUrl('voirPNJ',array("id"=>$id)));
                 }
