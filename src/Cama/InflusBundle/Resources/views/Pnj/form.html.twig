@@ -10,6 +10,7 @@ jQuery(document).ready(function() {
     // ajoute l'ancre « ajouter un tag » et li à la balise ul
     
     collectionHolderI.append($addLinkI);
+    collectionHolderE.append($addLinkE);
     $addLinkE.on('click', function(e) {
         e.preventDefault();
         addForm(collectionHolderE, "Etiquette");
