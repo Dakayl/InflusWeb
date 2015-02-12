@@ -9,7 +9,7 @@ class PossesseurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('joueur', 'text')
+            ->add('joueur', 'text',array("label"=>"Joueur / Interprête"))
 	    ->add('email','text')
 	    ->add('clan','hidden')
 	    ->add('ville','text')
