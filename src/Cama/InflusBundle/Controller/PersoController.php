@@ -162,7 +162,7 @@ class PersoController extends Controller
 	foreach ($perso->getVehicule() as $v) {
 		$originalV->add($v);
 	}
-	foreach ($perso->getServant() as $is) {
+	foreach ($perso->getServant() as $s) {
 		$originalS->add($s);
 	}
 	$phpbbid = $infos['phpbbid'];
