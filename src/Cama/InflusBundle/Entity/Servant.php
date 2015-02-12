@@ -31,7 +31,7 @@ class Servant
     /**
      * @var boolean
      *
-     * @ORM\Column(name="niveau", type="boolean", nullable=false)
+     * @ORM\Column(name="niveau", type="smallint", nullable=false)
      */
     private $niveau;
 
@@ -97,7 +97,7 @@ class Servant
     /**
      * Set niveau
      *
-     * @param boolean $niveau
+     * @param smallint $niveau
      * @return Servant
      */
     public function setNiveau($niveau)
@@ -110,7 +110,7 @@ class Servant
     /**
      * Get niveau
      *
-     * @return boolean 
+     * @return smallint 
      */
     public function getNiveau()
     {
