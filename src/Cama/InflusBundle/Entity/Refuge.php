@@ -181,7 +181,7 @@ class Refuge
      */
     public function setLignes($lignes)
     {
-        $this->securite = implode(";",$securite);
+        $this->securite = implode(";",$lignes);
 
         return $this;
     }
