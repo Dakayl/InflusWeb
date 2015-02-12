@@ -147,7 +147,7 @@ class PnjController extends Controller
 
 
 	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
-        $perso = $repository->findOneBy(array('id' => $id, 'idPhpBB'=>0));
+        $perso = $repository->findOneBy(array('id' => $id, 'idPhpbb'=>0));
 
         if($perso) {
         	$em = $this->getDoctrine()->getManager();
