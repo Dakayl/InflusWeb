@@ -146,11 +146,26 @@ class PersoController extends Controller
         }
         $form = $this->createForm(new PossesseurType(), $perso);
         $originalI = new ArrayCollection();
+	$originalE = new ArrayCollection();
+	$originalR = new ArrayCollection();
+	$originalV = new ArrayCollection();
+	$originalS = new ArrayCollection();
 	
-	// Crée un tableau contenant les objets Tag courants de la
-	// base de données
+	// Crée un tableau contenant les objets courants de la base de données
 	foreach ($perso->getInfluence() as $i) {
 		$originalI->add($i);
+	}
+	foreach ($perso->getEtiquette() as $i) {
+		$originalE->add($i);
+	}
+	foreach ($perso->getRefuge() as $i) {
+		$originalR->add($i);
+	}
+	foreach ($perso->getVehicule() as $i) {
+		$originalV->add($i);
+	}
+	foreach ($perso->getServant() as $i) {
+		$originalS->add($i);
 	}
 	if ($request->getMethod() == 'POST')
         {
@@ -161,6 +176,26 @@ class PersoController extends Controller
                 	foreach ($originalI as $i) {
 		                if ($perso->getInfluence()->contains($i) == false) {
 		                    $em->remove($i);
+		        	}
+		        }
+		        foreach ($originalE as $e) {
+		                if ($perso->getEtiquette()->contains($e) == false) {
+		                    $em->remove($e);
+		        	}
+		        }
+		        foreach ($originalS as $s) {
+		                if ($perso->getServant()->contains($s) == false) {
+		                    $em->remove($s);
+		        	}
+		        }
+		        foreach ($originalV as $v) {
+		                if ($perso->getVehicule()->contains($v) == false) {
+		                    $em->remove($v);
+		        	}
+		        }
+		        foreach ($originalR as $r) {
+		                if ($perso->getRefuge()->contains($r) == false) {
+		                    $em->remove($r);
 		        	}
 		        }
                         $em->flush();
