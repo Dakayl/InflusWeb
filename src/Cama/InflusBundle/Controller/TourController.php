@@ -109,7 +109,7 @@ class TourController extends Controller
 
     }
 
-    public function lister(Request $request)
+    public function listerAction(Request $request)
     {
 	$session = $request->getSession();
         // définit et récupère des attributs de session
@@ -131,7 +131,7 @@ class TourController extends Controller
 		"tours"=>$tours
             ));    }
 
-    public function ancien(Request $request)
+    public function ancienAction(Request $request)
     {
         $repository = $this->getDoctrine()
         ->getRepository('CamaInflusBundle:Tour');
