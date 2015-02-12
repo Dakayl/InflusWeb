@@ -15,7 +15,16 @@ function fix(target) {
     return  fix_label(target);
 }
 function fix_label(target) {
-    target.children("div").children("label").css("display","none");
+    target.children("div").children("label").css("display","none").each( function(){
+        if($(this).children("a.remove_link").length < 1){
+            var $addLinkDelete = $('<a href="#" class="btn remove_link">X</a>');
+            $(this).append($addLinkDelete);
+            $addLinkDelete.on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().remove();
+        });
+        }
+    }
     return target;
 }
 
@@ -26,6 +35,8 @@ var $addLinkR = $('<a href="#" class="btn btn_add add_refuge_link">Ajouter un re
 var $addLinkV = $('<a href="#" class="btn btn_add add_vehicule_link">Ajouter un véhicule</a>');
 var $addLinkE = $('<a href="#" class="btn btn_add add_etiquette_link">Ajouter une compétence étiquette</a>');
 var $addLinkI = $('<a href="#" class="btn btn_add add_influence_link">Ajouter une influence</a>');
+
+
 
 jQuery(document).ready(function() {
     // ajoute l'ancre « ajouter un tag » et li à la balise ul
