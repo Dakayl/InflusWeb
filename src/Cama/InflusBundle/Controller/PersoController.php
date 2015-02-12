@@ -144,12 +144,24 @@ class PersoController extends Controller
                 return $this->redirect($this->generateUrl('voirMonPerso'));
         }
         $form = $this->createForm(new PossesseurType(), $perso);
-        if ($request->getMethod() == 'POST')
+        $originalI = new ArrayCollection();
+	
+	    // Crée un tableau contenant les objets Tag courants de la
+	    // base de données
+	    foreach ($perso->getInfluence() as $i) {
+	        $originalTags->add($i);
+	    }
+	if ($request->getMethod() == 'POST')
         {
                 $form->handleRequest($request);
                 if ($form->isValid()) {
                         if(!$conte) $perso->setInactif(true);
                         $em = $this->getDoctrine()->getManager();
+                	foreach ($originalI as $i) {
+		                if ($perso->getInfluence()->contains($i) == false) {
+		                    $em->remove($i);
+		        	}
+		        }
                         $em->flush();
                         if(!$conte) return $this->redirect($this->generateUrl('voirMonPerso'));
                         return $this->redirect($this->generateUrl('voirPerso',array("id"=>$id)));
