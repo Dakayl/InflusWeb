@@ -111,6 +111,12 @@ div.coll_block > div {
   border:1px #CCC solid;
   padding:5px;
   margin:5px;
+  position:relative;
+}
+div.coll_block > div > a.remove_link {
+  position:absolute;
+  top:0;
+  right:10px;
 }
 div.coll_block select {
   width:152px;
