@@ -140,6 +140,16 @@ class Refuge
         return $this->description;
     }
 
+     /**
+     * Get securite
+     *
+     * @return string 
+     */
+    public function getSecurite()
+    {
+        return $this->securite;
+    }
+    
     /**
      * Set securite
      *
@@ -176,15 +186,7 @@ class Refuge
         return $this;
     }
 
-    /**
-     * Get securite
-     *
-     * @return string 
-     */
-    public function getSecurite()
-    {
-        return $this->securite;
-    }
+   
 
     /**
      * Set possesseur
