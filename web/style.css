@@ -137,7 +137,6 @@ div.coll_block select {
 }
 div.wholemenu {
   border-spacing : 3px;
-  border-collapse : collapse;
 }
 ul.menu {
   list-style: none;
