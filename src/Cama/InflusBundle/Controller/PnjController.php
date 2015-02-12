@@ -133,5 +133,29 @@ class PnjController extends Controller
 		'influences'=>$perso->getInfluence()));
         }
     }
+    
+    public function supprimerAction($id, Request $request){
+       
+	$session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');
+
+	$conte=(!empty($rights[15]));
+	if(!$conte){
+		return $this->redirect($this->generateUrl('error')."?id=15");		
+	}
+
+
+	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+        $perso = $repository->findOneBy(array('id' => $id, 'idPhpBB'=>0));
+
+        if($perso) {
+        	$em = $this->getDoctrine()->getManager();
+		$em->remove($perso);
+	        $em->flush();
+        }
+        return $this->redirect($this->generateUrl('listerPNJ'));;
+
+    }
   
 }
