@@ -154,6 +154,29 @@ class Refuge
     }
 
     /**
+     * Get lignes
+     *
+     * @return array 
+     */
+    public function getLignes()
+    {
+        return explode(";",$this->securite);
+    }
+    
+    /**
+     * Set lignes
+     *
+     * @param array $lignes
+     * @return Refuge
+     */
+    public function setSecurite($lignes)
+    {
+        $this->securite = implode(";",$securite);
+
+        return $this;
+    }
+
+    /**
      * Get securite
      *
      * @return integer 
