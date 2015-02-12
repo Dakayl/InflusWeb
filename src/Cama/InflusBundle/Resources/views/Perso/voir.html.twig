@@ -71,7 +71,7 @@ Actif et validé
 {% if refuges|length > 0 %}
 <p>Refuges</p>
 <table id='refuge'>
-<tr><th>Nom</th><th>Niveau</th><th>Description</th><th>Lignes</th><tr>
+<tr><th>Nom</th><th>Niveau</th><th>Description</th><th>Lignes de sécurité</th><tr>
 {% for refuge in refuges %}
         {{ include('CamaInflusBundle:Perso:refuge_ligne.html.twig', { 'refuge': refuge}) }}
 {% endfor %}
