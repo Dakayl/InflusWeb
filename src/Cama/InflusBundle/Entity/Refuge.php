@@ -143,7 +143,7 @@ class Refuge
     /**
      * Set securite
      *
-     * @param integer $securite
+     * @param string $securite
      * @return Refuge
      */
     public function setSecurite($securite)
@@ -179,7 +179,7 @@ class Refuge
     /**
      * Get securite
      *
-     * @return integer 
+     * @return string 
      */
     public function getSecurite()
     {
