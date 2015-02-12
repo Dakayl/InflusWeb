@@ -4,7 +4,7 @@ namespace Cama\InflusBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Cama\InflusBundle\Form\LignesType;
+use Cama\InflusBundle\Form\LigneType;
 
 class RefugeType extends AbstractType
 {
@@ -14,7 +14,7 @@ class RefugeType extends AbstractType
 	->add("nom","text")
 	->add("niveau","integer")
 	->add("description","textarea")
-        ->add('lignes', 'collection', array("label"=>'Lignes de sécurité','type' => new LignesType(),'prototype'=>true,'by_reference' => false,'allow_add' => true));
+        ->add('lignes', 'collection', array("label"=>'Lignes de sécurité','type' => new LigneType(),'prototype'=>true,'by_reference' => false,'allow_add' => true));
     }
 	
     public function setDefaultOptions(OptionsResolverInterface $resolver)
