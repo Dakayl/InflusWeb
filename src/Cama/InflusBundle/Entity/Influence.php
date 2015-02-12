@@ -3,7 +3,7 @@
 namespace Cama\InflusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Cama\InflusBundle\Constants;
 /**
  * Influence
  *
@@ -100,7 +100,16 @@ class Influence
     {
         return $this->type;
     }
-
+    
+   /**
+     * Get textType
+     *
+     * @return string 
+     */
+    public function getTextType()
+    {
+        return Constants::$TYPE_INFLUENCE[$this->type];
+    }
     /**
      * Set niveau
      *
