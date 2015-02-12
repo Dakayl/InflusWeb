@@ -81,7 +81,7 @@ Actif et validé
 {% if vehicules|length > 0 %}
 <p>Véhicules</p>
 <table id='vehicule'>
-<tr><th>Nom</th><th>Niveau</th><th>Description</th><tr>
+<tr><th>Nom</th><th>Description</th><tr>
 {% for vehicule in vehicules %}
         {{ include('CamaInflusBundle:Perso:vehicule_ligne.html.twig', { 'vehicule': vehicule}) }}
 {% endfor %}
