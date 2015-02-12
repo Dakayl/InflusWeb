@@ -138,9 +138,7 @@ class PersoController extends Controller
                 return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
                 'conte'=>$conte
                 ));
-                
         }
-        $phpbbid = $infos['phpbbid'];
         if(!$conte && $perso->getIdPhpbb() != $phpbbid) {
                 return $this->redirect($this->generateUrl('voirMonPerso'));
         }
@@ -155,18 +153,20 @@ class PersoController extends Controller
 	foreach ($perso->getInfluence() as $i) {
 		$originalI->add($i);
 	}
-	foreach ($perso->getEtiquette() as $i) {
-		$originalE->add($i);
+	foreach ($perso->getEtiquette() as $e) {
+		$originalE->add($e);
 	}
-	foreach ($perso->getRefuge() as $i) {
-		$originalR->add($i);
+	foreach ($perso->getRefuge() as $r) {
+		$originalR->add($r);
 	}
-	foreach ($perso->getVehicule() as $i) {
-		$originalV->add($i);
+	foreach ($perso->getVehicule() as $v) {
+		$originalV->add($v);
 	}
-	foreach ($perso->getServant() as $i) {
-		$originalS->add($i);
+	foreach ($perso->getServant() as $is) {
+		$originalS->add($s);
 	}
+	$phpbbid = $infos['phpbbid'];
+	
 	if ($request->getMethod() == 'POST')
         {
                 $form->handleRequest($request);
