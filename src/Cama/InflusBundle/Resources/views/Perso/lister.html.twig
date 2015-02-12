@@ -3,14 +3,14 @@
 {% block title %}Liste des fiches{% endblock %}
 
 {% block body %}
-<h1>Liste des personnages joueurs</h1>
+<h1>Liste des personnages</h1>
 {{ include('CamaInflusBundle:Perso:filter.html.twig',{'clan': clan, 'clans':clans}) }}
 <table>
 <thead>
 <tr>
 <th>Nom du personnage</th>
 <th>Clan</th>
-<th>Joueur</th>
+<th>Joueur / Interprête</th>
 <th>Etat</th>
 <th>Action</th>
 </tr></thead>
