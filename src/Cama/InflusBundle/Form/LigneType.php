@@ -8,7 +8,7 @@ class LigneType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-      $builder->add('value', 'integer');
+      $builder->add('value', 'integer',array("label"=>"sécurité"));
     }
     
     public function setDefaultOptions(OptionsResolverInterface $resolver)
