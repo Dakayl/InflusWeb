@@ -11,7 +11,7 @@ class VehiculeType extends AbstractType
     {
         $builder
 	->add("nom","text")
-	->add("niveau","integer")
+	->add("niveau","hidden")
 	->add("description","textarea");
     }
 
