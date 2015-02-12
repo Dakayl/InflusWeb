@@ -192,7 +192,7 @@ class Refuge
          $n = 0;
          foreach($lignes as $l) {
             if($n++ > 0) $str .=";";
-            $str .= $l->getValue($val);
+            $str .= $l->getValue();
           
         }
         
