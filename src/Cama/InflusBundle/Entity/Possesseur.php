@@ -140,11 +140,13 @@ class Possesseur
      */
     private $servant;
 
+    //TBDONE
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Possesseur", mappedBy="vuPar")
+     * @ORM\ManyToMany(targetEntity="Possesseur")
      */
+     
     private $possesseur;
 
     /**
