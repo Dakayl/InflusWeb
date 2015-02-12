@@ -1,8 +1,29 @@
 {{ form(form) }}
 <script>
 // Récupère le div qui contient la collection 
-var collectionHolderI = $('#IA_influence').addClass("coll_block");
-var collectionHolderE = $('#IA_etiquette').addClass("coll_block");
+var collectionHolderE =  fix($('#IA_etiquette'));
+var collectionHolderI =  fix($('#IA_influence'));
+
+function fix(target) {
+    target.addClass("coll_block");
+    return  fix_label(target);
+}
+function fix_label(target) {
+    target.children("div").each( function(){
+        $(this).children("label").css("display","none");
+        n = $(this).children("a.remove_link").length;
+        if(n < 1){
+            var $addLinkDelete = $('<a href="#" class="btn remove_link">X</a>');
+            $(this).append($addLinkDelete);
+            $addLinkDelete.on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().remove();
+            });
+        }
+    });
+    return target;
+}
+
 // ajoute un lien « add a tag »
 var $addLinkI = $('<a href="#" class="btn btn_add add_influence_link">Ajouter une influence</a>');
 var $addLinkE = $('<a href="#" class="btn btn_add add_etiquette_link">Ajouter une etiquette</a>');
@@ -24,6 +45,7 @@ jQuery(document).ready(function() {
     	var prototype = collectionHolder.attr('data-prototype');
     	var newForm = prototype.replace(/__name__label__/g,name).replace(/__name__/g, collectionHolder.children().length);
         collectionHolder.prepend(newForm);
+        fix_label(collectionHolder);
     }
 });
 </script>
