@@ -39,7 +39,7 @@ class PnjController extends Controller
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($perso);
                         $em->flush();
-			return $this->redirect($this->generateUrl('voirPnj',array('id'=>$perso->getId())));
+			return $this->redirect($this->generateUrl('voirPNJ',array('id'=>$perso->getId())));
 
                 }
 
