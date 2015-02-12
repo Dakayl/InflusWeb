@@ -95,6 +95,11 @@ label.headcoll {
   width: 282px;
   margin-top:5px;
 }
+label.smallcoll{
+  width: 254px;
+  display:block;
+  margin-top:5px;
+}
 #main .btn_add {
   margin-left:2em;
   display: inline-block;
