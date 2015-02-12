@@ -43,9 +43,9 @@ class Refuge
     private $description;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="securite", type="smallint", nullable=false)
+     * @ORM\Column(name="securite", type="string", nullable=false)
      */
     private $securite;
 
