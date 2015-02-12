@@ -15,8 +15,8 @@ function fix(target) {
     return  fix_label(target);
 }
 function fix_label(target) {
-    target.children("div").children("label").css("display":"none");
-    return target
+    target.children("div").children("label").css("display","none");
+    return target;
 }
 
 
@@ -27,7 +27,6 @@ var $addLinkV = $('<a href="#" class="btn btn_add add_vehicule_link">Ajouter un 
 var $addLinkE = $('<a href="#" class="btn btn_add add_etiquette_link">Ajouter une compétence étiquette</a>');
 var $addLinkI = $('<a href="#" class="btn btn_add add_influence_link">Ajouter une influence</a>');
 
-
 jQuery(document).ready(function() {
     // ajoute l'ancre « ajouter un tag » et li à la balise ul
     collectionHolderS.append($addLinkS);
@@ -37,7 +36,7 @@ jQuery(document).ready(function() {
     collectionHolderI.append($addLinkI);
     
     $('#Possesseur_refuge').children("div").children("div").each(function() {
-        var id='#'+$(this).attr("id")+"_lignes";
+        var id='#'+($(this).attr("id"))+"_lignes";
         collectionHolderNew = $(id);
         fix_label(collectionHolderNew);
         var $addLinkN = $('<a href="#" cible="'+id+'"class="btn btn_add add_securite_link">Ajouter une ligne</a>');
