@@ -10,6 +10,13 @@ class LigneType extends AbstractType
     $builder
     ->add('value', 'integer');
   }
+  
+  public function setDefaultOptions(OptionsResolverInterface $resolver)
+  {
+    $resolver->setDefaults(array(
+    'data_class' => 'Cama\InflusBundle\Entity\Ligne',
+  ));
+
   public function getName()
   {
     return 'ligne';
