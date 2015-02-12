@@ -10,7 +10,10 @@
 </tr>
 <tr>
 <th>E-mail</th>
-<td>{{ perso.email }}</td>
+<td>{% if etiquettes|length > 0 %}
+<a href="mailto:{{ perso.email }}">{{ perso.email }}</a>
+{% endif %}     
+</td>
 </tr>
 <tr>
 <th>Etat </th>
