@@ -3,7 +3,7 @@ namespace Cama\InflusBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class LignesType extends AbstractType
+class LigneType extends AbstractType
 {
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
@@ -12,6 +12,6 @@ class LignesType extends AbstractType
   }
   public function getName()
   {
-    return 'lignes';
+    return 'ligne';
   }
 }
