@@ -3,7 +3,7 @@
 namespace Cama\InflusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Cama\InflusBundle\Entity\Ligne;
 /**
  * Refuge
  *
@@ -170,7 +170,14 @@ class Refuge
      */
     public function getLignes()
     {
-        return explode(";",$this->securite);
+        $result = array();
+        $array = explode(";",$this->securite);
+        foreach($array as $val) {
+            $l= new Ligne();
+            $l->setValue($val);
+            $result[] = $l;
+        }
+        return $result;
     }
     
     /**
@@ -181,7 +188,15 @@ class Refuge
      */
     public function setLignes($lignes)
     {
-        $this->securite = implode(";",$lignes);
+         $str = "";
+         $n = 0;
+         foreach($lignes as $l) {
+            if($n++ > 0) $str .=";";
+            $str .= $l->getValue($val);
+          
+        }
+        
+        $this->securite = $str;
 
         return $this;
     }
