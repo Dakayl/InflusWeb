@@ -90,10 +90,6 @@ class Constants{
 		'T'=>array(text=>'Transfert',target=>true)
 	);
 
-
-
-         
-
 	public static $TYPE_SERVANT = array(	
 		"goule_influence"=>"Goule d'influence",
 	   	"goule_terrain"=>"Goule de terrain",
