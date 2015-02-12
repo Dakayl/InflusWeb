@@ -3,7 +3,7 @@
 namespace Cama\InflusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Cama\InflusBundle\Constants;
 /**
  * Servant
  *
@@ -92,6 +92,16 @@ class Servant
     public function getType()
     {
         return $this->type;
+    }
+    
+    /**
+        * Get textType
+        *
+        * @return string
+        */
+    public function getTextType()
+    {
+    return Constants::$TYPE_SERVANT[$this->type];
     }
 
     /**
