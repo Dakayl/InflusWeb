@@ -2,5 +2,8 @@
 <td>{{ refuge.nom }}</td>
 <td>{{ refuge.niveau }}</td>
 <td>{{ refuge.description }}</td>
-<td>{{ refuge.securite }}</td>
+<td>{% for refuge.lignes as ligne %}
+  1 ligne de sécurité {{ligne}} <br />
+{{% endfor}}
+</td>
 </tr>
