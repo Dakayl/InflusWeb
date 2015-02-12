@@ -130,7 +130,8 @@ class PnjController extends Controller
         else {
                 return $this->render('CamaInflusBundle:Pnj:voir.html.twig', array(
 		'perso'=>$perso,
-		'influences'=>$perso->getInfluence()));
+		'influences'=>$perso->getInfluence(), 
+		'etiquettes'=>$perso->getEtiquette()));
         }
     }
     
