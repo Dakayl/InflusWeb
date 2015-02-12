@@ -147,11 +147,11 @@ class PersoController extends Controller
         $form = $this->createForm(new PossesseurType(), $perso);
         $originalI = new ArrayCollection();
 	
-	    // Crée un tableau contenant les objets Tag courants de la
-	    // base de données
-	    foreach ($perso->getInfluence() as $i) {
-	        $originalTags->add($i);
-	    }
+	// Crée un tableau contenant les objets Tag courants de la
+	// base de données
+	foreach ($perso->getInfluence() as $i) {
+		$originalI->add($i);
+	}
 	if ($request->getMethod() == 'POST')
         {
                 $form->handleRequest($request);
