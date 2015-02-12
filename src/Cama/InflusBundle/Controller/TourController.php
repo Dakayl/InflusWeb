@@ -101,10 +101,12 @@ class TourController extends Controller
 	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Tour');
         $tour = $repository->findOneBy(array('id' => $id));
 
-        $em = $this->getDoctrine()->getManager();
-	$idT = $tour->getId();
-	$em->remove($tour);
-        $em->flush();
+        if($tour) {
+        	$em = $this->getDoctrine()->getManager();
+		$idT = $tour->getId();
+		$em->remove($tour);
+	        $em->flush();
+        }
         return $this->redirect($this->generateUrl('listerTour')."?deleted=".$idT);
 
     }
