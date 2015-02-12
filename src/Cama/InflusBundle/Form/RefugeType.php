@@ -13,7 +13,7 @@ class RefugeType extends AbstractType
 	->add("nom","text")
 	->add("niveau","integer")
 	->add("description","textarea")
-        ->add('lignes', 'collection', array("label"=>'Lignes de sécurité','type' => new LignesType(),'prototype'=>true,'by_reference' => false,'allow_add' => true))
+        ->add('lignes', 'collection', array("label"=>'Lignes de sécurité','type' => new LignesType(),'prototype'=>true,'by_reference' => false,'allow_add' => true));
     }
 	
     public function setDefaultOptions(OptionsResolverInterface $resolver)
