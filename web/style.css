@@ -119,6 +119,15 @@ div.coll_block > div > a.remove_link {
   right: -27px;
   padding: 1px 5px;
 }
+div.ref_block > div {
+  position:relative;
+}
+div.ref_block > div > a.remove_link {
+  position:absolute;
+  right: -27px;
+  padding: 1px 5px;
+}
+
 div.coll_block select {
   width:152px;
 }
