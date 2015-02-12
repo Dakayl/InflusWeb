@@ -16,15 +16,15 @@ function fix(target) {
 }
 function fix_label(target) {
     target.children("div").children("label").css("display","none").each( function(){
-        if($(this).children("a.remove_link").length < 1){
+        if($(this).children("a.remove_link").length < 1) {
             var $addLinkDelete = $('<a href="#" class="btn remove_link">X</a>');
             $(this).append($addLinkDelete);
             $addLinkDelete.on('click', function(e) {
                 e.preventDefault();
                 $(this).parent().remove();
-        });
+            });
         }
-    }
+    });
     return target;
 }
 
