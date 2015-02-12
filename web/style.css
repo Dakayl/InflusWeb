@@ -123,11 +123,11 @@ div.ref_block > div {
   position:relative;
 }
 div.ref_block > div label{
-  width:60px;
+  width:55px;
 }
 div.ref_block > div > a.remove_link {
   position:absolute;
-  right: -27px;
+  right: 5px;
   padding: 1px 5px;
   top: 0px;
 }
