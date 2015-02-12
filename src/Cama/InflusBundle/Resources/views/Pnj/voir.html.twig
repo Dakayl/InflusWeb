@@ -16,6 +16,15 @@
 <td> {{ perso.ville }} </td>
 </tr>
 </table>
+{% if etiquettes|length > 0 %}
+<p>Etiquettes</p>
+<table id='etiquette'>
+<tr><th>Type</th><th>Niveau</th><tr>
+{% for etiquette in etiquettes %}
+{{ include('CamaInflusBundle:Perso:etiquette_ligne.html.twig', { 'etiquette': etiquette}) }}
+{% endfor %}
+</table>
+{% endif %}
 {% if influences|length > 0 %}
 <p>Influences</p>
 <table id='influence'>
