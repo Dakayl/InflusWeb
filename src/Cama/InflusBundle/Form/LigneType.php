@@ -14,7 +14,7 @@ class LigneType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
       $resolver->setDefaults(array(
-      'data_class' => 'Cama\InflusBundle\Entity\Ligne',
+      'data_class' => null,
       ));
     }
     
