@@ -4,7 +4,7 @@ namespace Cama\InflusBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Cama\InflusBundle\Form\LignesTypes;
+use Cama\InflusBundle\Form\LignesType;
 
 class RefugeType extends AbstractType
 {
