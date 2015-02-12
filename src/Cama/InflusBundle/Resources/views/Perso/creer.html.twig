@@ -3,7 +3,7 @@
 {% block title %}Création d'une feuille de personnage {% endblock %}
 {% block body %}
 <h1>Creation d'une feuille de personnage </h1>
-{{ include('CamaInflusBundle::footer.html.twig',{'form': form, 'clan': clan, 'name':name}) }}
+{{ include('CamaInflusBundle:Perso:form.html.twig',{'form': form, 'clan': clan, 'name':name}) }}
 {{ include('CamaInflusBundle::footer.html.twig') }}
 {% endblock %}
 
