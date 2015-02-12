@@ -119,6 +119,13 @@ editerPNJ:
   defaults: { _controller: CamaInflusBundle:Pnj:editer}
   requirements:
          _method:  GET|POST
+         
+supprimerPNJ:
+  path:    /pnj/{id}/supprimer
+  defaults: { _controller: CamaInflusBundle:Pnj:supprimer}
+  requirements:
+         _method:  GET
+         
 # ORDRES 
 
 ordres_actuels:
