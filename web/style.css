@@ -122,6 +122,9 @@ div.coll_block > div > a.remove_link {
 div.ref_block > div {
   position:relative;
 }
+div.ref_block > div > label{
+  width:60px;
+}
 div.ref_block > div > a.remove_link {
   position:absolute;
   right: -27px;
