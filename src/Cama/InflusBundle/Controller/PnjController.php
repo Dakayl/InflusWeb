@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Cama\InflusBundle\Entity\Possesseur;
 use Cama\InflusBundle\Form\IAType;
 use Cama\InflusBundle\Constants;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class PnjController extends Controller
 {
