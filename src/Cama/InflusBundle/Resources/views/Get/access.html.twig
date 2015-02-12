@@ -6,6 +6,7 @@
 <h1>Bienvenue, {{ username }}, au système d'influence automatisé de la Camarilla Lyonnaise.</h1>
 <p id="infoversion">Version 0.5 - Etrius Embassy</p>
 <p>Voici les options qui s'offrent à vous :</p>
+<div class='wholemenu'>
 <ul class='menu'>
 	{% if admin %}
 	<!-- CA, Conteur, Admin -->
@@ -27,6 +28,8 @@
 	<li><a href="{{ path('ancienTour') }}"> Dates passées </a></li>
 
 </ul>
+</div>
+<br /><br />
 <p>Listing prévisionnel des versions : </p>
 <ul class='version'>
 	<li class='done'><b>V0.1 - Anarchy Anomaly :</b> création des modèles, lien avec phpBB : <b>fait</b> </li>
