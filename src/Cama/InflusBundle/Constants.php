@@ -99,8 +99,9 @@ class Constants{
             	'text'=>'Apprendre %1% %2% seul',
             	'parameters'=>array('list_learn_nomentor','level')),
     	    'Apprendre_A' => array(
+    	    	'notAction'=>true,
             	'shorttext'=>'Améliorer ses attribust',
-            	'text'=>'Apprendre l\'attribut %1% seul',
+            	'text'=>'Améliorer l\'attribut %1%',
             	'parameters'=>array('list_attr','level')),
             'Havre_T' => array(
             	'shorttext'=>'Trouver un havre',
