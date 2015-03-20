@@ -126,6 +126,29 @@ supprimerPNJ:
   requirements:
          _method:  GET
          
+
+#FICHES D'INTERPARTIE
+listerFiche:
+    path:     /interpartie/lister
+    defaults: { _controller: CamaInflusBundle:Fiche:lister }
+     requirements:
+         _method:  GET
+repondreFiche:
+    path:     /interpartie/{id}/repondre
+    defaults: { _controller: CamaInflusBundle:Fiche:repondre }
+     requirements:
+         _method:  GET
+voirFiche:
+    path:     /interpartie/courant/voir
+    defaults: { _controller: CamaInflusBundle:Fiche:voir }
+     requirements:
+         _method:  GET
+listerAncien:
+    path:     /interpartie/ancien/lister
+    defaults: { _controller: CamaInflusBundle:Fiche:ancien }
+     requirements:
+         _method:  GET
+         
 # ORDRES 
 
 ordres_actuels:
