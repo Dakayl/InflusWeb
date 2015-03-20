@@ -13,27 +13,27 @@ use Doctrine\Common\Collections\ArrayCollection;
 class FicheController extends Controller
 {
     //Liste des fiches à répondre Conteur
-    public function listerAction( Request $request) 
-    {
+    public function listerAction( Request $request) {
 	
     }  
     
     //Réponse à une fiche Conteur
-    public function repondreAction( Request $request) 
-    {
+    public function repondreAction( Request $request) {
 	
     }  
     
-    
-    //voir sa fiche PJ
-    public function voirAction( Request $request) 
-    {
+    //voir sa fiche PJ courante
+    public function voirAction( Request $request)  {
 	
     } 
     
     //voir ses anciennes fiches PJ
-    public function ancienAction( Request $request) 
-    {
+    public function ancienAction( Request $request) {
+	
+    } 
+    
+    //parcourir une ancienne fiches PJ
+    public function parcourirAction( Request $request) {
 	
     } 
 }
