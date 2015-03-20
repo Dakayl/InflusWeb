@@ -10,20 +10,20 @@
 <ul class='menu'>
 	{% if admin %}
 	<!-- CA, Conteur, Admin -->
-	<li><a href="{{ path('listerTour') }}"> Gestion des dates</a></li>
+	<li><a href="{{ path('listerTour') }}"> Gestion des dates d'inter-partie</a></li>
 	{% endif %}
 	{% if conte %}
 	<!-- Conteur -->
 	<li><a href="{{ path('listePerso') }}">Personnages interprêtés</a> - <a href="{{ path('listeAValiderPerso') }}">à valider</a></li>
 	<li> <a href="{{ path('listerPNJ') }}">Persos non interprêtés (PNJ)</a>
-        <li> <a href="#">Répondre à une fiche d'inter-partie </a></li>
+        <li> <a href="{{ path('repondreFiche') }}">Répondre à une fiche d'inter-partie </a></li>
 	{% endif %}
 	{% if joueur %}
 	<!-- Joueur -->
 	<li> <a href="{{ path('voirMonPerso') }}">Gérer votre fiche de personnage</a></li>
-	<li> Rédiger votre fiche d'influence </li>
-	<li> Voir vos anciennes fiches d'influences</li>
-	<li><a href="{{ path('listerTour') }}"> Dates de rendu d'influences à venir </a></li>
+	<li><a href="{{ path('voirFicheCourante') }}">Rédiger votre fiche d'inter-partie </li>
+	<li><a href="{{ path('listeFicheOld') }}">Voir vos anciennes fiches d'inter-partie</li>
+	<li><a href="{{ path('listerTour') }}"> Dates de rendu de fiche inter-partie à venir </a></li>
 	{% endif %}
 	<li><a href="{{ path('ancienTour') }}"> Dates passées </a></li>
 
