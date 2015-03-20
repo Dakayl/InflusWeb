@@ -148,6 +148,11 @@ listerAncien:
     defaults: { _controller: CamaInflusBundle:Fiche:ancien }
      requirements:
          _method:  GET
+parcourirFiche:
+    path:     /interpartie/{id}/voir
+    defaults: { _controller: CamaInflusBundle:Fiche:parcourir }
+     requirements:
+         _method:  GET
          
 # ORDRES 
 
