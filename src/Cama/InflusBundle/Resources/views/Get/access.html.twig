@@ -10,7 +10,7 @@
 <ul class='menu'>
 	{% if admin %}
 	<!-- CA, Conteur, Admin -->
-	<li><a href="{{ path('listerTour') }}"> Gestion des dates d'inter-partie</a></li>
+	<li><a href="{{ path('listerTour') }}"> Gestion des dates</a></li>
 	{% endif %}
 	{% if conte %}
 	<!-- Conteur -->
@@ -23,7 +23,7 @@
 	<li> <a href="{{ path('voirMonPerso') }}">Gérer votre fiche de personnage</a></li>
 	<li><a href="{{ path('voirFicheCourante') }}">Rédiger votre fiche d'inter-partie </li>
 	<li><a href="{{ path('listeFicheOld') }}">Voir vos anciennes fiches d'inter-partie</li>
-	<li><a href="{{ path('listerTour') }}"> Dates de rendu de fiche inter-partie à venir </a></li>
+	<li><a href="{{ path('listerTour') }}"> Dates de rendu à venir </a></li>
 	{% endif %}
 	<li><a href="{{ path('ancienTour') }}"> Dates passées </a></li>
 
