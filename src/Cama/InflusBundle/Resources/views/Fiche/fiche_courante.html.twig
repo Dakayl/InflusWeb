@@ -1,10 +1,40 @@
 {% extends "::base.html.twig" %}
-
 {% block title %}Gestion de ma fiche d'inter-partie {% endblock %}
 {% block body %}
 <h1>Gestion de ma fiche d'inter-partie</h1>
-<h2>{{ perso.nom }} -  {{ mois }} {{ annee }}</h2>
+<h2>{{ perso.nom }} - {{ mois }} {{ annee }}</h2>
 <h3>Actions vampiriques ({{ nbActions }})</h3>
-<h3>Actions d'influence</h3>
+<table>
+  <thead>
+    <tr>
+      <th> Veuillez choisir une action</th>
+    </tr>
+  </thead>
+  {% for action in actions %}
+        {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': action}) }}
+  {% endfor %}
+</table>
+<h3>Gestion des influence</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Attaque</th>
+      <th>Défense</th>
+      <th>Dissimuler</th>
+      <th>Dissimuler</th>
+      <th>Pister</th>
+      <th>Espionner</th>
+      <th>Croissance</th>
+      <th>Transfert</th>
+      <th>Observation</th>
+    </tr>
+  </thead>
+  {% for influence in influences %}
+        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence}) }}
+  {% endfor %}
+</table>
+<h3>Amélioration</h3>
+Améliorer son Physique / Social / Mental d'un point.
 <h3>Commentaires</h3>
 {% endblock %}
