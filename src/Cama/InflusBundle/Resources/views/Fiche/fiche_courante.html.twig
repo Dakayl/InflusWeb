@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block title %}Gestion de ma fiche d'inter-partie {% endblock %}
 {% block body %}
-<h1>Gestion de ma fiche d'inter-partie</h1>
+<h1>Voir ma fiche d'inter-partie</h1>
 <h2>{{ perso.nom }} - {{ tour.mois }}</h2>
 <br /><br />
 <h3>Actions vampiriques ({{ tour.actions }})</h3>
@@ -19,7 +19,7 @@
   {% endfor %}
 </table>
 {% endif %}
-
+<br /><br />
 <h3>Gestion des influence</h3>
 {% if influences|length < 1 %}
 <p>Aucun ordre d'influence sauvegardé.</p>
@@ -44,6 +44,7 @@
   {% endfor %}
 </table>
 {% endif %}
+<br /><br />
 <h3>Améliorer un attribut d'un point :</h3>
 {% if attribut is empty %}
 <p>Aucun</p>
@@ -52,3 +53,4 @@
 {% endif %}
 <h3>Commentaires</h3>
 {% endblock %}
+<a href="{{ path('editerFiche') }}">Editer la fiche</a> |

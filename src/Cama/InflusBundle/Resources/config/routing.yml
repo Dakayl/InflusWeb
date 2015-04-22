@@ -143,6 +143,11 @@ voirFiche:
     defaults: { _controller: CamaInflusBundle:Fiche:voir }
     requirements:
          _method:  GET
+editerFiche:
+    path:     /interpartie/courant/editer
+    defaults: { _controller: CamaInflusBundle:Fiche:editer }
+    requirements:
+         _method:  GET
 listerAncien:
     path:     /interpartie/ancien/lister
     defaults: { _controller: CamaInflusBundle:Fiche:ancien }

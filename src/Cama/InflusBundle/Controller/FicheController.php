@@ -21,6 +21,13 @@ class FicheController extends Controller
     //Réponse à une fiche Conteur
     public function repondreAction( Request $request) {
         
+        
+    }  
+    
+    
+    //Edition de la fiche coté joueur
+    public function editerAction( Request $request) {
+        
 	 $session = $request->getSession();
         // définit et récupère des attributs de session
         //$rights = $session->get('rights');

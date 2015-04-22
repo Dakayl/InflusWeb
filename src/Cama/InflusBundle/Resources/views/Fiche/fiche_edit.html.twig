@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block title %}Gestion de ma fiche d'inter-partie {% endblock %}
 {% block body %}
-<h1>Voir ma fiche d'inter-partie</h1>
+<h1>Editer ma fiche d'inter-partie</h1>
 <h2>{{ perso.nom }} - {{ mois }} {{ annee }}</h2>
 <br /><br />
 <h3>Actions vampiriques ({{ nbActions }})</h3>
@@ -14,6 +14,7 @@
   {% for action in actions %}
         {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': action}) }}
   {% endfor %}
+  <br /><br />
 </table>
 <h3>Gestion des influence</h3>
 <table>
@@ -35,7 +36,10 @@
         {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence}) }}
   {% endfor %}
 </table>
-<h3>Amélioration</h3>
-Améliorer son Physique / Social / Mental d'un point.
+<br /><br />
+<h3>Amélioration d'attribut</h3>
+<p></p>
+<br /><br />
 <h3>Commentaires</h3>
 {% endblock %}
+<a href="{{ path('voirFiche') }}">Revenir à la fiche</a> |
