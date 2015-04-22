@@ -2,12 +2,12 @@
 {% block title %}Gestion de ma fiche d'inter-partie {% endblock %}
 {% block body %}
 <h1>Gestion de ma fiche d'inter-partie</h1>
-<h2>{{ perso.nom }} - {{ tour.mois }}</h2>
-<h3>Actions vampiriques ({{ tour.actions }})</h3>
+<h2>{{ perso.nom }} - {{ mois }} {{ annee }}</h2>
+<h3>Actions vampiriques ({{ nbActions }})</h3>
 <table>
   <thead>
     <tr>
-      <th> Actions : </th>
+      <th> Veuillez choisir une action</th>
     </tr>
   </thead>
   {% for action in actions %}
@@ -35,6 +35,6 @@
   {% endfor %}
 </table>
 <h3>Amélioration</h3>
-<p>Améliorer son Physique / Social / Mental d'un point</p>
+Améliorer son Physique / Social / Mental d'un point.
 <h3>Commentaires</h3>
 {% endblock %}

@@ -14,7 +14,8 @@ class FicheController extends Controller
 {
     //Liste des fiches à répondre Conteur
     public function listerAction( Request $request) {
-	
+        
+        
     }  
     
     //Réponse à une fiche Conteur
@@ -24,6 +25,31 @@ class FicheController extends Controller
     
     //voir sa fiche PJ courante
     public function voirAction( Request $request)  {
+        
+        $repository = $this->getDoctrine()
+        ->getRepository('CamaInflusBundle:Tour');
+
+	$query = $repository->createQueryBuilder('d')
+	->where('d.dateLimite >= :dateNow')
+	->orderBy('d.dateLimite', 'ASC')
+	->getQuery();
+	$now = new \DateTime();
+		
+        $tours = $query->setParameter('dateNow', $now->format('Y-m-d'))->getResult();
+        
+        $perso = $repository->findOneBy(array('idPhpbb' => $phpbbid));
+        if (!$perso) {
+                return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
+                'conte'=>false
+                ));
+        }
+        
+        
+	 return $this->render('CamaInflusBundle:Fiche:fiche_courante.html.twig', array(
+             "perso"=>$perso,
+             "tour"=> $tours[0],
+             "actions"=>array(),
+             "influences"=>array()));
 	
     } 
     
