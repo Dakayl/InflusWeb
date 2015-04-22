@@ -63,16 +63,20 @@ class Constants{
 		'Compétences'=>array(),
 		'Connaissances'=>array()
 	);
+        
+        public static function initVars() {
+            self::$list_learn_nomentor = array_merge(self::$list_comp, self::$list_disci );
+            self::$list_learn_mentor = array_merge(self::$list_comp, self::$list_disci, self::$list_mdt );
+        }
 
-        public static $list_learn_mentor = array_merge($list_comp, $list_disci, $list_mdt );
-        public static $list_learn_nomentor = array_merge($list_comp, $list_disci );
-        public static $list_influ = Constants::$TYPE_INFLUENCE;
-        $level = array(1,2,3,4,5);
+        
+        public static $level = array(1,2,3,4,5);
+        
         public static $list_ville = array(
         	 "LYO"=>"Lyon",
         	 "ANI"=>"Amiens",
         	 "ANG"=>"Angers",
-        	 "BOR"=>"Bordeaux"
+        	 "BOR"=>"Bordeaux",
         	 "CHA"=>"Châteauroux",
         	 "GRE"=>"Grenoble",
         	 "LIL"=>"Lille",
@@ -93,7 +97,7 @@ class Constants{
             'Mentorat_R' => array(
             	'shorttext'=>'Recevoir un mentorat',
             	'text'=>'Recevoir un mentorat en %1% %2% à %3% (Joueur %4% Ville %4)',
-            	'parameters'=>array('list_learn_mentor','level','string','string','list_ville'));
+            	'parameters'=>array('list_learn_mentor','level','string','string','list_ville')),
             'Apprendre' => array(
             	'shorttext'=>'Apprendre seul',
             	'text'=>'Apprendre %1% %2% seul',

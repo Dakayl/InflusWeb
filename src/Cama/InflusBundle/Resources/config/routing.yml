@@ -131,31 +131,30 @@ supprimerPNJ:
 listerFiche:
     path:     /interpartie/lister
     defaults: { _controller: CamaInflusBundle:Fiche:lister }
-     requirements:
+    requirements:
          _method:  GET
 repondreFiche:
     path:     /interpartie/{id}/repondre
     defaults: { _controller: CamaInflusBundle:Fiche:repondre }
-     requirements:
+    requirements:
          _method:  GET
 voirFiche:
     path:     /interpartie/courant/voir
     defaults: { _controller: CamaInflusBundle:Fiche:voir }
-     requirements:
+    requirements:
          _method:  GET
 listerAncien:
     path:     /interpartie/ancien/lister
     defaults: { _controller: CamaInflusBundle:Fiche:ancien }
-     requirements:
+    requirements:
          _method:  GET
 parcourirFiche:
     path:     /interpartie/{id}/voir
     defaults: { _controller: CamaInflusBundle:Fiche:parcourir }
-     requirements:
+    requirements:
          _method:  GET
          
 # ORDRES 
-
 ordres_actuels:
     path:     /ordresActuels
     defaults: { _controller: CamaInflusBundle:Get:ordresActuels }
