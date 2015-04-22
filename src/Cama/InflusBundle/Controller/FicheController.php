@@ -28,7 +28,7 @@ class FicheController extends Controller
         
         $session = $request->getSession();
         // définit et récupère des attributs de session
-        $rights = $session->get('rights');
+        //$rights = $session->get('rights');
         $infos = $session->get('infos');
 	$phpbbid = $infos['phpbbid'];
         
@@ -59,7 +59,7 @@ class FicheController extends Controller
 	
     } 
     
-    //voir ses anciennes fiches PJ
+    //voir ses anciennes fiches PJ  
     public function ancienAction( Request $request) {
 	
     } 
