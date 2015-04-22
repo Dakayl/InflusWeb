@@ -34,8 +34,10 @@ class FicheController extends Controller
         $infos = $session->get('infos');
 	$phpbbid = $infos['phpbbid'];
         
-        $repositoryT = $this->getDoctrine()
-        ->getRepository('CamaInflusBundle:Tour');
+        $repositoryJ = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+        $perso = $repositoryJ->findOneBy(array('idPhpbb' => $phpbbid));
+        
+        $repositoryT = $this->getDoctrine()->getRepository('CamaInflusBundle:Tour');
 
 	$query = $repositoryT->createQueryBuilder('d')
 	->where('d.dateLimite >= :dateNow')
@@ -44,8 +46,7 @@ class FicheController extends Controller
         
 	$now = new \DateTime();		
         $tours = $query->setParameter('dateNow', $now->format('Y-m-d'))->getResult();  
-        $repositoryJ = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
-        $perso = $repositoryJ->findOneBy(array('idPhpbb' => $phpbbid));
+        
         if (!$perso) {
                 return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
                 'conte'=>false
