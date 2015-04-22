@@ -132,6 +132,7 @@ class PersoController extends Controller
         $rights = $session->get('rights');
         $infos = $session->get('infos');
 	$conte=(!empty($rights[15]));
+        $phpbbid = $infos['phpbbid'];
 	$repository = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
 	$perso = $repository->findOneBy(array('id' => $id));
         if (!$perso) {
