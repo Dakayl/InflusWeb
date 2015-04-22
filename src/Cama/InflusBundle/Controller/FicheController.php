@@ -26,6 +26,12 @@ class FicheController extends Controller
     //voir sa fiche PJ courante
     public function voirAction( Request $request)  {
         
+        $session = $request->getSession();
+        // définit et récupère des attributs de session
+        $rights = $session->get('rights');
+        $infos = $session->get('infos');
+	$phpbbid = $infos['phpbbid'];
+        
         $repository = $this->getDoctrine()
         ->getRepository('CamaInflusBundle:Tour');
 
