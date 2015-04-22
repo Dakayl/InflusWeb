@@ -59,7 +59,8 @@ class FicheController extends Controller
              "tour"=> $tours[0],
              "attribut"=>null,
              "actions"=>array(),
-             "influences"=>array()));
+             "ordres"=>array(),
+             "influences"=>$perso->getInfluence()));
 	
     }  
     

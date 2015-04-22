@@ -21,6 +21,8 @@
 </table>
 {% endif %}
 <br /><br />
+<h3>Demande aux contacts</h3>
+<br /><br />
 <h3>Gestion des influence</h3>
 {% if influences|length < 1 %}
 <p>Aucun ordre d'influence sauvegardé.</p>
@@ -41,7 +43,7 @@
     </tr>
   </thead>
   {% for influence in influences %}
-        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence}) }}
+        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordres':ordres}) }}
   {% endfor %}
 </table>
 {% endif %}
