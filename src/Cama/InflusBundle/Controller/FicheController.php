@@ -32,18 +32,18 @@ class FicheController extends Controller
         $infos = $session->get('infos');
 	$phpbbid = $infos['phpbbid'];
         
-        $repository = $this->getDoctrine()
+        $repositoryT = $this->getDoctrine()
         ->getRepository('CamaInflusBundle:Tour');
 
-	$query = $repository->createQueryBuilder('d')
+	$query = $repositoryT->createQueryBuilder('d')
 	->where('d.dateLimite >= :dateNow')
 	->orderBy('d.dateLimite', 'ASC')
 	->getQuery();
-	$now = new \DateTime();
-		
-        $tours = $query->setParameter('dateNow', $now->format('Y-m-d'))->getResult();
         
-        $perso = $repository->findOneBy(array('idPhpbb' => $phpbbid));
+	$now = new \DateTime();		
+        $tours = $query->setParameter('dateNow', $now->format('Y-m-d'))->getResult();  
+        $repositoryJ = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+        $perso = $repositoryJ->findOneBy(array('idPhpbb' => $phpbbid));
         if (!$perso) {
                 return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
                 'conte'=>false
