@@ -1,5 +1,6 @@
 {% extends "::base.html.twig" %}
-{% block title %}Gestion de ma fiche d'inter-partie {% endblock %}
+
+{% block title %}Edition de ma fiche d'inter-partie {% endblock %}
 {% block body %}
 <h1>Editer ma fiche d'inter-partie</h1>
 <h2>{{ perso.nom }} - {{ mois }} {{ annee }}</h2>
@@ -41,5 +42,5 @@
 <p></p>
 <br /><br />
 <h3>Commentaires</h3>
+<a href="{{ path('voirFiche') }}">Revenir à la fiche</a>
 {% endblock %}
-<a href="{{ path('voirFiche') }}">Revenir à la fiche</a> |
