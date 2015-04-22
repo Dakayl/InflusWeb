@@ -33,7 +33,7 @@ class Constants{
        
        "Disciplines Exotiques"=>array(
         	'ALI'=>'Aliénation',
-        	'CHI'=>'Chimérie'
+        	'CHI'=>'Chimérie',
         	'MET'=>'Métamorphose',
         	'QUI'=>'Quietus',
         	'SER'=>'Serpentis'),
