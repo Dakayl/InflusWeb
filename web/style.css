@@ -80,6 +80,9 @@ input,textarea {
   width:150px;
   margin:1px;
 }
+tr.choix td input {
+    width:30px;
+}
 select {
   width:152px;
 }
