@@ -12,7 +12,7 @@
       <th> Veuillez choisir une action</th>
     </tr>
   </thead>
-  {% for 1..tour.actions %}
+  {% for i in 1..tour.actions %}
         {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': actions, 'actionlist':actionlist}) }}
   {% endfor %}
   <br /><br />
