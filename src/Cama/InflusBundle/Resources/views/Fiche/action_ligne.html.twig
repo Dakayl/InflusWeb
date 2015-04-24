@@ -1,5 +1,13 @@
 <tr>
 <td>
-Action
+    <select>
+        {% for key, act in actionlist %}
+        <option value="{{ key }}"> {{act}}  </option>
+        {% endfor %}
+    </select>
 </td>
 </tr>
+'Mentorat_D' => array(
+            	'shorttext'=>'Donner un mentorat',
+            	'text'=>'Donner un mentorat de %1% %2% à %3% (Joueur %4% Ville %4)',
+            	'parameters'
