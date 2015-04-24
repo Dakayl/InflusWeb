@@ -22,19 +22,13 @@
   <thead>
     <tr>
       <th>Nom</th>
-      <th>Attaque</th>
-      <th>Défense</th>
-      <th>Dissimuler</th>
-      <th>Pister</th>
-      <th>Espionner</th>
-      <th>Croissance</th>
-      <th>Transfert</th>
-      <th>Observation</th>
-      <th>Spécifique</th>
+      {% for(o in ordreslist %}
+      <th>{% o.text %}</th>
+      {% endfor %}
     </tr>
   </thead>
   {% for influence in influences %}
-        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence}) }}
+        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
 </table>
 <br /><br />

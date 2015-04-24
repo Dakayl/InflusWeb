@@ -145,12 +145,13 @@ class Constants{
         );
         
 	public static $LIST_ORDRES = array(
+            
 		'A'=>array('text'=>'Attaque','target'=>true),
 		'D'=>array('text'=>'Défense','target'=>false),
-		'I'=>array('text'=>'Dissimuler','target'=>false),
-		'P'=>array('text'=>'Pister','target'=>true),
-		'E'=>array('text'=>'Espionner','target'=>true),
 		'O'=>array('text'=>'Observer','target'=>false),
+                'I'=>array('text'=>'Dissimuler','target'=>false),
+		'P'=>array('text'=>'Pister','target'=>true),
+		'E'=>array('text'=>'Espionner','target'=>true),		
 		'S'=>array('text'=>'Spécifique','target'=>false),
 		'C'=>array('text'=>'Croissance','target'=>false),
 		'T'=>array('text'=>'Transfert','target'=>true)

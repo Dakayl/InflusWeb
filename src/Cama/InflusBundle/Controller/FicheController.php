@@ -60,9 +60,9 @@ class FicheController extends Controller
              "attribut"=>null,
              "actions"=>array(),
              "actionlist"=>Constants::$LIST_ACTION,
+             "ordreslist"=>Constants::$LIST_ORDRES,
              "ordres"=>array(),
              "influences"=>$perso->getInfluence()));
-	
     }  
     
     //voir sa fiche PJ courante
