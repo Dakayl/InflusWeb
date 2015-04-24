@@ -1,12 +1,10 @@
-<table>
-  <thead>
-    <tr>
-      <th> &nbsp; </th>
-      {% for o in ordreslist %}
-      <th>{{ o.text }}</th>
-      {% endfor %}
-    </tr>
-  </thead>
+
+<tr>
+    <th> &nbsp; </th>
+    {% for o in ordreslist %}
+    <th>{{ o.text }}</th>
+    {% endfor %}
+</tr>
   <tr class="choix">
       <th> {{ influence.nom }} </th>
       {% for o in ordreslist|keys %}
@@ -19,7 +17,6 @@ Domaine : {{ influence.textType }} / Score total : Influence {{ influence.niveau
 </tr>
 <tr>
 <td colspan="10" class="justif">
-    Justification : <textarea name="justif_influ" cols="30" rows="1"></textarea>
+    Justification : <textarea name="justif_influ" cols="60" rows="1"></textarea>
 </td>
 </tr>
-</table>

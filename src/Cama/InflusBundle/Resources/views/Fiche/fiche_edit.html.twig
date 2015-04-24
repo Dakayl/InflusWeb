@@ -19,14 +19,6 @@
 </table>
 <h3>Gestion des influence</h3>
 <table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      {% for o in ordreslist %}
-      <th>{{ o.text }}</th>
-      {% endfor %}
-    </tr>
-  </thead>
   {% for influence in influences %}
         {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
