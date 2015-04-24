@@ -2,7 +2,7 @@
 <td>
     <select>
         {% for key, act in actionlist %}
-        <option value="{{ key }}"> {{act}}  </option>
+        <option value="{{ key }}"> {{act.shorttext}}  </option>
         {% endfor %}
     </select>
 </td>
