@@ -1,4 +1,13 @@
-<tr class="choix">
+<table>
+  <thead>
+    <tr>
+      <th> &nbsp; </th>
+      {% for o in ordreslist %}
+      <th>{{ o.text }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tr class="choix">
       <th> {{ influence.nom }} </th>
       {% for o in ordreslist|keys %}
       <td><input type="number" name="ordre_{{o}} style="width:30px;" step="1" value="0" min="0" max="{{ influence.niveau }}"/></td>
@@ -13,8 +22,4 @@ Domaine : {{ influence.textType }} / Score total : Influence {{ influence.niveau
     Justification : <textarea name="justif_influ" cols="30" rows="1"></textarea>
 </td>
 </tr>
-<tr>
-<td colspan="10" class="blank">
-&nbsp; 
-</td>
-</tr>
+</table>
