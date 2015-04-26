@@ -32,7 +32,7 @@ class ZoneController extends Controller
                 "list_refuge"=>  Constants::$TYPE_INFLUENCE,
                 "list_historique"=>  Constants::$TYPE_INFLUENCE,
                 "list_serv"=>  Constants::$TYPE_INFLUENCE,
-                "list_influ"=>  Constants::$TYPE_INFLUE
+                "list_influ"=>  Constants::$TYPE_INFLUENCE
                     
                 )
             );
