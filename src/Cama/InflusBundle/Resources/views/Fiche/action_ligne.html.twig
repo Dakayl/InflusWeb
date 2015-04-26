@@ -1,10 +1,19 @@
 <tr>
 <td>
-    <select>
+    <select id="s_{{index}}">
         <option value=''>Aucune</option>
         {% for key, act in actionlist %}
         <option value="{{ key }}"> {{act.shorttext}}  </option>
         {% endfor %}
     </select>
+    <div id="div_s_{{index}}" class="subcontent">
+    
+    </div>
+        <script>
+        $("#s_{{index}}").change( function(){
+            
+               $("#div_s_{{index}}").html("");
+        });
+        </script>
 </td>
 </tr>
