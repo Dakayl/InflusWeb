@@ -6,17 +6,17 @@
 {% elseif p = "level" %}
     <input type="number" min="1" max="5" step="1" value="" name="variable_{{index}}_{{loop.index}}" />
 {% elseif p = "list_learn_mentor" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p = "list_learn_nomentor" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_learn_nomentor, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p = "list_ville" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_ville, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p = "list_refuge" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_refuge, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p = "list_historique" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_historique, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p = "list_serv" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_serv, 'big_index': index, 'small_index':loop.index}) }}
 {% endif %}
 
 
