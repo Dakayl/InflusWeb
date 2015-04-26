@@ -19,11 +19,13 @@ class ZoneController extends Controller
 {
     public function getDataAction(Request $request){
         $action = $request->request->get('action', null);
+        $index = $request->request->get('index', 1);
         
         if(isset(Constants::$LIST_ACTION[$action])){
             $parameters = Constants::$LIST_ACTION[$action]['parameters'];
             return $this->render('CamaInflusBundle:Fiche:action_complete.html.twig', array(
-                "parameters"=>$parameters
+                "parameters"=>$parameters,
+                "index"=>$index
                 )
             );
         }

@@ -18,7 +18,7 @@
   <script>
   $(document).ready(function(){
        {% for i in 1..tour.actions %}
-               $("#saction_{{index}}").trigger("change");
+               $("#saction_{{i}}").trigger("change");
        {% endfor %}
   });</script>
   <br /><br />
@@ -39,7 +39,7 @@ Améliorer son <select>
 <p></p>
 <br /><br />
 <h3>Commentaires</h3>
-<textarea name="justif_influ" cols="60" rows="1"></textarea>
+<textarea name="justif_influ" cols="60" rows="5"></textarea>
 <br /><br />
 <input button type="submit" value="Envoyer" />
 <br /><br />

@@ -1,10 +1,11 @@
 {% for p in parameters %}
 {% switch p %}
     {% case "text" %}
-    <input type="text" value="" name="variable_{{loop.index}}" />
+    <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
     {% case "string" %}
-    <input type="text" value="" name="variable_{{loop.index}}" />
+    <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
     {% case "level" %}
-    <input type="number" min="1" max="5" step="1" value="" name="variable_{{loop.index}}" />
+    <input type="number" min="1" max="5" step="1" value="" name="variable_{{index}}_{{loop.index}}" />
 {% endswitch %}
 {% endfor %}
+    <textarea name="justif_action_s_{{index}}" cols="60" rows="1"></textarea>

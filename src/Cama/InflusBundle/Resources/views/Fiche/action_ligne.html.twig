@@ -18,7 +18,7 @@
                $.ajax({
                 url:"{{ path('zone_getAction') }}",
                 type:"GET",
-                data:"action="+ value,
+                data:"index={{index}}&action="+ value,
                 dataType:"html",
                 success:function(data){
                      $("#div_saction_{{index}}").html(data);
