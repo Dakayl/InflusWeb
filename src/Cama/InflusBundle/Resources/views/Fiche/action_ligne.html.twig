@@ -1,27 +1,28 @@
 <tr>
 <td>
-    <select id="s_{{index}}">
+    <select id="saction_{{index}}">
         <option value=''>Aucune</option>
         {% for key, act in actionlist %}
         <option value="{{ key }}"> {{act.shorttext}}  </option>
         {% endfor %}
     </select>
-    <div id="div_s_{{index}}" class="subcontent">
+    <div id="div_saction_{{index}}" class="subcontent">
     
     </div>
         <script>
-        $("#s_{{index}}").change( function(){
+        $("#saction_{{index}}").change( function(){
             
-               $("#div_s_{{index}}").html("");
+               $("#div_saction_{{index}}").html("");
                $.ajax(
                 url:"{{ path('voirFiche') }},
                 type:"GET",
                 data:"action="+ $("#s_{{index}}").val(),
                 dataType:"html",
                 success:function(data){
-                     $("#div_s_{{index}}").html("data");
+                     $("#div_saction_{{index}}").html("data");
               
                 });
+        });
         </script>
 </td>
 </tr>
