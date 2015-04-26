@@ -13,16 +13,18 @@
         $("#saction_{{index}}").change( function(){
             
                $("#div_saction_{{index}}").html("");
+               var value = $('#saction_{{index}}').val();
+               if(value != '') {
                $.ajax({
                 url:"{{ path('zone_getAction') }}",
                 type:"GET",
-                data:"action="+ $('#saction_{{index}}').val(),
+                data:"action="+ value,
                 dataType:"html",
                 success:function(data){
-                     $("#div_saction_{{index}}").html("data");
+                     $("#div_saction_{{index}}").html(data);
               
                 }
-                });
+                });}
         });
         </script>
 </td>
