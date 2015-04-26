@@ -172,3 +172,7 @@ editer_tours:
     path:     /editerTours
     defaults: { _controller: CamaInflusBundle:Get:editerTours }
 
+#ZONES 
+zone_getAction:
+    path:     /ajax/action/html
+    defaults: { _controller: CamaInflusBundle:Zone:getData }

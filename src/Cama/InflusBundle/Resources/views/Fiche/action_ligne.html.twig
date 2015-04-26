@@ -13,14 +13,15 @@
         $("#saction_{{index}}").change( function(){
             
                $("#div_saction_{{index}}").html("");
-               $.ajax(
-                url:"{{ path('voirFiche') }},
+               $.ajax({
+                url:"{{ path('zone_getAction') }}",
                 type:"GET",
-                data:"action="+ $("#s_{{index}}").val(),
+                data:"action="+ $('#saction_{{index}}').val(),
                 dataType:"html",
                 success:function(data){
                      $("#div_saction_{{index}}").html("data");
               
+                }
                 });
         });
         </script>
