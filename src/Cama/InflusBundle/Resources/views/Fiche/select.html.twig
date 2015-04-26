@@ -1,10 +1,11 @@
 <select name="variable_{{big_index}}_{{small_index}}">
         {% for key, act in list %}
         {% if act is iterable %}
-            <optgroup> {{key}}  </optgroup>
+            <optgroup label='{{key}}' >
             {% for k, a in act %}
             <option value="{{ k }}"> {{a}}  </option>
             {% endfor %}
+             </optgroup>
         {% else%}
         <option value="{{ key }}"> {{act}}  </option>
         {% endif %}

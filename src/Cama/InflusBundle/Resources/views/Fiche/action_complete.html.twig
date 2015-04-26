@@ -2,7 +2,7 @@
 <label for="variable_{{index}}_{{loop.index}}">{{key}} :</label>
 {% if p == "text" %}
     <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
-{% elseif p == "text" %}
+{% elseif p == "string" %}
     <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
 {% elseif p == "level" %}
     <input type="number" min="1" max="5" step="1" value="" name="variable_{{index}}_{{loop.index}}" />
