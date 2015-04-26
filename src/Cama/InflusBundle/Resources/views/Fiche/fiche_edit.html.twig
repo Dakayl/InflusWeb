@@ -13,7 +13,7 @@
     </tr>
   </thead>
   {% for i in 1..tour.actions %}
-        {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': actions, 'actionlist':actionlist}) }}
+        {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': actions, 'actionlist':actionlist,'index':loop.index}) }}
   {% endfor %}
   <br /><br />
 </table>

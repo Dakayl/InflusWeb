@@ -68,9 +68,6 @@ class Constants{
             self::$list_learn_nomentor = array_merge(self::$list_comp, self::$list_disci );
             self::$list_learn_mentor = array_merge(self::$list_comp, self::$list_disci, self::$list_mdt );
         }
-
-        
-        public static $level = array(1,2,3,4,5);
         
         public static $list_ville = array(
         	 "LYO"=>"Lyon",
@@ -141,7 +138,7 @@ class Constants{
             'Autre' => array(
             	'shorttext'=>'Autre',
             	'text'=>'Autre',
-            	'parameters'=>array())
+            	'parameters'=>array('string'))
         );
         
 	public static $LIST_ORDRES = array(
