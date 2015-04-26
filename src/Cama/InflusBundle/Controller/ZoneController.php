@@ -18,8 +18,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 class ZoneController extends Controller
 {
     public function getDataAction(Request $request){
-        $action = $this->container->getParameter('action', null);
-        $index = $this->container->getParameter('index', 1);
+        $action =  $request->query->get('action', null);
+        $index = $request->query->get('index', 1);
         
         if(isset(Constants::$LIST_ACTION[$action])){
             $parameters = Constants::$LIST_ACTION[$action]['parameters'];
