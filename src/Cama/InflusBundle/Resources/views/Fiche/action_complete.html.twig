@@ -1,11 +1,24 @@
 {% for p in parameters %}
-{% switch p %}
-    {% case "text" %}
+{% if p = "text" %}
     <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
-    {% case "string" %}
+{% elseif p = "text" %}
     <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
-    {% case "level" %}
+{% elseif p = "level" %}
     <input type="number" min="1" max="5" step="1" value="" name="variable_{{index}}_{{loop.index}}" />
-{% endswitch %}
+{% elseif p = "list_learn_mentor" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+{% elseif p = "list_learn_nomentor" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+{% elseif p = "list_ville" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+{% elseif p = "list_refuge" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+{% elseif p = "list_historique" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+{% elseif p = "list_serv" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { ("list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
+{% endif %}
+
+
 {% endfor %}
     <textarea name="justif_action_s_{{index}}" cols="60" rows="1"></textarea>

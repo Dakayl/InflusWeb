@@ -138,7 +138,7 @@ class Constants{
             'Autre' => array(
             	'shorttext'=>'Autre',
             	'text'=>'Autre',
-            	'parameters'=>array('string'))
+            	'parameters'=>array())
         );
         
 	public static $LIST_ORDRES = array(
