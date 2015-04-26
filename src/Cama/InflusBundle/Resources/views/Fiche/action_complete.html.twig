@@ -1,4 +1,5 @@
-{% for p in parameters %}
+{% for key,p in parameters %}
+<label for="variable_{{index}}_{{loop.index}}">{{key}} :</label>
 {% if p == "text" %}
     <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
 {% elseif p == "text" %}
@@ -18,7 +19,8 @@
 {% elseif p == "list_serv" %}
     {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_serv, 'big_index': index, 'small_index':loop.index}) }}
 {% endif %}
-
-
+    &nbsp;
 {% endfor %}
+<br />
+<label for="justif_action_s_{{index}">Informations complémentaires :</label>
     <textarea name="justif_action_s_{{index}}" cols="60" rows="1"></textarea>

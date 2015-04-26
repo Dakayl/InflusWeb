@@ -93,51 +93,61 @@ class Constants{
             'Mentorat_D' => array(
             	'shorttext'=>'Donner un mentorat',
             	'text'=>'Donner un mentorat de %1% %2% à %3% (Joueur %4% Ville %4)',
-            	'parameters'=>array('list_learn_mentor','level','string','string','list_ville')),
+            	'parameters'=>array(
+                    'Mentorat de'=>'list_learn_mentor',
+                    'Niveau'=>'level',
+                    'Personnage'=>'string',
+                    'Joueur'=>'string',
+                    'Ville'=>'list_ville')),
             'Mentorat_R' => array(
             	'shorttext'=>'Recevoir un mentorat',
             	'text'=>'Recevoir un mentorat en %1% %2% à %3% (Joueur %4% Ville %4)',
-            	'parameters'=>array('list_learn_mentor','level','string','string','list_ville')),
+            	'parameters'=>array(
+                    'Mentorat de'=>'list_learn_mentor',
+                    'Niveau'=>'level',
+                    'Personnage'=>'string',
+                    'Joueur'=>'string',
+                    'Ville'=>'list_ville')),
             'Apprendre' => array(
             	'shorttext'=>'Apprendre seul',
             	'text'=>'Apprendre %1% %2% seul',
-            	'parameters'=>array('list_learn_nomentor','level')),
+            	'parameters'=>array('Apprendre'=>'list_learn_nomentor','Niveau'=>'level')),
             'Havre_T' => array(
             	'shorttext'=>'Trouver un havre',
             	'text'=>'Trouver un havre de niveau %1%',
-            	'parameters'=>array('level')),
+            	'parameters'=>array('Niveau'=>'level')),
             'Havre_S' => array(
             	'shorttext'=>'Securiser votre havre',
             	'text'=>'Sécuriser votre havre %1% avec sécurité %2%',
-            	'parameters'=>array('list_refuge','level')),
+            	'parameters'=>array("havre"=>'list_refuge','Niveau'=>'level')),
             'Havre_S2' => array(
             	'shorttext'=>'Securiser un autre havre',
             	'text'=>'Sécuriser le havre %1% avec sécurité %2%',
-            	'parameters'=>array('string','level')),
+            	'parameters'=>array("havre"=>'string','Niveau'=>'level')),
             'Serviteur' => array(
             	'shorttext'=>'Trouver un nouveau serviteur',
             	'text'=>'Trouver un nouveau serviteur de niveau %1%',
-            	'parameters'=>array('level')),
+            	'parameters'=>array('Niveau'=>'level')),
             'Transforme' => array(
             	'shorttext'=>'Transformer votre serviteur en goule',
             	'text'=>'Transformer votre serviteur %1% en goule',
-            	'parameters'=>array('list_serv')),
+            	'parameters'=>array("Serviteur"=>'list_serv')),
             'Transforme2' => array(
             	'shorttext'=>'Transformer un autre mortel en goule',
             	'text'=>'Transformer votre serviteur %1% en goule',
-            	'parameters'=>array('string')),
+            	'parameters'=>array("Serviteur"=>'string')),
             'Historique' => array(
             	'shorttext'=>'Augmenter son historique',
             	'text'=>'Augmenter son historique %1% niveau %2%',
-            	'parameters'=>array('list_historique','level')),
+            	'parameters'=>array("Historique"=>'list_historique','Niveau'=>'level')),
             'Developper' => array(
             	'shorttext'=>'Se développer sur un secteur',
             	'text'=>'Se développer sur le nouveau secteur d\'influence %1%','
-            	parameters'=>array('list_influ')),
+            	parameters'=>array('Secteur'=>'list_influ')),
             'Espionner' => array(
-            	'shorttext'=>'Obtenir des renseignements sur un personnage',
-            	'text'=>'Obtenir des renseignements sur %1%',
-            	'parameters'=>array('string')),
+            	'shorttext'=>'Espionner/Obtenir des renseignements sur un personnage',
+            	'text'=>'Espionner/Obtenir des renseignements sur %1%',
+            	'parameters'=>array('Personnage'=>'string')),
             'Autre' => array(
             	'shorttext'=>'Autre',
             	'text'=>'Autre',
