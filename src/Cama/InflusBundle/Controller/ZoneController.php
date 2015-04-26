@@ -20,15 +20,14 @@ class ZoneController extends Controller
     public function getDataAction(Request $request){
         $action =  $request->query->get('action', null);
         $index = $request->query->get('index', 1);
-        Constants::initVars();
-        
+         
         if(isset(Constants::$LIST_ACTION[$action])){
             $parameters = Constants::$LIST_ACTION[$action]['parameters'];
             return $this->render('CamaInflusBundle:Fiche:action_complete.html.twig', array(
                 "parameters"=>$parameters,
                 "index"=>$index,
-                "list_learn_mentor"=>  Constants::$list_learn_mentor,
-                "list_learn_nomentor"=>  Constants::$list_learn_nomentor,
+                "list_learn_mentor"=>  Constants::list_learn_mentor(),
+                "list_learn_nomentor"=>  Constants::list_learn_nomentor(),
                 "list_ville"=>  Constants::$list_ville,
                 "list_refuge"=>  Constants::$TYPE_INFLUENCE,
                 "list_historique"=>  Constants::$TYPE_INFLUENCE,

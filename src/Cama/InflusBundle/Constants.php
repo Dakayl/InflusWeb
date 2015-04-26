@@ -64,9 +64,12 @@ class Constants{
 		'Connaissances'=>array()
 	);
         
-        public static function initVars() {
-            self::$list_learn_nomentor = array_merge(self::$list_comp, self::$list_disci );
-            self::$list_learn_mentor = array_merge(self::$list_comp, self::$list_disci, self::$list_mdt );
+        public static function list_learn_nomentor() {
+             return array_merge(self::$list_comp, self::$list_disci );
+        }
+        
+        public static function list_learn_mentor() {
+             return array_merge(self::$list_comp, self::$list_disci, self::$list_mdt );
         }
         
         public static $list_ville = array(
