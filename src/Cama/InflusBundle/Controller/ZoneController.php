@@ -30,7 +30,7 @@ class ZoneController extends Controller
             );
         }
         else {
-            return $this->redirect($this->generateUrl('error')."?id=99");
+            return $this->redirect($this->generateUrl('error')."?id=".$action);
         }
         
     }
