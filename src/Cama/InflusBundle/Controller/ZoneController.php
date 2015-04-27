@@ -21,6 +21,7 @@ class ZoneController extends Controller
         $action =  $request->query->get('action', null);
         $index = $request->query->get('index', 1);
         
+        $session = $request->getSession();
         $infos = $session->get('infos');
         $phpbbid = $infos['phpbbid'];
         
