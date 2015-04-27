@@ -30,7 +30,7 @@ class ZoneController extends Controller
                 "list_learn_nomentor"=>  Constants::list_learn_nomentor(),
                 "list_ville"=>  Constants::$list_ville,
                 "list_refuge"=>  Constants::$TYPE_INFLUENCE,
-                "list_historique"=>  Constants::$TYPE_INFLUENCE,
+                "list_historique"=>  Constants::$list_historique,
                 "list_serv"=>  Constants::$TYPE_INFLUENCE,
                 "list_influ"=>  Constants::$TYPE_INFLUENCE
                     
