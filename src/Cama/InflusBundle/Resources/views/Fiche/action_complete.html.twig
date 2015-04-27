@@ -1,11 +1,11 @@
 {% for key,p in parameters %}
 <label for="variable_{{index}}_{{loop.index}}">{{key}} :</label>
 {% if p == "text" %}
-    <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
+    <input type="text" value="" id="variable_{{index}}_{{loop.index}}" name="variable_{{index}}_{{loop.index}}" />
 {% elseif p == "string" %}
-    <input type="text" value="" name="variable_{{index}}_{{loop.index}}" />
+    <input type="text" value="" id="variable_{{index}}_{{loop.index}}" name="variable_{{index}}_{{loop.index}}" />
 {% elseif p == "level" %}
-    <input type="number" min="1" max="5" step="1" value="" name="variable_{{index}}_{{loop.index}}" />
+    <input type="number" min="1" max="5" step="1" value="" id="variable_{{index}}_{{loop.index}}" name="variable_{{index}}_{{loop.index}}" />
 {% elseif p == "list_learn_mentor" %}
     {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_learn_mentor, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p == "list_learn_nomentor" %}
@@ -19,8 +19,8 @@
 {% elseif p == "list_serv" %}
     {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_serv, 'big_index': index, 'small_index':loop.index}) }}
 {% endif %}
-    &nbsp;
+    &nbsp;<br />
 {% endfor %}
 <br />
-<label for="justif_action_s_{{index}}">Informations complémentaires :</label>
-<textarea name="justif_action_s_{{index}}" cols="60" rows="1"></textarea>
+<label for="justif_action_s_{{index}}">Informations / Justification :</label>
+<textarea id="justif_action_s_{{index}}" name="justif_action_s_{{index}}" cols="60" rows="1"></textarea>
