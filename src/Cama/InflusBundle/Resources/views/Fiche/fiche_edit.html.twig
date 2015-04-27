@@ -4,12 +4,10 @@
 {% block body %}
 <h1>Editer ma fiche d'inter-partie</h1>
 <h2>{{ perso.nom }} - {{ tour.mois  }}</h2>
-<br /><br />
-<h3>Actions vampiriques ({{ tour.actions }})</h3>
 <table>
   <thead>
     <tr>
-      <th>&nbsp;</th><th> Actions vampiriques </th>
+      <th>&nbsp;</th><th> Actions vampiriques ({{ tour.actions }} ce mois-ci) </th>
     </tr>
   </thead>
   {% for i in 1..tour.actions %}
@@ -23,6 +21,7 @@
   });</script>
   <br /><br />
 </table>
+<br /><br />
 <h3>Gestion des influence</h3>
 <table>
   {% for influence in influences %}
@@ -31,15 +30,18 @@
 </table>
 <br /><br />
 <h3>Amélioration d'attribut</h3>
-Améliorer son <select>
-<option>Aucun</option>
-<option>Physique</option>
-<option>Social</option>
-<option>Mental</option></select>
+<label for="amelio_attr"> S'entrainer en :</label> 
+<select id="amelio_attr" value="amelio_attr">
+  <option disabled >Aucun</option>
+  <option value="P">Physique</option>
+  <option value="S">Social</option>
+  <option value="M">Mental</option>
+</select>
 <p></p>
 <br /><br />
 <h3>Commentaires</h3>
-<textarea name="justif_influ" cols="60" rows="5"></textarea>
+<label for="justif_influ"> Informations complémentaires :</label> 
+<textarea id="justif_influ" name="justif_influ" cols="60" rows="5"></textarea>
 <br /><br />
 <input button type="submit" value="Envoyer" />
 <br /><br />
