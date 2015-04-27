@@ -186,8 +186,8 @@ class Constants{
             	'parameters'=>array("Historique"=>'list_historique','Niveau'=>'level')),
             'Developper' => array(
             	'shorttext'=>'Se développer sur un secteur',
-            	'text'=>'Se développer sur le nouveau secteur d\'influence %1%','
-            	parameters'=>array('Secteur'=>'list_influ')),
+            	'text'=>'Se développer sur le nouveau secteur d\'influence %1%',
+            	'parameters'=>array('Secteur'=>'list_influ')),
             'Espionner' => array(
             	'shorttext'=>'Espionner/Obtenir des renseignements sur un personnage',
             	'text'=>'Espionner/Obtenir des renseignements sur %1%',
