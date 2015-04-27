@@ -35,26 +35,23 @@
             <th>Gestion des contacts - {{ contact }} points</th>
         </tr>
     </thead>
-    {% if contact > 0 %}
-    <tfoot id="contact_form">
-        <tr>
-            <td> 
-                {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': 'contact', 'small_index':'influ'}) }}
-                <input type="hidden" id="contact_max" name="contact_max" value="{{ contact }}"/>
-                <input type="number" id="contact_niveau" name="contact_niveau" style="width:30px;" step="1" value="1" min="0" max="{{ contact }}"/>
-                <input type="button" id="contact_sub" value="Ajouter" />
-            </td>
-        </tr>
-    </tfoot>
-    {% else %}
-    <tfoot>
-        <tr>
-            <td>Aucun contact</td>
-        </tr>
-    </tfoot>
-    {% endif %} 
     <tbody id="contact_target">
     </tbody>
+    {% if contact > 0 %}
+    <tr>
+        <td> 
+            {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': 'contact', 'small_index':'influ'}) }}
+            <input type="hidden" id="contact_max" name="contact_max" value="{{ contact }}"/>
+            <input type="number" id="contact_niveau" name="contact_niveau" style="width:30px;" step="1" value="1" min="0" max="{{ contact }}"/>
+            <input type="button" id="contact_sub" value="Ajouter" />
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td>Aucun contact</td>
+        </tr>
+    {% endif %} 
+    
 </table>
 {% if contact > 0 %}
 <script>
@@ -105,4 +102,5 @@
 <input button type="submit" value="Envoyer" />
 <br /><br />
 <a href="{{ path('voirFiche') }}">Revenir à la fiche</a>
+{{ include('CamaInflusBundle::footer.html.twig') }}
 {% endblock %}
