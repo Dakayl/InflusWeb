@@ -1,7 +1,5 @@
 <tr>
 <td>{{index}}</td>
-</tr>
-<tr>
 <td>
     <select id="saction_{{index}}">
         <option value=''>Aucune</option>
@@ -9,10 +7,14 @@
         <option value="{{ key }}"> {{act.shorttext}}  </option>
         {% endfor %}
     </select>
+</td>
+</tr>
+<tr>
+    <td colspan="2">
     <div id="div_saction_{{index}}" class="subcontent">
     
     </div>
-        <script>
+    <script>
         $("#saction_{{index}}").change( function(){
             
                $("#div_saction_{{index}}").html("");
@@ -30,5 +32,5 @@
                 });}
         });
         </script>
-</td>
+        </td>
 </tr>
