@@ -34,10 +34,10 @@ class Constants{
 	        'D_ANI'=>'Animalisme',
 	        'D_CEL'=>'Célérité',
 	        'D_DOM'=>'Domination',
-	        'D_DIS'=>	'Dissimulation',
-	        'D_FDA'=>	'Force d\'âme',
-	        'D_PRE'=>	'Présence',
-	        'D_PUI'=>	'Puissance'),
+	        'D_DIS'=>'Dissimulation',
+	        'D_FDA'=>'Force d\'âme',
+	        'D_PRE'=>'Présence',
+	        'D_PUI'=>'Puissance'),
        
        "Disciplines Exotiques"=>array(
         	'D_ALI'=>'Aliénation',
@@ -69,51 +69,42 @@ class Constants{
 	);
 	public static $list_comp = array(
 		'Talents'=>array(
-			'T_AR'=>'Archerie',
-			'T_AF'=>'Armes à feu',
-			'T_BA'=>'Bagarre',
-			'T_DI'=>'Discrétion',
-			'T_ES'=>'Esquive',
-			'T_ME'=>'Mêlée',
-			'T_SP'=>'Sport',
-			'T_VI'=>'Vigilance',
-			'T_AU'=>'Autre talent'
+			'T_ARC'=>'Archerie',
+			'T_AAF'=>'Armes à feu',
+			'T_BAG'=>'Bagarre',
+			'T_DIS'=>'Discrétion',
+			'T_ESQ'=>'Esquive',
+			'T_MEL'=>'Mêlée',
+			'T_SPO'=>'Sport',
+			'T_VIG'=>'Vigilance',
+			'T_AUTRE'=>'Autre talent'
 		),
 		'Compétences'=>array(
-			'C_AR'=>'Arts (préciser)',
-			'T_AF'=>'Commandement',
-			'T_BA'=>'Conduite (préciser)',
-			'T_DI'=>'Démolition',
-			'T_ES'=>'Dressage',
-			'T_ME'=>'Empathie',
-			'T_SP'=>'Etiquette (préciser)',
-			'T_VI'=>'Expression',
-			'T_AU'=>'Intuition',
-				'T_AU'=>'Intuition'
+			'C_ART'=>'Arts (préciser)',
+			'C_COM'=>'Commandement',
+			'C_CON'=>'Conduite (préciser)',
+			'C_DEM'=>'Démolition',
+			'C_DRE'=>'Dressage',
+			'C_EMP'=>'Empathie',
+			'C_ETI'=>'Etiquette (préciser)',
+			'C_EXP'=>'Expression',
+			'C_INT'=>'Intuition',
+			'C_REP'=>'Réparation',
+			'C_SEC'=>'Sécurité',
+			'C_SUB'=>'Subterfuge',
+			'C_SUR'=>'Survie',
+			'C_AUTRE'=>'Autre compétence'
 		),
-
-
-
-
-
-
-
-
-Réparation
-Sécurité
-Subterfuge
-Survie
-
 		'Connaissances'=>array(
-			'C_AR'=>'Archerie',
-			'C_AF'=>'Armes à feu',
-			'C_BA'=>'Bagarre',
-			'C_DI'=>'Discrétion',
-			'C_ES'=>'Esquive',
-			'C_ME'=>'Mêlée',
-			'C_SP'=>'Sport',
-			'C_VI'=>'Vigilance',
-			'C_AU'=>'Autre compétence'	
+			'S_DRO'=>'Droit',
+			'S_ERU'=>'Erudition',
+			'S_FIN'=>'Finance',
+			'S_INF'=>'Informatique',
+			'S_LIN'=>'Linguistique',
+			'S_MED'=>'Médecine (préciser)',
+			'S_OCC'=>'Occultisme',
+			'S_SCI'=>'Science (Préciser)',
+			'S_AUTRE'=>'Autre connaissance'	
 		)
 	);
         
@@ -126,21 +117,21 @@ Survie
         }
         
         public static $list_ville = array(
-        	 "LYO"=>"Lyon",
-        	 "ANI"=>"Amiens",
-        	 "ANG"=>"Angers",
-        	 "BOR"=>"Bordeaux",
-        	 "CHA"=>"Châteauroux",
-        	 "GRE"=>"Grenoble",
-        	 "LIL"=>"Lille",
-        	 "LIM"=>"Limoges",
-        	 "MEL"=>"Melun",
-        	 "MON"=>"Montpellier",
-        	 "ORL"=>"Orléans",
-        	 "PAR"=>"Paris",
-        	 "PER"=>"Périgueux",
-        	 "STR"=>"Strasbourg",
-        	 "YS"=>"Ys");
+        	 "V_LYO"=>"Lyon",
+        	 "V_ANI"=>"Amiens",
+        	 "V_ANG"=>"Angers",
+        	 "V_BOR"=>"Bordeaux",
+        	 "V_CHA"=>"Châteauroux",
+        	 "V_GRE"=>"Grenoble",
+        	 "V_LIL"=>"Lille",
+        	 "V_LIM"=>"Limoges",
+        	 "V_MEL"=>"Melun",
+        	 "V_MON"=>"Montpellier",
+        	 "V_ORL"=>"Orléans",
+        	 "V_PAR"=>"Paris",
+        	 "V_PER"=>"Périgueux",
+        	 "V_STR"=>"Strasbourg",
+        	 "V_YS"=>"Ys");
         	 
         public static $LIST_ACTION = array(
             'Mentorat_D' => array(
