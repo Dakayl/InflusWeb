@@ -6,7 +6,7 @@
     {% endfor %}
 </tr>
   <tr class="choix">
-      <td> &nbsp; </td>
+      <td> Domaine : <b>{{ influence.textType }}</b> </td>
       {% for o in ordreslist|keys %}
       <td><input type="number" name="ordre_{{o}} style="width:30px;" step="1" value="0" min="0" max="{{ influence.niveau }}"/></td>
       {% endfor %}
@@ -16,7 +16,6 @@
     Justification : <textarea name="justif_influ" cols="60" rows="1"></textarea>
 </td>
 <td colspan="9" class="info">
-Domaine : <b>{{ influence.textType }}</b> <br />
 Score total : Influence <b>{{ influence.niveau }}</b> + Etiquette <b>Y</b>/ Max dans une colonne : <b>{{ influence.niveau }}</b>.
 </td>
 </tr>

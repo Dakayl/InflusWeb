@@ -16,8 +16,8 @@
     {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_refuge, 'big_index': index, 'small_index':loop.index}) }}
 {% elseif p == "list_historique" %}
     {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_historique, 'big_index': index, 'small_index':loop.index}) }}
-{% elseif p == "list_serv" %}
-    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_serv, 'big_index': index, 'small_index':loop.index}) }}
+{% elseif p == "list_influ" %}
+    {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': index, 'small_index':loop.index}) }}
 {% endif %}
     &nbsp;<br />
 {% endfor %}
