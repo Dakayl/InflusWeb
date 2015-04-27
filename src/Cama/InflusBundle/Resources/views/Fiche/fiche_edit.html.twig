@@ -28,11 +28,50 @@
         {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
 </table>
+<table>
+    <thead>
+        <tr>
+            <th>Gestion des contacts - {{ contact }} points</th>
+        </tr>
+    </thead>
+    <tbody id="contact_target">
+    </tbody>
+    <tfooter id="contact_form">
+        <tr>
+            <td> 
+                {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': 'contact', 'small_index':'influ'}) }}
+                <input type="hidden" id="contact_max" name="contact_max" value="{{ contact }}"/>
+                <input type="number" id="contact_niveau" name="contact_niveau" style="width:30px;" step="1" value="1" min="0" max="{{ contact }}"/>
+                <input type="button" id="contact_sub">Ajouter</input>
+            </td>
+        </tr>
+        </tfooter>       
+</table>
+<script>
+    var current_contact = 0;
+    $("#contact_sub").click( function(){
+        var niveau = $("contact_niveau").val();
+        var max = $("contact_max").val();
+        var influ = $("variable_contact_influ").val();
+        if(niveau <= max){
+            var str = "<input type='hidden' value='"+niveau+"' name='contact_niveau[]' />";
+            str += "<input type='hidden' value='"+influ+"' name='contact_influ[]' />";
+            str += "<p>"+influ+":"+niveau+"</p>";
+            $("#contact_target").append(str);
+            var anew = max-niveau
+            $("#contact_niveau").attr("max",anew);
+            if(anew == 0) {
+                 $("#contact_form").hide();
+            }
+            current_contact++;
+        }        
+    });
+</script>s
 <br /><br />
 <h3>Amélioration d'attribut</h3>
 <label for="amelio_attr"> S'entrainer en :</label> 
 <select id="amelio_attr" value="amelio_attr">
-  <option disabled >Aucun</option>
+  <option value="" >Aucun</option>
   <option value="P">Physique</option>
   <option value="S">Social</option>
   <option value="M">Mental</option>

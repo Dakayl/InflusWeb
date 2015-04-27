@@ -61,6 +61,8 @@ class FicheController extends Controller
              "actions"=>array(),
              "actionlist"=>Constants::$LIST_ACTION,
              "ordreslist"=>Constants::$LIST_ORDRES,
+             "list_influ"=>  Constants::$TYPE_INFLUENCE,
+             "contact"=>$perso->getContacts(),
              "ordres"=>array(),
              "influences"=>$perso->getInfluence()));
     }  
