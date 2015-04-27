@@ -19,7 +19,7 @@
             
                $("#div_saction_{{index}}").html("");
                var value = $('#saction_{{index}}').val();
-               if(value != '') {
+               if(value !== '') {
                $.ajax({
                 url:"{{ path('zone_getAction') }}",
                 type:"GET",
