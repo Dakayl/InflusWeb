@@ -19,29 +19,37 @@ class Constants{
             'Ventrue'
         );
         
+        public static $list_historique = array(
+		'C'=>'Contacts',
+        	'A'=>'Alliés',
+        	'RN'=>'Renommée',
+        	'RS'=>'Ressources',
+        	'T'=>'Troupeau'
+	);
+        
         public static $list_disci  = array(
 	
 	"Disciplines Cardinales"=>array(
-		'AUS'=>'Auspex',
-	        'ANI'=>'Animalisme',
-	        'CEL'=>'Célérité',
-	        'DOM'=>'Domination',
-	        'DIS'=>	'Dissimulation',
-	        'FDA'=>	'Force d\'âme',
-	        'PRE'=>	'Présence',
-	        'PUI'=>	'Puissance'),
+		'D_AUS'=>'Auspex',
+	        'D_ANI'=>'Animalisme',
+	        'D_CEL'=>'Célérité',
+	        'D_DOM'=>'Domination',
+	        'D_DIS'=>	'Dissimulation',
+	        'D_FDA'=>	'Force d\'âme',
+	        'D_PRE'=>	'Présence',
+	        'D_PUI'=>	'Puissance'),
        
        "Disciplines Exotiques"=>array(
-        	'ALI'=>'Aliénation',
-        	'CHI'=>'Chimérie',
-        	'MET'=>'Métamorphose',
-        	'QUI'=>'Quietus',
-        	'SER'=>'Serpentis'),
+        	'D_ALI'=>'Aliénation',
+        	'D_CHI'=>'Chimérie',
+        	'D_MET'=>'Métamorphose',
+        	'D_QUI'=>'Quietus',
+        	'D_SER'=>'Serpentis'),
 	
 	"Magies du Sang"=>array(
-	 	'THA'=>'Thaumaturgie', 
-	 	'NEC'=>'Nécromancie', 
-	 	'SOR'=>'Sorcellerie')
+	 	'D_THA'=>'Thaumaturgie', 
+	 	'D_NEC'=>'Nécromancie', 
+	 	'D_SOR'=>'Sorcellerie')
 	);
 	
 	public static $list_attr  = array(
@@ -52,16 +60,61 @@ class Constants{
 	
 	public static $list_mdt = array(
 	'Connaissances du MdT'=>array(
-		"VAM"=>"Vampires",
-		"SAB"=>"Sabbat",
-		"LUP"=>"Lupin",
-		"MAG"=>"Mages",
-		"FAE"=>"Changelins")
+		"C_VAM"=>"Vampires",
+		"C_SAB"=>"Sabbat",
+		"C_LUP"=>"Lupin",
+		"C_MAG"=>"Mages",
+		"C_FAE"=>"Changelins"
+		"C_AUT"=>"Autre - préciser")
 	);
 	public static $list_comp = array(
-		'Talents'=>array(),
-		'Compétences'=>array(),
-		'Connaissances'=>array()
+		'Talents'=>array(
+			'T_AR'=>'Archerie',
+			'T_AF'=>'Armes à feu',
+			'T_BA'=>'Bagarre',
+			'T_DI'=>'Discrétion',
+			'T_ES'=>'Esquive',
+			'T_ME'=>'Mêlée',
+			'T_SP'=>'Sport',
+			'T_VI'=>'Vigilance',
+			'T_AU'=>'Autre talent'
+		),
+		'Compétences'=>array(
+			'C_AR'=>'Arts (préciser)',
+			'T_AF'=>'Commandement',
+			'T_BA'=>'Conduite (préciser)',
+			'T_DI'=>'Démolition',
+			'T_ES'=>'Dressage',
+			'T_ME'=>'Empathie',
+			'T_SP'=>'Etiquette (préciser)',
+			'T_VI'=>'Expression',
+			'T_AU'=>'Intuition',
+				'T_AU'=>'Intuition'
+		),
+
+
+
+
+
+
+
+
+Réparation
+Sécurité
+Subterfuge
+Survie
+
+		'Connaissances'=>array(
+			'C_AR'=>'Archerie',
+			'C_AF'=>'Armes à feu',
+			'C_BA'=>'Bagarre',
+			'C_DI'=>'Discrétion',
+			'C_ES'=>'Esquive',
+			'C_ME'=>'Mêlée',
+			'C_SP'=>'Sport',
+			'C_VI'=>'Vigilance',
+			'C_AU'=>'Autre compétence'	
+		)
 	);
         
         public static function list_learn_nomentor() {
