@@ -42,7 +42,7 @@
                 {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': 'contact', 'small_index':'influ'}) }}
                 <input type="hidden" id="contact_max" name="contact_max" value="{{ contact }}"/>
                 <input type="number" id="contact_niveau" name="contact_niveau" style="width:30px;" step="1" value="1" min="0" max="{{ contact }}"/>
-                <button id="contact_sub">Ajouter</button>
+                <input type="button" id="contact_sub" value="Ajouter" />
             </td>
         </tr>
     </tfoot>
