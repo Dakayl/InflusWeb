@@ -4,7 +4,7 @@
 {% block body %}
 <h1>Editer ma fiche d'inter-partie</h1>
 <h2>{{ perso.nom }} - {{ tour.mois  }}</h2>
-<table>
+<table id="actiontable">
   <thead>
     <tr>
       <th>&nbsp;</th><th> Actions vampiriques ({{ tour.actions }} ce mois-ci) </th>
@@ -23,20 +23,18 @@
 </table>
 <br /><br />
 <h3>Gestion des influence</h3>
-<table>
+<table id="influtable">
   {% for influence in influences %}
         {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
 </table>
-
-<table>
+<br /><br />
+<table id="contacttable">
     <thead>
         <tr>
             <th>Gestion des contacts - {{ contact }} points</th>
         </tr>
     </thead>
-    <tbody id="contact_target">
-    </tbody>
     {% if contact > 0 %}
     <tfoot id="contact_form">
         <tr>
@@ -54,7 +52,9 @@
             <td>Aucun contact</td>
         </tr>
     </tfoot>
-    {% endif %}
+    {% endif %} 
+    <tbody id="contact_target">
+    </tbody>
 </table>
 {% if contact > 0 %}
 <script>
@@ -67,7 +67,7 @@
             var str = "<input type='hidden' value='"+niveau+"' name='contact_niveau[]' />";
             str += "<input type='hidden' value='"+influ+"' name='contact_influ[]' />";
             str += "<p>"+influ+":"+niveau+"</p>";
-            $("#contact_target").append(str);
+            $("#contact_target").append("<tr><td>"+str+"</td></tr>");
             var anew = max-niveau
             $("#contact_niveau").attr("max",anew);
             if(anew == 0) {
@@ -79,7 +79,7 @@
 </script>
  {% endif %}
 <br /><br />
-<table>
+<table id="attributetable">
     <tr><th colspan="2">Amélioration d'attribut</th></tr>
     <tr><td><label for="justif_influ" class="large">S'entrainer en :</label></td>
     <td><select id="amelio_attr" value="amelio_attr">
@@ -91,9 +91,8 @@
     </td>
     </tr>
 </table>
-
 <br /><br />
-<table>
+<table id="infotable">
     <tr><th colspan="2">Informations complémentaires</th></tr>
     <tr>
         <td>

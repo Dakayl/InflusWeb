@@ -7,7 +7,7 @@
   <tr class="choix">
       <td> Domaine : <b>{{ influence.textType }}</b> </td>
       {% for o in ordreslist|keys %}
-      <td><input type="number" name="ordre_{{o}}" style="width:30px;" step="1" value="0" min="0" max="{{ influence.niveau }}"/></td>
+      <td><input type="number" name="ordre_{{o}}" step="1" value="0" min="0" max="{{ influence.niveau }}"/></td>
       {% endfor %}
 </tr>
 <tr>

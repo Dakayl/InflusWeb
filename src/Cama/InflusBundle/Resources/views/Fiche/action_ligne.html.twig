@@ -1,7 +1,7 @@
 <tr>
 <td>{{index}}</td>
 <td>
-    <select id="saction_{{index}}">
+    <select id="saction_{{index}}" class="selectlarge">
         <option value=''>Aucune</option>
         {% for key, act in actionlist %}
         <option value="{{ key }}"> {{act.shorttext}}  </option>
