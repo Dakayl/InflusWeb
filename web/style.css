@@ -180,3 +180,9 @@ input[type=button], input[type=submit], button, a.btn {
   cursor:pointer;
   margin:5px;
 }
+#actiontable select.selectlarge {
+    width:auto;
+}
+#influtable select {
+    width:30px;
+}
