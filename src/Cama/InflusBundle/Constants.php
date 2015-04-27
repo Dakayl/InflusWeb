@@ -60,12 +60,12 @@ class Constants{
 	
 	public static $list_mdt = array(
 	'Connaissances du MdT'=>array(
-		"C_VAM"=>"Vampires",
-		"C_SAB"=>"Sabbat",
-		"C_LUP"=>"Lupin",
-		"C_MAG"=>"Mages",
-		"C_FAE"=>"Changelins"
-		"C_AUT"=>"Autre - préciser")
+		"Cd_VAM"=>"Vampires",
+		"Cd_SAB"=>"Sabbat",
+		"Cd_LUP"=>"Lupin",
+		"Cd_MAG"=>"Mages",
+		"Cd_FAE"=>"Changelins",
+		"Cd_AUT"=>"Autre - préciser")
 	);
 	public static $list_comp = array(
 		'Talents'=>array(
