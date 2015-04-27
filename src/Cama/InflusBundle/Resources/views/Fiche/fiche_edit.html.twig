@@ -28,6 +28,7 @@
         {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
 </table>
+{% if contact > 0 %}
 <table>
     <thead>
         <tr>
@@ -47,6 +48,7 @@
         </tr>
         </tfooter>       
 </table>
+{% endif %}
 <script>
     var current_contact = 0;
     $("#contact_sub").click( function(){
