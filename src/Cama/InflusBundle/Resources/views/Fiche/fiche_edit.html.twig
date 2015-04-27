@@ -36,7 +36,7 @@
         </tr>
     </thead>
     <tbody id="contact_target">
-    </tbody>
+   
     {% if contact > 0 %}
     <tr>
         <td> 
@@ -49,9 +49,9 @@
     {% else %}
     <tr>
         <td>Aucun contact</td>
-        </tr>
+    </tr>
     {% endif %} 
-    
+     </tbody>
 </table>
 {% if contact > 0 %}
 <script>
@@ -64,7 +64,7 @@
             var str = "<input type='hidden' value='"+niveau+"' name='contact_niveau[]' />";
             str += "<input type='hidden' value='"+influ+"' name='contact_influ[]' />";
             str += "<p>"+influ+":"+niveau+"</p>";
-            $("#contact_target").append("<tr><td>"+str+"</td></tr>");
+            $("#contact_target").prepend("<tr><td>"+str+"</td></tr>");
             var anew = max-niveau
             $("#contact_niveau").attr("max",anew);
             if(anew == 0) {
