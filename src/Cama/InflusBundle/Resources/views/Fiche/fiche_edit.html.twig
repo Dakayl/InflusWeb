@@ -38,7 +38,7 @@
     <tbody id="contact_target">
     </tbody>
     {% if contact > 0 %}
-    <tfooter id="contact_form">
+    <tfoot id="contact_form">
         <tr>
             <td> 
                 {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': 'contact', 'small_index':'influ'}) }}
@@ -47,7 +47,7 @@
                 <button id="contact_sub">Ajouter</button>
             </td>
         </tr>
-    </tfooter>
+    </tfoot>
     {% else %}
     <tfooter>
         <tr>
