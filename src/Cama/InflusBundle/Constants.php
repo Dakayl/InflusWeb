@@ -163,11 +163,11 @@ class Constants{
             'Havre_S' => array(
             	'shorttext'=>'Securiser votre havre',
             	'text'=>'Sécuriser votre havre %1% avec sécurité %2%',
-            	'parameters'=>array("havre"=>'list_refuge','Niveau'=>'level')),
+            	'parameters'=>array("Havre"=>'list_refuge','Niveau'=>'level')),
             'Havre_S2' => array(
             	'shorttext'=>'Securiser un autre havre',
             	'text'=>'Sécuriser le havre %1% avec sécurité %2%',
-            	'parameters'=>array("havre"=>'string','Niveau'=>'level')),
+            	'parameters'=>array("Havre"=>'string','Niveau'=>'level')),
             'Serviteur' => array(
             	'shorttext'=>'Trouver un nouveau serviteur',
             	'text'=>'Trouver un nouveau serviteur de niveau %1%',
