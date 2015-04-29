@@ -93,7 +93,6 @@ class FicheController extends Controller
 	->getQuery();
         $now = new \DateTime();		
         $tours = $queryT->setParameter('dateNow', $now->format('Y-m-d'))->getResult();
-        
         $tourCourant = $tours[0];
         
         $repositoryA = $this->getDoctrine()->getRepository('CamaInflusBundle:Action');
