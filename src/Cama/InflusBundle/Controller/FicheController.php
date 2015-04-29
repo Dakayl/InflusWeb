@@ -117,7 +117,7 @@ class FicheController extends Controller
         ->setParameter('tid',  $tourCourant->getId())
         ->getResult();
         
-        $repositoryAt = $this->getDoctrine()->getRepository('CamaInflusBundle:Attribute');
+        $repositoryAt = $this->getDoctrine()->getRepository('CamaInflusBundle:Attribut');
         $queryAt = $repositoryAt->createQueryBuilder('t')
 	->where('t.possesseurid = :pid')
         ->andWhere('t.tourid = :tid')
