@@ -98,8 +98,8 @@ class FicheController extends Controller
         
         $repositoryA = $this->getDoctrine()->getRepository('CamaInflusBundle:Action');
         $queryA = $repositoryA->createQueryBuilder('a')
-	->where('a.possesseur = :pid')
-        ->andWhere('a.tour = :tid')
+	->where('a.possesseurId = :pid')
+        ->andWhere('a.tourId = :tid')
 	->orderBy('a.id', 'ASC')
 	->getQuery();        		
         $actions = $queryA->setParameter('pid', $perso->getId())
@@ -109,8 +109,8 @@ class FicheController extends Controller
         
         $repositoryC = $this->getDoctrine()->getRepository('CamaInflusBundle:Contact');
         $queryC = $repositoryC->createQueryBuilder('c')
-	->where('c.possesseur = :pid')
-        ->andWhere('c.tour = :tid')
+	->where('c.possesseurId = :pid')
+        ->andWhere('c.tourId = :tid')
 	->orderBy('c.id', 'ASC')
 	->getQuery();        		
         $contacts = $queryC->setParameter('pid', $perso->getId())
@@ -119,8 +119,8 @@ class FicheController extends Controller
         
         $repositoryAt = $this->getDoctrine()->getRepository('CamaInflusBundle:Attribute');
         $queryAt = $repositoryAt->createQueryBuilder('t')
-	->where('t.possesseur = :pid')
-        ->andWhere('t.tour = :tid')
+	->where('t.possesseurId = :pid')
+        ->andWhere('t.tourId = :tid')
 	->orderBy('t.id', 'ASC')
 	->getQuery();        		
         $attributes = $queryAt->setParameter('pid', $perso->getId())
@@ -129,8 +129,8 @@ class FicheController extends Controller
         
         $repositoryO = $this->getDoctrine()->getRepository('CamaInflusBundle:Ordre');
         $queryO = $repositoryO->createQueryBuilder('c')
-	->where('o.possesseur = :pid')
-        ->andWhere('o.tour = :tid')
+	->where('o.possesseurId = :pid')
+        ->andWhere('o.tourId = :tid')
 	->orderBy('o.id', 'ASC')
 	->getQuery();        		
         $prdres = $queryO->setParameter('pid', $perso->getId())
