@@ -127,7 +127,7 @@ class FicheController extends Controller
         ->getResult();
         
         $repositoryO = $this->getDoctrine()->getRepository('CamaInflusBundle:Ordre');
-        $queryO = $repositoryO->createQueryBuilder('c')
+        $queryO = $repositoryO->createQueryBuilder('o')
 	->where('o.possesseurid = :pid')
         ->andWhere('o.tourid = :tid')
 	->orderBy('o.id', 'ASC')
