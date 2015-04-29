@@ -148,6 +148,11 @@ editerFiche:
     defaults: { _controller: CamaInflusBundle:Fiche:editer }
     requirements:
          _method:  GET
+sauvegarderFiche:
+    path:     /interpartie/courant/sauvegarder
+    defaults: { _controller: CamaInflusBundle:Fiche:sauvegarder }
+    requirements:
+         _method:  POST
 listerAncien:
     path:     /interpartie/ancien/lister
     defaults: { _controller: CamaInflusBundle:Fiche:ancien }

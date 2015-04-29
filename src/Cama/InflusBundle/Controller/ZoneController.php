@@ -42,7 +42,7 @@ class ZoneController extends Controller
          
         if(isset(Constants::$LIST_ACTION[$action])){
             $parameters = Constants::$LIST_ACTION[$action]['parameters'];
-            return $this->render('CamaInflusBundle:Fiche:action_complete.html.twig', array(
+            return $this->render('CamaInflusBundle:Fiche:action_ajax.html.twig', array(
                 "parameters"=>$parameters,
                 "index"=>$index,
                 "list_learn_mentor"=>  Constants::list_learn_mentor(),

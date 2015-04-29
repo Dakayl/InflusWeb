@@ -22,13 +22,20 @@ class FicheController extends Controller
     public function repondreAction( Request $request) {
         
         
-    }  
+    } 
+    
+    //Sauvegarde coté joueur de la fiche
+    public function sauvegarderAction( Request $request) {
+        
+        
+    } 
+    
     
     
     //Edition de la fiche coté joueur
     public function editerAction( Request $request) {
         
-	 $session = $request->getSession();
+	$session = $request->getSession();
         // définit et récupère des attributs de session
         //$rights = $session->get('rights');
         $infos = $session->get('infos');
@@ -53,11 +60,11 @@ class FicheController extends Controller
                 ));
         }
         
-        
-	 return $this->render('CamaInflusBundle:Fiche:fiche_edit.html.twig', array(
+	return $this->render('CamaInflusBundle:Fiche:fiche_courante.html.twig', array(
              "perso"=>$perso,
              "tour"=> $tours[0],
-             "attribut"=>null,
+             "attributs"=>null,
+             "contacts"=>null,
              "actions"=>array(),
              "actionlist"=>Constants::$LIST_ACTION,
              "ordreslist"=>Constants::$LIST_ORDRES,
@@ -76,8 +83,10 @@ class FicheController extends Controller
         $infos = $session->get('infos');
 	$phpbbid = $infos['phpbbid'];
         
-        $repositoryT = $this->getDoctrine()
-        ->getRepository('CamaInflusBundle:Tour');
+        $repositoryJ = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
+        $perso = $repositoryJ->findOneBy(array('idPhpbb' => $phpbbid));
+        
+        $repositoryT = $this->getDoctrine()->getRepository('CamaInflusBundle:Tour');
 
 	$query = $repositoryT->createQueryBuilder('d')
 	->where('d.dateLimite >= :dateNow')
@@ -86,21 +95,25 @@ class FicheController extends Controller
         
 	$now = new \DateTime();		
         $tours = $query->setParameter('dateNow', $now->format('Y-m-d'))->getResult();  
-        $repositoryJ = $this->getDoctrine()->getRepository('CamaInflusBundle:Possesseur');
-        $perso = $repositoryJ->findOneBy(array('idPhpbb' => $phpbbid));
+        
         if (!$perso) {
                 return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
                 'conte'=>false
                 ));
         }
         
-        
-	 return $this->render('CamaInflusBundle:Fiche:fiche_courante.html.twig', array(
+	return $this->render('CamaInflusBundle:Fiche:fiche_courante.html.twig', array(
              "perso"=>$perso,
              "tour"=> $tours[0],
-             "attribut"=>null,
+             "attributs"=>null,
+             "contacts"=>null,
              "actions"=>array(),
-             "influences"=>array()));
+             "actionlist"=>Constants::$LIST_ACTION,
+             "ordreslist"=>Constants::$LIST_ORDRES,
+             "list_influ"=>  Constants::$TYPE_INFLUENCE,
+             "contact"=>$perso->getContacts(),
+             "ordres"=>array(),
+             "influences"=>$perso->getInfluence()));
 	
     } 
     

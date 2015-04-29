@@ -3,6 +3,7 @@
 {% block title %}Edition de ma fiche d'inter-partie {% endblock %}
 {% block body %}
 <h1>Editer ma fiche d'inter-partie</h1>
+<form method="POST" action="{{path('sauvegarderFiche')}}">
 <h2>{{ perso.nom }} - {{ tour.mois  }}</h2>
 <table id="actiontable">
   <thead>
@@ -11,7 +12,7 @@
     </tr>
   </thead>
   {% for i in 1..tour.actions %}
-        {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': actions, 'actionlist':actionlist,'index':loop.index}) }}
+        {{ include('CamaInflusBundle:Fiche:action_edit.html.twig', { 'action': actions, 'actionlist':actionlist,'index':loop.index}) }}
   {% endfor %}
   <script>
   $(document).ready(function(){
@@ -22,10 +23,10 @@
   <br /><br />
 </table>
 <br /><br />
-<h3>Gestion des influence</h3>
+<h3>Gestion des influences</h3>
 <table id="influtable">
   {% for influence in influences %}
-        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
+        {{ include('CamaInflusBundle:Fiche:influence_edit.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
 </table>
 <br /><br />
@@ -36,14 +37,11 @@
         </tr>
     </thead>
     <tbody id="contact_target">
-   
     {% if contact > 0 %}
     <tr>
         <td> 
             {{ include('CamaInflusBundle:Fiche:select.html.twig', { "list":list_influ, 'big_index': 'contact', 'small_index':'influ'}) }}
-            <input type="hidden" id="contact_max" name="contact_max" value="{{ contact }}"/>
-            <input type="number" id="contact_niveau" name="contact_niveau" style="width:30px;" step="1" value="1" min="0" max="{{ contact }}"/>
-            <input type="button" id="contact_sub" value="Ajouter" />
+            {{ include('CamaInflusBundle:Fiche:contact_edit.html.twig') }}
         </td>
     </tr>
     {% else %}
@@ -59,11 +57,14 @@
     $("#contact_sub").click( function(){
         var niveau = $("contact_niveau").val();
         var max = $("contact_max").val();
+        var justif = $("contact_justif").val();
         var influ = $("variable_contact_influ").val();
         if(niveau <= max){
             var str = "<input type='hidden' value='"+niveau+"' name='contact_niveau[]' />";
             str += "<input type='hidden' value='"+influ+"' name='contact_influ[]' />";
+            str += "<input type='hidden' value='"+justif+"' name='contact_justif[]' />";
             str += "<p>"+influ+":"+niveau+"</p>";
+            str += "<p>"+justif+"</p>";
             $("#contact_target").prepend("<tr><td>"+str+"</td></tr>");
             var anew = max-niveau
             $("#contact_niveau").attr("max",anew);
@@ -76,30 +77,12 @@
 </script>
  {% endif %}
 <br /><br />
-<table id="attributetable">
-    <tr><th colspan="2">Amélioration d'attribut</th></tr>
-    <tr><td><label for="justif_influ" class="large">S'entrainer en :</label></td>
-    <td><select id="amelio_attr" value="amelio_attr">
-            <option value="" >Aucun</option>
-            <option value="P">Physique</option>
-            <option value="S">Social</option>
-            <option value="M">Mental</option>
-        </select>
-    </td>
-    </tr>
-</table>
+{{ include('CamaInflusBundle:Fiche:attribute_edit.html.twig') }}
 <br /><br />
-<table id="infotable">
-    <tr><th colspan="2">Informations complémentaires</th></tr>
-    <tr>
-        <td>
-            Dites ici toutes les informations que vous voulez afin d'éclairer les conteurs.
-        </td>
-    <td><textarea id="justif_influ" name="justif_influ" cols="60" rows="5"></textarea></td>
-    </tr>
-</table>
+{{ include('CamaInflusBundle:Fiche:complementaire_edit.html.twig') }}
 <br /><br />
 <input button type="submit" value="Envoyer" />
+</form>
 <br /><br />
 <a href="{{ path('voirFiche') }}">Revenir à la fiche</a>
 {{ include('CamaInflusBundle::footer.html.twig') }}

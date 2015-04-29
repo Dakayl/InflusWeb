@@ -154,7 +154,7 @@ class Possesseur
      *
      * @ORM\ManyToMany(targetEntity="Action", mappedBy="possesseur")
      */
-    private $tour;
+    private $action;
 
     /**
      * Constructor
@@ -162,7 +162,7 @@ class Possesseur
     public function __construct()
     {
         $this->possesseur = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->tour = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->action = new \Doctrine\Common\Collections\ArrayCollection();
 	$this->refuge = new \Doctrine\Common\Collections\ArrayCollection();
 	$this->vehicule = new \Doctrine\Common\Collections\ArrayCollection();
 	$this->servant = new \Doctrine\Common\Collections\ArrayCollection();
@@ -492,36 +492,36 @@ class Possesseur
     }
 
     /**
-     * Add tour
+     * Add action
      *
-     * @param \Cama\InflusBundle\Entity\Action $tour
+     * @param \Cama\InflusBundle\Entity\Action $action
      * @return Possesseur
      */
-    public function addTour(\Cama\InflusBundle\Entity\Action $tour)
+    public function addAction(\Cama\InflusBundle\Entity\Action $action)
     {
-        $this->tour[] = $tour;
+        $this->action[] = $action;
 
         return $this;
     }
 
     /**
-     * Remove tour
+     * Remove action
      *
-     * @param \Cama\InflusBundle\Entity\Action $tour
+     * @param \Cama\InflusBundle\Entity\Action $action
      */
-    public function removeTour(\Cama\InflusBundle\Entity\Action $tour)
+    public function removeAction(\Cama\InflusBundle\Entity\Action $action)
     {
-        $this->tour->removeElement($tour);
+        $this->action->removeElement($action);
     }
 
     /**
-     * Get tour
+     * Get action
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getTour()
+    public function getAction()
     {
-        return $this->tour;
+        return $this->action;
     }
 
     /**

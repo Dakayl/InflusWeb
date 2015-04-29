@@ -1,0 +1,20 @@
+<tr>
+     <th> {{ influence.nom }} </th>
+    {% for o in ordreslist %}
+    <th>{{ o.text }}</th>
+    {% endfor %}
+</tr>
+  <tr class="choix">
+      <td> Domaine : <b>{{ influence.textType }}</b> </td>
+      {% for o in ordreslist|keys %}
+      <td><input type="number" name="ordre_{{o}}" step="1" value="0" min="0" max="{{ influence.niveau }}"/></td>
+      {% endfor %}
+</tr>
+<tr>
+<td class="justif">
+    Justification : {{ordre.description}}
+</td>
+<td colspan="9" class="info">
+Score total : Influence <b>{{ influence.niveau }}</b> + Etiquette <b>Y</b>/ Max dans une colonne : <b>{{ influence.niveau }}</b>.
+</td>
+</tr>

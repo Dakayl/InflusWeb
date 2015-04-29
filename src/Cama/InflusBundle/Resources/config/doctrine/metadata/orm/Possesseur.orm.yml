@@ -92,7 +92,7 @@ Possesseur:
             inversedBy: null
             joinTable: null
             orderBy: null
-        tour:
+        action:
             targetEntity: Action
             cascade: {  }
             mappedBy: possesseur

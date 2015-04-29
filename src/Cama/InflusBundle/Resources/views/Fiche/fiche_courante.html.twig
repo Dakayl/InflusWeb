@@ -1,59 +1,55 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Gestion de ma fiche d'inter-partie {% endblock %}
+{% block title %}Voir ma fiche d'inter-partie {% endblock %}
 {% block body %}
 <h1>Voir ma fiche d'inter-partie</h1>
-<h2>{{ perso.nom }} - {{ tour.mois }}</h2>
-<br /><br />
-<h3>Actions vampiriques ({{ tour.actions }})</h3>
-{% if actions|length < 1 %}
-<p>Aucune action sauvegardée.</p>
-{% else %}
-<table>
+<h2>{{ perso.nom }} - {{ tour.mois  }}</h2>
+<table id="actiontable">
   <thead>
     <tr>
-      <th> Actions : </th>
+      <th>&nbsp;</th><th> Actions vampiriques ({{ tour.actions }} ce mois-ci) </th>
     </tr>
   </thead>
   {% for action in actions %}
-        {{ include('CamaInflusBundle:Fiche:action_ligne.html.twig', { 'action': action}) }}
+        {{ include('CamaInflusBundle:Fiche:action_view.html.twig', { 'action': action, 'actionlist':actionlist,'index':loop.index}) }}
   {% endfor %}
+  <script>
+  $(document).ready(function(){
+       {% for i in 1..tour.actions %}
+               $("#saction_{{i}}").trigger("change");
+       {% endfor %}
+  });</script>
+  <br /><br />
 </table>
-{% endif %}
 <br /><br />
-<h3>Demande aux contacts</h3>
-<br /><br />
-<h3>Gestion des influence</h3>
-{% if influences|length < 1 %}
-<p>Aucun ordre d'influence sauvegardé.</p>
-{% else %}
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Attaque</th>
-      <th>Défense</th>
-      <th>Dissimuler</th>
-      <th>Pister</th>
-      <th>Espionner</th>
-      <th>Croissance</th>
-      <th>Transfert</th>
-      <th>Observation</th>
-      <th>Spécifique</th>
-    </tr>
-  </thead>
+<h3>Gestion des influences</h3>
+<table id="influtable">
   {% for influence in influences %}
-        {{ include('CamaInflusBundle:Fiche:influence_ligne.html.twig', { 'influence': influence, 'ordres':ordres}) }}
+        {{ include('CamaInflusBundle:Fiche:influence_view.html.twig', { 'influence': influence, 'ordreslist': ordreslist}) }}
   {% endfor %}
 </table>
-{% endif %}
 <br /><br />
-<h3>Améliorer un attribut d'un point :</h3>
-{% if attribut is empty %}
-<p>Aucun</p>
-{% else %}
-<p>Améliorer le {{ attribut }}</p>
-{% endif %}
-<h3>Commentaires</h3>
+<table id="contacttable">
+    <thead>
+        <tr>
+            <th>Gestion des contacts - {{ contact }} points</th>
+        </tr>
+    </thead>
+    <tbody id="contact_target">
+    {% if contact > 0 %}
+            {{ include('CamaInflusBundle:Fiche:contact_view.html.twig', { 'contact':c}) }}
+    {% else %}
+    <tr>
+        <td>Aucun contact</td>
+    </tr>
+    {% endif %} 
+     </tbody>
+</table>
+<br /><br />
+{{ include('CamaInflusBundle:Fiche:attribute_view.html.twig',{'attribute':attribute}) }}
+<br /><br />
+{{ include('CamaInflusBundle:Fiche:complementaire_view.html.twig',{'attribute':attribute}) }}
+<br /><br />
 <a href="{{ path('editerFiche') }}">Editer la fiche</a>
+{{ include('CamaInflusBundle::footer.html.twig') }}
 {% endblock %}

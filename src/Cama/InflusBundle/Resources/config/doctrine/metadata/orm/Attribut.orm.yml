@@ -1,0 +1,75 @@
+Action:
+    type: entity
+    table: attribut
+    indexes:
+        possesseur:
+            columns:
+                - possesseurId
+        tour:
+            columns:
+                - tourId
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        attribut:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+        validate:
+            type: boolean
+            nullable: true
+        resultatText:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            column: resultat_text
+    manyToOne:
+        possesseurid:
+            targetEntity: Possesseur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                possesseurId:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tourid:
+            targetEntity: Tour
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tourId:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        possesseur:
+            targetEntity: Possesseur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: tour
+            joinTable:
+                name: tour_possesseur
+                joinColumns:
+                    -
+                        name: tour
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: possesseur
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }
