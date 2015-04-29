@@ -78,7 +78,7 @@ class FicheController extends Controller
     public function voirAction( Request $request)  {
         
         $session = $request->getSession();
-        // définit et récupère des attributs de session
+        // définito et récupère des attributs de session
         //$rights = $session->get('rights');
         $infos = $session->get('infos');
 	$phpbbid = $infos['phpbbid'];
@@ -87,14 +87,56 @@ class FicheController extends Controller
         $perso = $repositoryJ->findOneBy(array('idPhpbb' => $phpbbid));
         
         $repositoryT = $this->getDoctrine()->getRepository('CamaInflusBundle:Tour');
-
-	$query = $repositoryT->createQueryBuilder('d')
+	$queryT = $repositoryT->createQueryBuilder('d')
 	->where('d.dateLimite >= :dateNow')
 	->orderBy('d.dateLimite', 'ASC')
 	->getQuery();
+        $now = new \DateTime();		
+        $tours = $queryT->setParameter('dateNow', $now->format('Y-m-d'))->getResult();
         
-	$now = new \DateTime();		
-        $tours = $query->setParameter('dateNow', $now->format('Y-m-d'))->getResult();  
+        $tourCourant = $tour[0];
+        
+        $repositoryA = $this->getDoctrine()->getRepository('CamaInflusBundle:Action');
+        $queryA = $repositoryA->createQueryBuilder('a')
+	->where('a.possesseur = :pid')
+        ->andWhere('a.tour = :tid')
+	->orderBy('a.id', 'ASC')
+	->getQuery();        		
+        $actions = $queryA->setParameter('pid', $perso->getId())
+        ->setParameter('tid', $tourCourant->getId())
+        ->getResult();
+        
+        
+        $repositoryC = $this->getDoctrine()->getRepository('CamaInflusBundle:Contact');
+        $queryC = $repositoryC->createQueryBuilder('c')
+	->where('c.possesseur = :pid')
+        ->andWhere('c.tour = :tid')
+	->orderBy('c.id', 'ASC')
+	->getQuery();        		
+        $contacts = $queryC->setParameter('pid', $perso->getId())
+        ->setParameter('tid',  $tourCourant->getId())
+        ->getResult();
+        
+        $repositoryAt = $this->getDoctrine()->getRepository('CamaInflusBundle:Attribute');
+        $queryAt = $repositoryAt->createQueryBuilder('t')
+	->where('t.possesseur = :pid')
+        ->andWhere('t.tour = :tid')
+	->orderBy('t.id', 'ASC')
+	->getQuery();        		
+        $attributes = $queryAt->setParameter('pid', $perso->getId())
+        ->setParameter('tid',  $tourCourant->getId())
+        ->getResult();
+        
+        $repositoryO = $this->getDoctrine()->getRepository('CamaInflusBundle:Ordre');
+        $queryO = $repositoryO->createQueryBuilder('c')
+	->where('o.possesseur = :pid')
+        ->andWhere('o.tour = :tid')
+	->orderBy('o.id', 'ASC')
+	->getQuery();        		
+        $prdres = $queryO->setParameter('pid', $perso->getId())
+        ->setParameter('tid',  $tourCourant->getId())
+        ->getResult();
+        
         
         if (!$perso) {
                 return $this->render('CamaInflusBundle:Perso:pasfiche.html.twig', array(
@@ -102,17 +144,17 @@ class FicheController extends Controller
                 ));
         }
         
-	return $this->render('CamaInflusBundle:Fiche:fiche_courante.html.twig', array(
+	return $this->render('CamaInflusBundle:Fiche:fiche_view.html.twig', array(
              "perso"=>$perso,
-             "tour"=> $tours[0],
-             "attributs"=>null,
-             "contacts"=>null,
-             "actions"=>array(),
+             "tour"=> $$tourCourant,
+             "attribut"=>$attributes[0],
+             "contacts"=>$contacts,
+             "actions"=>$actions,
              "actionlist"=>Constants::$LIST_ACTION,
              "ordreslist"=>Constants::$LIST_ORDRES,
              "list_influ"=>  Constants::$TYPE_INFLUENCE,
              "contact"=>$perso->getContacts(),
-             "ordres"=>array(),
+             "ordres"=>$prdres,
              "influences"=>$perso->getInfluence()));
 	
     } 
